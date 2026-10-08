@@ -1,0 +1,34 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local / generated
+_preview/
+_backup/
+_orphaned-lessons/
+*.log
+
+# Secrets (lab DBs use local defaults; never commit real ones)
+.env
+.env.*
+!.env.example
+
+# Go
+/db-mastery
+*.exe
+*.test
+*.out
+vendor/
+
+# Node (diagram previewer)
+node_modules/
+
+# Cursor
+.cursor/

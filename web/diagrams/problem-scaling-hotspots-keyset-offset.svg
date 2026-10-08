@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <rect class="box panel" x="16" y="16" width="356" height="328" rx="16"/>
+  <text class="t-label" x="194" y="42" text-anchor="middle">OFFSET pagination</text>
+
+  <text class="t-mono" x="194" y="68" text-anchor="middle">OFFSET 100000 LIMIT 20</text>
+
+  <rect class="box orange" x="40" y="88" width="308" height="28" rx="8"/>
+  <text class="t-xs" x="194" y="106" text-anchor="middle">walk and discard 100,000 rows</text>
+  <rect class="box orange" x="40" y="124" width="308" height="16" rx="6"/>
+  <rect class="box orange" x="40" y="148" width="308" height="16" rx="6"/>
+  <rect class="box orange" x="40" y="172" width="308" height="16" rx="6"/>
+  <rect class="box orange" x="40" y="196" width="308" height="16" rx="6"/>
+
+  <rect class="box green" x="40" y="220" width="308" height="28" rx="8"/>
+  <text class="t-xs t-b" x="194" y="238" text-anchor="middle">return 20 rows</text>
+
+  <text class="t-sm t-orange t-b" x="194" y="276" text-anchor="middle">cost grows with page number</text>
+  <text class="t-xs" x="194" y="296" text-anchor="middle">also unstable if rows are inserted</text>
+  <text class="t-xs" x="194" y="314" text-anchor="middle">ahead of the cursor</text>
+
+  <rect class="box panel" x="388" y="16" width="356" height="328" rx="16"/>
+  <text class="t-label" x="566" y="42" text-anchor="middle">Keyset pagination</text>
+
+  <text class="t-mono" x="566" y="68" text-anchor="middle">WHERE id &gt; $last LIMIT 20</text>
+
+  <path class="ln dash faint" d="M412 88 L720 88"/>
+  <text class="t-xs t-muted" x="566" y="108" text-anchor="middle">seek the last seen key</text>
+
+  <rect class="box blue" x="492" y="124" width="148" height="28" rx="8"/>
+  <text class="t-xs" x="566" y="142" text-anchor="middle">last id = 100000</text>
+
+  <path class="ln green" d="M566 152 L566 176" marker-end="url(#arr-green)"/>
+
+  <rect class="box green" x="412" y="180" width="308" height="28" rx="8"/>
+  <text class="t-xs t-b" x="566" y="198" text-anchor="middle">read the next 20 leaves</text>
+  <rect class="box green" x="412" y="216" width="308" height="16" rx="6"/>
+  <rect class="box green" x="412" y="240" width="308" height="16" rx="6"/>
+
+  <text class="t-sm t-green t-b" x="566" y="284" text-anchor="middle">O(page size), any depth</text>
+  <text class="t-xs" x="566" y="304" text-anchor="middle">needs a unique sort key</text>
+  <text class="t-xs" x="566" y="322" text-anchor="middle">(id, or created_at + id)</text>
+</svg>

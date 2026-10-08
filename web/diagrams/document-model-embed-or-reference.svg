@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 384">
+  <g transform="translate(-66 0)">
+  <!-- start -->
+  <rect class="box gray" x="170" y="14" width="180" height="32" rx="16"/>
+  <text class="t-sm" x="260" y="34" text-anchor="middle">relationship A &#8594; B</text>
+  <path class="ln" d="M260 46 L260 64" marker-end="url(#arr)"/>
+
+  <!-- Q1 -->
+  <rect class="box blue" x="150" y="66" width="220" height="50" rx="12"/>
+  <text class="t-b" x="260" y="88" text-anchor="middle">Read together?</text>
+  <text class="t-xs" x="260" y="104" text-anchor="middle">same screen or same API call</text>
+  <path class="ln" d="M370 91 L470 91" marker-end="url(#arr)"/>
+  <text class="t-xs" x="420" y="84" text-anchor="middle">no</text>
+  <rect class="box" x="472" y="66" width="270" height="50" rx="12"/>
+  <text class="t-b" x="607" y="88" text-anchor="middle">Reference</text>
+  <text class="t-xs" x="607" y="104" text-anchor="middle">own collection, look up by id when needed</text>
+
+  <path class="ln green" d="M260 116 L260 148" marker-end="url(#arr-green)"/>
+  <text class="t-xs" x="270" y="136">yes</text>
+
+  <!-- Q2 -->
+  <rect class="box blue" x="150" y="150" width="220" height="50" rx="12"/>
+  <text class="t-b" x="260" y="172" text-anchor="middle">Bounded and small?</text>
+  <text class="t-xs" x="260" y="188" text-anchor="middle">tens of children, not millions</text>
+  <path class="ln" d="M370 175 L470 175" marker-end="url(#arr)"/>
+  <text class="t-xs" x="420" y="168" text-anchor="middle">no</text>
+  <rect class="box" x="472" y="150" width="270" height="50" rx="12"/>
+  <text class="t-b" x="607" y="172" text-anchor="middle">Reference or Bucket</text>
+  <text class="t-xs" x="607" y="188" text-anchor="middle">child holds parentId, or bucket by time</text>
+
+  <path class="ln green" d="M260 200 L260 232" marker-end="url(#arr-green)"/>
+  <text class="t-xs" x="270" y="220">yes</text>
+
+  <!-- Q3 -->
+  <rect class="box blue" x="150" y="234" width="220" height="50" rx="12"/>
+  <text class="t-b" x="260" y="256" text-anchor="middle">Shared or edited alone?</text>
+  <text class="t-xs" x="260" y="272" text-anchor="middle">many parents, or its own updates</text>
+  <path class="ln" d="M370 259 L470 259" marker-end="url(#arr)"/>
+  <text class="t-xs" x="420" y="252" text-anchor="middle">yes</text>
+  <rect class="box teal" x="472" y="234" width="270" height="50" rx="12"/>
+  <text class="t-b" x="607" y="256" text-anchor="middle">Extended reference</text>
+  <text class="t-xs" x="607" y="272" text-anchor="middle">keep the id, copy the few fields you show</text>
+
+  <path class="ln green" d="M260 284 L260 316" marker-end="url(#arr-green)"/>
+  <text class="t-xs" x="270" y="304">no</text>
+
+  <!-- Embed -->
+  <rect class="box green" x="150" y="318" width="220" height="50" rx="12"/>
+  <text class="t-b t-green" x="260" y="340" text-anchor="middle">Embed</text>
+  <text class="t-xs" x="260" y="356" text-anchor="middle">one document, one atomic write</text>
+
+  <rect class="box ghost" x="472" y="318" width="270" height="50" rx="12"/>
+  <text class="t-sm t-b" x="607" y="340" text-anchor="middle">Then sanity-check growth</text>
+  <text class="t-xs" x="607" y="356" text-anchor="middle">arrays that never stop growing &#8594; Subset</text>
+  <path class="ln dash faint" d="M370 343 L470 343"/>
+
+  </g>
+</svg>

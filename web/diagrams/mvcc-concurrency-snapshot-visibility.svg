@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 372">
+  <!-- snapshot boundaries -->
+  <text class="t-mono t-b t-blue" x="195" y="26" text-anchor="middle">xmin = 100</text>
+  <text class="t-mono t-b t-blue" x="495" y="26" text-anchor="middle">xmax = 110</text>
+  <path class="ln blue dash" d="M195 36 L195 124"/>
+  <path class="ln blue dash" d="M495 36 L495 124"/>
+
+  <!-- region labels -->
+  <text class="t-b" x="118" y="58" text-anchor="middle">Before xmin</text>
+  <text class="t-xs" x="118" y="74" text-anchor="middle">all finished</text>
+  <text class="t-b" x="345" y="58" text-anchor="middle">Between</text>
+  <text class="t-xs" x="345" y="74" text-anchor="middle">in progress at snapshot: 100, 104</text>
+  <text class="t-b" x="600" y="58" text-anchor="middle">At or after xmax</text>
+  <text class="t-xs" x="600" y="74" text-anchor="middle">not started yet</text>
+
+  <!-- XID line -->
+  <path class="ln faint" d="M46 100 L700 100"/>
+  <circle class="fill-green" cx="60" cy="100" r="6"/>
+  <circle class="fill-green" cx="90" cy="100" r="6"/>
+  <circle class="fill-green" cx="120" cy="100" r="6"/>
+  <circle class="fill-green" cx="150" cy="100" r="6"/>
+  <circle class="fill-green" cx="180" cy="100" r="6"/>
+  <circle class="fill-orange" cx="210" cy="100" r="6"/>
+  <circle class="fill-green" cx="240" cy="100" r="6"/>
+  <circle class="fill-green" cx="270" cy="100" r="6"/>
+  <circle class="fill-green" cx="300" cy="100" r="6"/>
+  <circle class="fill-orange" cx="330" cy="100" r="6"/>
+  <circle class="fill-green" cx="360" cy="100" r="6"/>
+  <circle class="fill-green" cx="390" cy="100" r="6"/>
+  <circle class="fill-green" cx="420" cy="100" r="6"/>
+  <circle class="fill-green" cx="450" cy="100" r="6"/>
+  <circle class="fill-green" cx="480" cy="100" r="6"/>
+  <circle class="box ghost" cx="510" cy="100" r="6"/>
+  <circle class="box ghost" cx="540" cy="100" r="6"/>
+  <circle class="box ghost" cx="570" cy="100" r="6"/>
+  <circle class="box ghost" cx="600" cy="100" r="6"/>
+  <circle class="box ghost" cx="630" cy="100" r="6"/>
+  <circle class="box ghost" cx="660" cy="100" r="6"/>
+
+  <text class="t-xs" x="60" y="124" text-anchor="middle">95</text>
+  <text class="t-xs" x="180" y="124" text-anchor="middle">99</text>
+  <text class="t-xs t-orange" x="210" y="124" text-anchor="middle">100</text>
+  <text class="t-xs t-orange" x="330" y="124" text-anchor="middle">104</text>
+  <text class="t-xs" x="480" y="124" text-anchor="middle">109</text>
+  <text class="t-xs" x="510" y="124" text-anchor="middle">110</text>
+  <text class="t-xs" x="660" y="124" text-anchor="middle">115</text>
+  <text class="t-xs" x="712" y="104">XID</text>
+
+  <!-- legend -->
+  <circle class="fill-green" cx="214" cy="154" r="5"/>
+  <text class="t-sm" x="224" y="158">committed</text>
+  <circle class="fill-orange" cx="324" cy="154" r="5"/>
+  <text class="t-sm" x="334" y="158">still running</text>
+  <circle class="box ghost" cx="444" cy="154" r="5"/>
+  <text class="t-sm" x="454" y="158">future</text>
+
+  <!-- worked examples -->
+  <rect class="box panel" x="20" y="178" width="720" height="186" rx="16"/>
+  <text class="t-label" x="44" y="204">Tuple</text>
+  <text class="t-label" x="124" y="204">xmin</text>
+  <text class="t-label" x="196" y="204">xmax</text>
+  <text class="t-label" x="276" y="204">Visible?</text>
+  <text class="t-label" x="400" y="204">Why</text>
+  <path class="ln faint thin" d="M40 214 L720 214"/>
+
+  <text class="t-mono" x="44" y="236">A</text>
+  <text class="t-mono" x="124" y="236">97</text>
+  <text class="t-mono" x="196" y="236">0</text>
+  <text class="t-b t-green" x="276" y="236">&#10003; yes</text>
+  <text class="t-sm" x="400" y="236">created before the snapshot, never deleted</text>
+
+  <text class="t-mono" x="44" y="264">B</text>
+  <text class="t-mono" x="124" y="264">97</text>
+  <text class="t-mono" x="196" y="264">104</text>
+  <text class="t-b t-green" x="276" y="264">&#10003; yes</text>
+  <text class="t-sm" x="400" y="264">deleter 104 was still running, so ignore it</text>
+
+  <text class="t-mono" x="44" y="292">C</text>
+  <text class="t-mono" x="124" y="292">104</text>
+  <text class="t-mono" x="196" y="292">0</text>
+  <text class="t-b t-red" x="276" y="292">&#10007; no</text>
+  <text class="t-sm" x="400" y="292">creator 104 was in progress</text>
+
+  <text class="t-mono" x="44" y="320">D</text>
+  <text class="t-mono" x="124" y="320">102</text>
+  <text class="t-mono" x="196" y="320">112</text>
+  <text class="t-b t-green" x="276" y="320">&#10003; yes</text>
+  <text class="t-sm" x="400" y="320">deleter started after the snapshot</text>
+
+  <text class="t-mono" x="44" y="348">E</text>
+  <text class="t-mono" x="124" y="348">112</text>
+  <text class="t-mono" x="196" y="348">0</text>
+  <text class="t-b t-red" x="276" y="348">&#10007; no</text>
+  <text class="t-sm" x="400" y="348">created after the snapshot was taken</text>
+</svg>

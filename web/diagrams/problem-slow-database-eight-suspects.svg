@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400">
+  <text class="t-label" x="380" y="26" text-anchor="middle">Eight usual suspects</text>
+
+  <rect class="box" x="16" y="44" width="173" height="148" rx="12"/>
+  <text class="t-xs t-muted" x="34" y="68">01</text>
+  <text class="t-b" x="34" y="92">Missing index</text>
+  <text class="t-xs" x="34" y="116">Seq Scan, high</text>
+  <text class="t-xs" x="34" y="134">rows removed</text>
+  <text class="t-xs" x="34" y="152">or wrong order</text>
+
+  <rect class="box" x="201" y="44" width="173" height="148" rx="12"/>
+  <text class="t-xs t-muted" x="219" y="68">02</text>
+  <text class="t-b" x="219" y="92">Bad plan / stats</text>
+  <text class="t-xs" x="219" y="116">estimate and actual</text>
+  <text class="t-xs" x="219" y="134">rows diverge;</text>
+  <text class="t-xs" x="219" y="152">ANALYZE, sniffing</text>
+
+  <rect class="box orange" x="386" y="44" width="173" height="148" rx="12"/>
+  <text class="t-xs t-muted" x="404" y="68">03</text>
+  <text class="t-b" x="404" y="92">Working set</text>
+  <text class="t-xs" x="404" y="116">hot pages exceed</text>
+  <text class="t-xs" x="404" y="134">RAM; hit ratio</text>
+  <text class="t-xs" x="404" y="152">falls, I/O climbs</text>
+
+  <rect class="box orange" x="571" y="44" width="173" height="148" rx="12"/>
+  <text class="t-xs t-muted" x="589" y="68">04</text>
+  <text class="t-b" x="589" y="92">Lock / idle txn</text>
+  <text class="t-xs" x="589" y="116">idle in txn or</text>
+  <text class="t-xs" x="589" y="134">DDL; everyone</text>
+  <text class="t-xs" x="589" y="152">queues behind</text>
+
+  <rect class="box" x="16" y="208" width="173" height="148" rx="12"/>
+  <text class="t-xs t-muted" x="34" y="232">05</text>
+  <text class="t-b" x="34" y="256">Conn storm</text>
+  <text class="t-xs" x="34" y="280">pods &#215; pool size</text>
+  <text class="t-xs" x="34" y="298">above max conns</text>
+  <text class="t-xs" x="34" y="316">or a leak</text>
+
+  <rect class="box" x="201" y="208" width="173" height="148" rx="12"/>
+  <text class="t-xs t-muted" x="219" y="232">06</text>
+  <text class="t-b" x="219" y="256">N+1 queries</text>
+  <text class="t-xs" x="219" y="280">one query per</text>
+  <text class="t-xs" x="219" y="298">child row; CPU</text>
+  <text class="t-xs" x="219" y="316">and round trips</text>
+
+  <rect class="box orange" x="386" y="208" width="173" height="148" rx="12"/>
+  <text class="t-xs t-muted" x="404" y="232">07</text>
+  <text class="t-b" x="404" y="256">Vacuum / bloat</text>
+  <text class="t-xs" x="404" y="280">dead tuples, fat</text>
+  <text class="t-xs" x="404" y="298">indexes; scans</text>
+  <text class="t-xs" x="404" y="316">read empty space</text>
+
+  <rect class="box orange" x="571" y="208" width="173" height="148" rx="12"/>
+  <text class="t-xs t-muted" x="589" y="232">08</text>
+  <text class="t-b" x="589" y="256">Noisy neighbour</text>
+  <text class="t-xs" x="589" y="280">shared IOPS,</text>
+  <text class="t-xs" x="589" y="298">burst credits,</text>
+  <text class="t-xs" x="589" y="316">another tenant</text>
+
+  <text class="t-sm" x="380" y="384" text-anchor="middle">Match the suspect to the saturation you already measured.</text>
+</svg>

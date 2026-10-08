@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 384">
+  <!-- side labels -->
+  <text class="t-label" x="20" y="41">Win</text>
+  <text class="t-label" x="20" y="109">Apply</text>
+  <text class="t-label" x="20" y="185">Products</text>
+  <text class="t-label" x="20" y="299">Principles</text>
+
+  <!-- row A: career -->
+  <rect class="box purple" x="120" y="18" width="620" height="40" rx="20"/>
+  <text class="t-b" x="430" y="43" text-anchor="middle">10 &#183; Career prep <tspan class="t-sm">&#8212; playbooks &#183; discovery &#183; demos &#183; question bank</tspan></text>
+
+  <!-- row B: apply -->
+  <rect class="box blue" x="120" y="78" width="196" height="58" rx="13"/>
+  <text class="t-b" x="218" y="102" text-anchor="middle">7 &#183; Go labs</text>
+  <text class="t-sm" x="218" y="120" text-anchor="middle">real DBs + build your own</text>
+  <rect class="box blue" x="332" y="78" width="196" height="58" rx="13"/>
+  <text class="t-b" x="430" y="102" text-anchor="middle">8 &#183; System design</text>
+  <text class="t-sm" x="430" y="120" text-anchor="middle">framework + five designs</text>
+  <rect class="box blue" x="544" y="78" width="196" height="58" rx="13"/>
+  <text class="t-b" x="642" y="102" text-anchor="middle">9 &#183; Real-world problems</text>
+  <text class="t-sm" x="642" y="120" text-anchor="middle">incidents &#183; fixes &#183; case studies</text>
+
+  <!-- row C: products -->
+  <rect class="box green" x="120" y="154" width="196" height="58" rx="13"/>
+  <text class="t-b" x="218" y="178" text-anchor="middle">3 &#183; MongoDB</text>
+  <text class="t-sm" x="218" y="196" text-anchor="middle">documents &#183; sharding &#183; Atlas</text>
+  <rect class="box orange" x="332" y="154" width="196" height="58" rx="13"/>
+  <text class="t-b" x="430" y="178" text-anchor="middle">5 &#183; Lakehouse</text>
+  <text class="t-sm" x="430" y="196" text-anchor="middle">Spark &#183; Delta &#183; Databricks</text>
+  <rect class="box red" x="544" y="154" width="196" height="58" rx="13"/>
+  <text class="t-b" x="642" y="178" text-anchor="middle">6 &#183; Cloud-native</text>
+  <text class="t-sm" x="642" y="196" text-anchor="middle">Postgres &#183; Kafka &#183; OpenShift</text>
+
+  <!-- row D: distributed -->
+  <rect class="box teal" x="120" y="230" width="620" height="58" rx="13"/>
+  <text class="t-b" x="430" y="254" text-anchor="middle">4 &#183; Distributed data systems</text>
+  <text class="t-sm" x="430" y="272" text-anchor="middle">replication &#183; partitioning &#183; unreliable networks and clocks &#183; consistency &#183; consensus</text>
+
+  <!-- row E: foundations + internals -->
+  <rect class="box" x="120" y="306" width="302" height="58" rx="13"/>
+  <text class="t-b" x="271" y="330" text-anchor="middle">1 &#183; Foundations</text>
+  <text class="t-sm" x="271" y="348" text-anchor="middle">SQL &#183; modelling &#183; indexes &#183; transactions</text>
+  <rect class="box" x="438" y="306" width="302" height="58" rx="13"/>
+  <text class="t-b" x="589" y="330" text-anchor="middle">2 &#183; Internals</text>
+  <text class="t-sm" x="589" y="348" text-anchor="middle">storage &#183; WAL &#183; MVCC &#183; planner &#183; encoding</text>
+</svg>

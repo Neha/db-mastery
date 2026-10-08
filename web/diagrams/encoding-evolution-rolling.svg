@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320">
+  <rect class="box panel" x="4" y="4" width="752" height="312" rx="16"/>
+  <text class="t-label" x="380" y="30" text-anchor="middle">Rolling upgrade &#183; mixed versions on one topic</text>
+
+  <text class="t-label" x="128" y="64" text-anchor="middle">Producers</text>
+  <rect class="box gray" x="36" y="80" width="184" height="44" rx="12"/>
+  <text class="t-b" x="128" y="107" text-anchor="middle">Pod A &#183; schema v1</text>
+  <rect class="box blue" x="36" y="140" width="184" height="44" rx="12"/>
+  <text class="t-b" x="128" y="167" text-anchor="middle">Pod B &#183; schema v2</text>
+  <text class="t-xs" x="128" y="202" text-anchor="middle">half the fleet is new</text>
+
+  <path class="ln" d="M220 102 L292 102" marker-end="url(#arr)"/>
+  <path class="ln blue" d="M220 162 L292 162" marker-end="url(#arr-blue)"/>
+
+  <rect class="box teal" x="294" y="80" width="172" height="124" rx="12"/>
+  <text class="t-sm t-b" x="380" y="108" text-anchor="middle">Schema registry</text>
+  <text class="t-mono" x="380" y="128" text-anchor="middle">v1 + v2</text>
+  <text class="t-xs" x="380" y="148" text-anchor="middle">compatibility check</text>
+  <text class="t-xs" x="380" y="166" text-anchor="middle">on register</text>
+  <text class="t-xs t-teal" x="380" y="188" text-anchor="middle">Kafka topic</text>
+
+  <path class="ln" d="M466 102 L538 102" marker-end="url(#arr)"/>
+  <path class="ln blue" d="M466 162 L538 162" marker-end="url(#arr-blue)"/>
+
+  <text class="t-label" x="632" y="64" text-anchor="middle">Consumers</text>
+  <rect class="box gray" x="540" y="80" width="192" height="44" rx="12"/>
+  <text class="t-b" x="636" y="107" text-anchor="middle">Worker C &#183; reader v1</text>
+  <rect class="box blue" x="540" y="140" width="192" height="44" rx="12"/>
+  <text class="t-b" x="636" y="167" text-anchor="middle">Worker D &#183; reader v2</text>
+  <text class="t-xs" x="636" y="202" text-anchor="middle">must read both encodings</text>
+
+  <rect class="box" x="36" y="228" width="688" height="68" rx="12"/>
+  <text class="t-sm" x="380" y="254" text-anchor="middle"><tspan class="t-b">Full compatibility</tspan> lets any producer talk to any consumer</text>
+  <text class="t-xs" x="380" y="276" text-anchor="middle">backward only &#8594; consumers first &#183; forward only &#8594; producers first</text>
+</svg>

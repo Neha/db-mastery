@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <rect class="box panel" x="16" y="16" width="236" height="328" rx="16"/>
+  <text class="t-label" x="134" y="42" text-anchor="middle">Cache-aside</text>
+
+  <rect class="box gray" x="44" y="60" width="180" height="36" rx="10"/>
+  <text class="t-sm t-b" x="134" y="82" text-anchor="middle">app owns the policy</text>
+
+  <path class="ln blue" d="M134 96 L134 118" marker-end="url(#arr-blue)"/>
+  <rect class="box blue" x="44" y="120" width="180" height="36" rx="10"/>
+  <text class="t-sm" x="134" y="142" text-anchor="middle">GET cache</text>
+
+  <path class="ln blue" d="M134 156 L134 178" marker-end="url(#arr-blue)"/>
+  <rect class="box" x="44" y="180" width="180" height="36" rx="10"/>
+  <text class="t-sm" x="134" y="202" text-anchor="middle">miss &#8594; read DB</text>
+
+  <path class="ln" d="M134 216 L134 238" marker-end="url(#arr)"/>
+  <rect class="box" x="44" y="240" width="180" height="36" rx="10"/>
+  <text class="t-sm" x="134" y="262" text-anchor="middle">SET cache + TTL</text>
+
+  <text class="t-xs" x="134" y="300" text-anchor="middle">write: DB first,</text>
+  <text class="t-xs" x="134" y="316" text-anchor="middle">then delete the key</text>
+
+  <rect class="box panel" x="262" y="16" width="236" height="328" rx="16"/>
+  <text class="t-label" x="380" y="42" text-anchor="middle">Write-through</text>
+
+  <rect class="box gray" x="290" y="60" width="180" height="36" rx="10"/>
+  <text class="t-sm t-b" x="380" y="82" text-anchor="middle">write hits both</text>
+
+  <path class="ln blue" d="M380 96 L380 118" marker-end="url(#arr-blue)"/>
+  <rect class="box blue" x="290" y="120" width="180" height="36" rx="10"/>
+  <text class="t-sm" x="380" y="142" text-anchor="middle">SET cache</text>
+
+  <path class="ln green" d="M380 156 L380 178" marker-end="url(#arr-green)"/>
+  <rect class="box" x="290" y="180" width="180" height="36" rx="10"/>
+  <text class="t-sm" x="380" y="202" text-anchor="middle">write DB (sync)</text>
+
+  <path class="ln green" d="M380 216 L380 238" marker-end="url(#arr-green)"/>
+  <rect class="box green" x="290" y="240" width="180" height="36" rx="10"/>
+  <text class="t-sm" x="380" y="262" text-anchor="middle">ack the client</text>
+
+  <text class="t-xs" x="380" y="300" text-anchor="middle">cache stays warm;</text>
+  <text class="t-xs" x="380" y="316" text-anchor="middle">writes pay two hops</text>
+
+  <rect class="box panel" x="508" y="16" width="236" height="328" rx="16"/>
+  <text class="t-label" x="626" y="42" text-anchor="middle">Write-behind</text>
+
+  <rect class="box gray" x="536" y="60" width="180" height="36" rx="10"/>
+  <text class="t-sm t-b" x="626" y="82" text-anchor="middle">ack from cache</text>
+
+  <path class="ln blue" d="M626 96 L626 118" marker-end="url(#arr-blue)"/>
+  <rect class="box blue" x="536" y="120" width="180" height="36" rx="10"/>
+  <text class="t-sm" x="626" y="142" text-anchor="middle">SET cache</text>
+
+  <path class="ln green" d="M626 156 L626 178" marker-end="url(#arr-green)"/>
+  <rect class="box green" x="536" y="180" width="180" height="36" rx="10"/>
+  <text class="t-sm" x="626" y="202" text-anchor="middle">ack the client</text>
+
+  <path class="ln purple dash" d="M626 216 L626 238" marker-end="url(#arr-purple)"/>
+  <rect class="box purple" x="536" y="240" width="180" height="36" rx="10"/>
+  <text class="t-sm" x="626" y="262" text-anchor="middle">flush DB later</text>
+
+  <text class="t-xs" x="626" y="300" text-anchor="middle">fast writes; crash</text>
+  <text class="t-xs" x="626" y="316" text-anchor="middle">can lose the buffer</text>
+</svg>

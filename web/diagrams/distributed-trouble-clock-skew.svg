@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <rect class="box panel" x="4" y="4" width="752" height="352" rx="16"/>
+  <text class="t-label" x="36" y="32">Last-writer-wins with wall clocks</text>
+
+  <text class="t-xs t-muted" x="36" y="72">True time</text>
+  <path class="ln thin" d="M110 68 L720 68" marker-end="url(#arr)"/>
+  <circle class="fill-blue" cx="220" cy="68" r="4"/>
+  <circle class="fill-blue" cx="420" cy="68" r="4"/>
+  <text class="t-xs t-blue" x="220" y="58" text-anchor="middle">T1</text>
+  <text class="t-xs t-blue" x="420" y="58" text-anchor="middle">T2 later</text>
+
+  <text class="t-b" x="36" y="124">Node A</text>
+  <text class="t-xs t-orange" x="36" y="140">clock +80 ms</text>
+  <path class="ln faint" d="M130 130 L720 130"/>
+  <rect class="box orange" x="160" y="110" width="160" height="40" rx="12"/>
+  <text class="t-sm t-b" x="240" y="135" text-anchor="middle">write X</text>
+  <text class="t-mono t-xs" x="240" y="168" text-anchor="middle">wall 12:00:00.180</text>
+  <path class="ln blue thin dash" d="M220 72 L220 110"/>
+
+  <text class="t-b" x="36" y="224">Node B</text>
+  <text class="t-xs t-orange" x="36" y="240">clock -20 ms</text>
+  <path class="ln faint" d="M130 230 L720 230"/>
+  <rect class="box blue" x="360" y="210" width="160" height="40" rx="12"/>
+  <text class="t-sm t-b" x="440" y="235" text-anchor="middle">write Y</text>
+  <text class="t-mono t-xs" x="440" y="268" text-anchor="middle">wall 12:00:00.090</text>
+  <path class="ln blue thin dash" d="M420 72 L420 210"/>
+
+  <rect class="box red" x="200" y="292" width="360" height="48" rx="12"/>
+  <text class="t-b t-red" x="380" y="312" text-anchor="middle">LWW keeps X &#183; Y is lost</text>
+  <text class="t-xs" x="380" y="328" text-anchor="middle">B wrote later in real time, but its timestamp is smaller</text>
+</svg>

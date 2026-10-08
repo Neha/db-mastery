@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <rect class="box panel" x="16" y="16" width="356" height="328" rx="16"/>
+  <text class="t-label" x="194" y="42" text-anchor="middle">Retry without a key</text>
+
+  <rect class="box gray" x="40" y="60" width="308" height="36" rx="10"/>
+  <text class="t-sm" x="194" y="82" text-anchor="middle">POST /charge  (timeout)</text>
+
+  <path class="ln red" d="M194 96 L194 116" marker-end="url(#arr-red)"/>
+  <rect class="box red" x="40" y="118" width="308" height="36" rx="10"/>
+  <text class="t-sm" x="194" y="140" text-anchor="middle">row 1: &#163;20 charged</text>
+
+  <path class="ln orange" d="M194 154 L194 174" marker-end="url(#arr-orange)"/>
+  <rect class="box gray" x="40" y="176" width="308" height="36" rx="10"/>
+  <text class="t-sm" x="194" y="198" text-anchor="middle">client retries the POST</text>
+
+  <path class="ln red" d="M194 212 L194 232" marker-end="url(#arr-red)"/>
+  <rect class="box red" x="40" y="234" width="308" height="36" rx="10"/>
+  <text class="t-sm" x="194" y="256" text-anchor="middle">row 2: &#163;20 charged again</text>
+
+  <text class="t-sm t-red t-b" x="194" y="300" text-anchor="middle">two charges, one intent</text>
+  <text class="t-xs" x="194" y="320" text-anchor="middle">at-least-once delivery did this</text>
+
+  <rect class="box panel" x="388" y="16" width="356" height="328" rx="16"/>
+  <text class="t-label" x="566" y="42" text-anchor="middle">Idempotency key</text>
+
+  <rect class="box gray" x="412" y="60" width="308" height="36" rx="10"/>
+  <text class="t-sm" x="566" y="82" text-anchor="middle">Idempotency-Key: abc-9</text>
+
+  <path class="ln green" d="M566 96 L566 116" marker-end="url(#arr-green)"/>
+  <rect class="box green" x="412" y="118" width="308" height="36" rx="10"/>
+  <text class="t-sm" x="566" y="140" text-anchor="middle">INSERT key &#183; charge once</text>
+
+  <path class="ln" d="M566 154 L566 174" marker-end="url(#arr)"/>
+  <rect class="box gray" x="412" y="176" width="308" height="36" rx="10"/>
+  <text class="t-sm" x="566" y="198" text-anchor="middle">same key arrives again</text>
+
+  <path class="ln green" d="M566 212 L566 232" marker-end="url(#arr-green)"/>
+  <rect class="box" x="412" y="234" width="308" height="36" rx="10"/>
+  <text class="t-sm" x="566" y="256" text-anchor="middle">unique conflict &#8594; replay</text>
+
+  <text class="t-sm t-green t-b" x="566" y="300" text-anchor="middle">one charge, same response</text>
+  <text class="t-xs" x="566" y="320" text-anchor="middle">UNIQUE (idempotency_key)</text>
+</svg>

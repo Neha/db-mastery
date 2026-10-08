@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280">
+  <text class="t-label" x="380" y="28" text-anchor="middle">Many logical shards, few physical hosts</text>
+
+  <!-- physical A -->
+  <rect class="box panel" x="16" y="48" width="232" height="168" rx="16"/>
+  <text class="t-label" x="132" y="72" text-anchor="middle">Physical A</text>
+  <rect class="box teal" x="36" y="88" width="88" height="36" rx="10"/>
+  <text class="t-sm" x="80" y="110" text-anchor="middle">schema 1</text>
+  <rect class="box teal" x="140" y="88" width="88" height="36" rx="10"/>
+  <text class="t-sm" x="184" y="110" text-anchor="middle">schema 2</text>
+  <rect class="box teal" x="36" y="136" width="88" height="36" rx="10"/>
+  <text class="t-sm" x="80" y="158" text-anchor="middle">schema 3</text>
+  <rect class="box teal" x="140" y="136" width="88" height="36" rx="10"/>
+  <text class="t-sm" x="184" y="158" text-anchor="middle">schema 4</text>
+  <text class="t-xs t-muted" x="132" y="196" text-anchor="middle">one Postgres process</text>
+
+  <!-- physical B -->
+  <rect class="box panel" x="264" y="48" width="232" height="168" rx="16"/>
+  <text class="t-label" x="380" y="72" text-anchor="middle">Physical B</text>
+  <rect class="box teal" x="284" y="88" width="88" height="36" rx="10"/>
+  <text class="t-sm" x="328" y="110" text-anchor="middle">schema 5</text>
+  <rect class="box teal" x="388" y="88" width="88" height="36" rx="10"/>
+  <text class="t-sm" x="432" y="110" text-anchor="middle">schema 6</text>
+  <rect class="box teal" x="284" y="136" width="88" height="36" rx="10"/>
+  <text class="t-sm" x="328" y="158" text-anchor="middle">schema 7</text>
+  <rect class="box teal" x="388" y="136" width="88" height="36" rx="10"/>
+  <text class="t-sm" x="432" y="158" text-anchor="middle">schema 8</text>
+  <text class="t-xs t-muted" x="380" y="196" text-anchor="middle">one Postgres process</text>
+
+  <!-- move -->
+  <rect class="box panel" x="512" y="48" width="232" height="168" rx="16"/>
+  <text class="t-label" x="628" y="72" text-anchor="middle">Grow later</text>
+  <rect class="box green" x="540" y="96" width="176" height="52" rx="12"/>
+  <text class="t-sm t-b" x="628" y="118" text-anchor="middle">Move schema 8</text>
+  <text class="t-xs" x="628" y="136" text-anchor="middle">to a new host</text>
+  <text class="t-sm" x="628" y="176" text-anchor="middle">IDs and keys stay put.</text>
+  <text class="t-xs t-muted" x="628" y="196" text-anchor="middle">No re-hash of every row.</text>
+
+  <text class="t-sm" x="380" y="244" text-anchor="middle">Instagram and Notion both mapped many logical shards onto fewer machines,</text>
+  <text class="t-sm" x="380" y="264" text-anchor="middle">then moved whole schemas when a host got hot.</text>
+</svg>

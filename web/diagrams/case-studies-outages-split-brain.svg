@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <text class="t-label" x="380" y="28" text-anchor="middle">GitHub 21 Oct 2018 &#183; 43-second partition</text>
+
+  <!-- east -->
+  <rect class="box panel" x="16" y="44" width="280" height="200" rx="16"/>
+  <text class="t-label" x="156" y="70" text-anchor="middle">US East primary site</text>
+  <rect class="box gray" x="40" y="86" width="100" height="28" rx="10"/>
+  <text class="t-sm" x="90" y="105" text-anchor="middle">App tier</text>
+  <rect class="box blue" x="172" y="86" width="100" height="28" rx="10"/>
+  <text class="t-sm" x="222" y="105" text-anchor="middle">MySQL</text>
+  <path class="ln blue" d="M140 100 L172 100" marker-end="url(#arr-blue)"/>
+  <text class="t-xs t-blue" x="156" y="140" text-anchor="middle">writes during the 43s</text>
+  <text class="t-xs t-blue" x="156" y="156" text-anchor="middle">never reached the West</text>
+  <rect class="box orange" x="56" y="176" width="200" height="44" rx="12"/>
+  <text class="t-sm" x="156" y="194" text-anchor="middle">Unique East writes</text>
+  <text class="t-xs" x="156" y="210" text-anchor="middle">block fail-back</text>
+
+  <!-- partition -->
+  <path class="ln red dash" d="M380 52 L380 236"/>
+  <text class="t-xs t-red" x="380" y="250" text-anchor="middle">partition</text>
+
+  <!-- west -->
+  <rect class="box panel" x="464" y="44" width="280" height="200" rx="16"/>
+  <text class="t-label" x="604" y="70" text-anchor="middle">US West + cloud quorum</text>
+  <rect class="box purple" x="488" y="86" width="232" height="36" rx="10"/>
+  <text class="t-sm" x="604" y="108" text-anchor="middle">Orchestrator Raft majority</text>
+  <path class="ln purple" d="M604 122 L604 146" marker-end="url(#arr-purple)"/>
+  <rect class="box green" x="520" y="148" width="168" height="28" rx="10"/>
+  <text class="t-sm" x="604" y="167" text-anchor="middle">new West primaries</text>
+  <rect class="box orange" x="504" y="188" width="200" height="36" rx="12"/>
+  <text class="t-sm" x="604" y="210" text-anchor="middle">West writes after failover</text>
+
+  <!-- outcome -->
+  <rect class="box panel" x="16" y="268" width="728" height="76" rx="16"/>
+  <text class="t-b" x="380" y="296" text-anchor="middle">Both sides now have writes the other does not</text>
+  <text class="t-sm" x="380" y="320" text-anchor="middle">Failover worked as configured. The application could not pay the cross-country write latency.</text>
+</svg>

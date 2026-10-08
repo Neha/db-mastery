@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <!-- Inner join -->
+  <rect class="box panel" x="4" y="4" width="368" height="332" rx="16"/>
+  <text class="t-label" x="188" y="30" text-anchor="middle">Inner join</text>
+  <text class="t-xs" x="188" y="48" text-anchor="middle">only rows with a match</text>
+
+  <text class="t-xs t-muted" x="92" y="72" text-anchor="middle">customers</text>
+  <text class="t-xs t-muted" x="284" y="72" text-anchor="middle">orders</text>
+
+  <rect class="box green" x="32" y="84" width="120" height="40" rx="10"/>
+  <text class="t-b" x="92" y="109" text-anchor="middle">Ada</text>
+  <path class="ln green" d="M152 104 L212 104" marker-end="url(#arr-green)"/>
+  <rect class="box green" x="224" y="84" width="120" height="40" rx="10"/>
+  <text class="t-sm t-b" x="284" y="109" text-anchor="middle">order 101</text>
+
+  <rect class="box ghost" x="32" y="140" width="120" height="40" rx="10"/>
+  <text class="t-muted" x="92" y="165" text-anchor="middle">Ben</text>
+  <text class="t-xs t-muted" x="284" y="165" text-anchor="middle">no match</text>
+
+  <rect class="box" x="32" y="204" width="312" height="112" rx="12"/>
+  <text class="t-label" x="188" y="228" text-anchor="middle">Result</text>
+  <rect class="box green" x="52" y="244" width="272" height="32" rx="8"/>
+  <text class="t-sm" x="188" y="265" text-anchor="middle">Ada &#183; order 101</text>
+  <text class="t-xs" x="188" y="298" text-anchor="middle">Ben is dropped</text>
+
+  <!-- Left join -->
+  <rect class="box panel" x="388" y="4" width="368" height="332" rx="16"/>
+  <text class="t-label" x="572" y="30" text-anchor="middle">Left join</text>
+  <text class="t-xs" x="572" y="48" text-anchor="middle">every left-side row</text>
+
+  <text class="t-xs t-muted" x="476" y="72" text-anchor="middle">customers</text>
+  <text class="t-xs t-muted" x="668" y="72" text-anchor="middle">orders</text>
+
+  <rect class="box green" x="416" y="84" width="120" height="40" rx="10"/>
+  <text class="t-b" x="476" y="109" text-anchor="middle">Ada</text>
+  <path class="ln green" d="M536 104 L596 104" marker-end="url(#arr-green)"/>
+  <rect class="box green" x="608" y="84" width="120" height="40" rx="10"/>
+  <text class="t-sm t-b" x="668" y="109" text-anchor="middle">order 101</text>
+
+  <rect class="box blue" x="416" y="140" width="120" height="40" rx="10"/>
+  <text class="t-b" x="476" y="165" text-anchor="middle">Ben</text>
+  <path class="ln blue" d="M536 160 L596 160" marker-end="url(#arr-blue)"/>
+  <rect class="box ghost" x="608" y="140" width="120" height="40" rx="10"/>
+  <text class="t-muted" x="668" y="165" text-anchor="middle">NULL</text>
+
+  <rect class="box" x="416" y="204" width="312" height="112" rx="12"/>
+  <text class="t-label" x="572" y="228" text-anchor="middle">Result</text>
+  <rect class="box green" x="436" y="240" width="272" height="26" rx="8"/>
+  <text class="t-sm" x="572" y="258" text-anchor="middle">Ada &#183; order 101</text>
+  <rect class="box ghost" x="436" y="272" width="272" height="26" rx="8"/>
+  <text class="t-sm" x="572" y="290" text-anchor="middle">Ben &#183; NULL</text>
+</svg>

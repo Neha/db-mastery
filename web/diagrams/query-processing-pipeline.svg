@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <rect class="box gray" x="20" y="20" width="100" height="56" rx="12"/>
+  <text class="t-b" x="70" y="44" text-anchor="middle">SQL text</text>
+  <text class="t-xs" x="70" y="62" text-anchor="middle">what you wrote</text>
+  <path class="ln blue" d="M120 48 L148 48" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="150" y="20" width="100" height="56" rx="12"/>
+  <text class="t-b" x="200" y="44" text-anchor="middle">Parser</text>
+  <text class="t-xs" x="200" y="62" text-anchor="middle">syntax tree</text>
+  <path class="ln blue" d="M250 48 L278 48" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="280" y="20" width="110" height="56" rx="12"/>
+  <text class="t-b" x="335" y="44" text-anchor="middle">Binder</text>
+  <text class="t-xs" x="335" y="62" text-anchor="middle">names &#183; types</text>
+  <path class="ln blue" d="M390 48 L418 48" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="420" y="20" width="110" height="56" rx="12"/>
+  <text class="t-b" x="475" y="44" text-anchor="middle">Rewriter</text>
+  <text class="t-xs" x="475" y="62" text-anchor="middle">views &#183; rules</text>
+  <path class="ln blue" d="M530 48 L558 48" marker-end="url(#arr-blue)"/>
+
+  <rect class="box blue" x="560" y="20" width="180" height="56" rx="12"/>
+  <text class="t-b" x="650" y="44" text-anchor="middle">Optimiser</text>
+  <text class="t-xs" x="650" y="62" text-anchor="middle">cheapest physical plan</text>
+
+  <path class="ln blue" d="M650 76 L650 118" marker-end="url(#arr-blue)"/>
+
+  <rect class="box panel" x="20" y="120" width="720" height="100" rx="16"/>
+  <text class="t-label" x="40" y="144">Optimiser chooses</text>
+
+  <rect class="box" x="40" y="156" width="200" height="48" rx="12"/>
+  <text class="t-sm t-b" x="140" y="176" text-anchor="middle">Logical plan</text>
+  <text class="t-xs" x="140" y="192" text-anchor="middle">filter &#183; join &#183; aggregate</text>
+  <path class="ln blue" d="M240 180 L280 180" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="282" y="156" width="220" height="48" rx="12"/>
+  <text class="t-sm t-b" x="392" y="176" text-anchor="middle">Candidate physical plans</text>
+  <text class="t-xs" x="392" y="192" text-anchor="middle">hash vs merge &#183; index vs seq</text>
+  <path class="ln blue" d="M502 180 L542 180" marker-end="url(#arr-blue)"/>
+
+  <rect class="box green" x="544" y="156" width="176" height="48" rx="12"/>
+  <text class="t-sm t-b" x="632" y="176" text-anchor="middle">Pick by cost</text>
+  <text class="t-xs" x="632" y="192" text-anchor="middle">stats &#183; histograms</text>
+
+  <path class="ln blue" d="M650 220 L650 246" marker-end="url(#arr-blue)"/>
+
+  <rect class="box green" x="560" y="248" width="180" height="40" rx="12"/>
+  <text class="t-b" x="650" y="273" text-anchor="middle">Executor</text>
+
+  <text class="t-sm" x="40" y="272">Bad statistics &#8594; bad cardinality &#8594; a sequential scan that was fine yesterday</text>
+</svg>

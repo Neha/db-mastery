@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <!-- Dirty read -->
+  <rect class="box panel" x="4" y="4" width="244" height="292" rx="16"/>
+  <text class="t-label" x="126" y="30" text-anchor="middle">Dirty read</text>
+  <text class="t-xs" x="126" y="48" text-anchor="middle">T2 reads uncommitted data</text>
+
+  <text class="t-b" x="24" y="88">T1</text>
+  <text class="t-b" x="24" y="148">T2</text>
+  <path class="ln faint" d="M54 84 L232 84"/>
+  <path class="ln faint" d="M54 144 L232 144"/>
+
+  <rect class="box orange" x="60" y="69" width="88" height="30" rx="15"/>
+  <text class="t-sm" x="104" y="88" text-anchor="middle">alice = 400</text>
+  <rect class="box red" x="164" y="69" width="68" height="30" rx="15"/>
+  <text class="t-sm" x="198" y="88" text-anchor="middle">ROLLBACK</text>
+
+  <rect class="box red" x="92" y="129" width="88" height="30" rx="15"/>
+  <text class="t-sm" x="136" y="148" text-anchor="middle">reads 400</text>
+
+  <path class="ln red dash" d="M136 129 L136 100"/>
+  <text class="t-xs t-red" x="126" y="188" text-anchor="middle">that 400 never committed</text>
+
+  <text class="t-sm" x="126" y="250" text-anchor="middle">Fix: read committed or</text>
+  <text class="t-sm" x="126" y="266" text-anchor="middle">stronger &#8212; never read dirty</text>
+
+  <!-- Lost update -->
+  <rect class="box panel" x="258" y="4" width="244" height="292" rx="16"/>
+  <text class="t-label" x="380" y="30" text-anchor="middle">Lost update</text>
+  <text class="t-xs" x="380" y="48" text-anchor="middle">two read-modify-writes</text>
+
+  <text class="t-b" x="278" y="88">T1</text>
+  <text class="t-b" x="278" y="148">T2</text>
+  <path class="ln faint" d="M308 84 L486 84"/>
+  <path class="ln faint" d="M308 144 L486 144"/>
+
+  <rect class="box blue" x="314" y="69" width="72" height="30" rx="15"/>
+  <text class="t-sm" x="350" y="88" text-anchor="middle">read 10</text>
+  <rect class="box" x="398" y="69" width="80" height="30" rx="15"/>
+  <text class="t-sm" x="438" y="88" text-anchor="middle">write 9</text>
+
+  <rect class="box blue" x="314" y="129" width="72" height="30" rx="15"/>
+  <text class="t-sm" x="350" y="148" text-anchor="middle">read 10</text>
+  <rect class="box red" x="398" y="129" width="80" height="30" rx="15"/>
+  <text class="t-sm" x="438" y="148" text-anchor="middle">write 9</text>
+
+  <text class="t-sm t-red t-b" x="380" y="188" text-anchor="middle">stock = 9, not 8</text>
+
+  <text class="t-sm" x="380" y="250" text-anchor="middle">Fix: atomic UPDATE, FOR UPDATE,</text>
+  <text class="t-sm" x="380" y="266" text-anchor="middle">or a version column</text>
+
+  <!-- Write skew -->
+  <rect class="box panel" x="512" y="4" width="244" height="292" rx="16"/>
+  <text class="t-label" x="634" y="30" text-anchor="middle">Write skew</text>
+  <text class="t-xs" x="634" y="48" text-anchor="middle">disjoint writes, shared read</text>
+
+  <text class="t-b" x="532" y="88">T1</text>
+  <text class="t-b" x="532" y="148">T2</text>
+  <path class="ln faint" d="M562 84 L740 84"/>
+  <path class="ln faint" d="M562 144 L740 144"/>
+
+  <rect class="box blue" x="568" y="69" width="72" height="30" rx="15"/>
+  <text class="t-sm" x="604" y="88" text-anchor="middle">count 2</text>
+  <rect class="box" x="650" y="69" width="84" height="30" rx="15"/>
+  <text class="t-sm" x="692" y="88" text-anchor="middle">alice off</text>
+
+  <rect class="box blue" x="568" y="129" width="72" height="30" rx="15"/>
+  <text class="t-sm" x="604" y="148" text-anchor="middle">count 2</text>
+  <rect class="box" x="650" y="129" width="84" height="30" rx="15"/>
+  <text class="t-sm" x="692" y="148" text-anchor="middle">bob off</text>
+
+  <text class="t-sm t-red t-b" x="634" y="180" text-anchor="middle">both commit</text>
+  <text class="t-sm t-red t-b" x="634" y="196" text-anchor="middle">nobody on call</text>
+
+  <text class="t-sm" x="634" y="250" text-anchor="middle">Fix: SERIALIZABLE (SSI),</text>
+  <text class="t-sm" x="634" y="266" text-anchor="middle">locks, or one shared row</text>
+</svg>

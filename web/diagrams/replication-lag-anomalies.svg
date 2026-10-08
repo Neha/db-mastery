@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 296">
+  <!-- ========== Panel 1: read-your-writes ========== -->
+  <rect class="box panel" x="4" y="4" width="236" height="288" rx="16"/>
+  <text class="t-label" x="122" y="30" text-anchor="middle">Read-your-writes</text>
+
+  <rect class="box gray" x="22" y="44" width="56" height="26" rx="13"/>
+  <text class="t-sm" x="50" y="61" text-anchor="middle">You</text>
+  <rect class="box blue" x="90" y="44" width="64" height="26" rx="13"/>
+  <text class="t-sm" x="122" y="61" text-anchor="middle">Leader</text>
+  <rect class="box" x="164" y="44" width="64" height="26" rx="13"/>
+  <text class="t-sm" x="196" y="61" text-anchor="middle">Follower</text>
+  <text class="t-xs t-orange" x="196" y="84" text-anchor="middle">lagging</text>
+
+  <path class="ln thin faint" d="M50 90 L50 214"/>
+  <path class="ln thin faint" d="M122 90 L122 214"/>
+  <path class="ln thin faint" d="M196 90 L196 214"/>
+
+  <text class="t-xs" x="84" y="97" text-anchor="middle">post</text>
+  <path class="ln blue" d="M50 102 L117 108" marker-end="url(#arr-blue)"/>
+  <path class="ln purple dash" d="M122 112 L192 204" marker-end="url(#arr-purple)"/>
+  <text class="t-xs t-purple" x="148" y="200" text-anchor="middle">lag</text>
+  <text class="t-xs" x="84" y="137" text-anchor="middle">refresh</text>
+  <path class="ln blue" d="M50 142 L191 149" marker-end="url(#arr-blue)"/>
+  <path class="ln red" d="M196 158 L55 166" marker-end="url(#arr-red)"/>
+  <text class="t-xs t-red" x="104" y="182" text-anchor="middle">comment gone</text>
+
+  <text class="t-sm" x="122" y="250" text-anchor="middle">Fix: read your own data</text>
+  <text class="t-sm" x="122" y="266" text-anchor="middle">from the leader, or wait for LSN</text>
+
+  <!-- ========== Panel 2: monotonic reads ========== -->
+  <rect class="box panel" x="262" y="4" width="236" height="288" rx="16"/>
+  <text class="t-label" x="380" y="30" text-anchor="middle">Monotonic reads</text>
+
+  <rect class="box gray" x="280" y="44" width="56" height="26" rx="13"/>
+  <text class="t-sm" x="308" y="61" text-anchor="middle">You</text>
+  <rect class="box" x="348" y="44" width="64" height="26" rx="13"/>
+  <text class="t-sm" x="380" y="61" text-anchor="middle">Replica A</text>
+  <rect class="box" x="422" y="44" width="64" height="26" rx="13"/>
+  <text class="t-sm" x="454" y="61" text-anchor="middle">Replica B</text>
+  <text class="t-xs t-orange" x="454" y="84" text-anchor="middle">lagging</text>
+
+  <path class="ln thin faint" d="M308 90 L308 214"/>
+  <path class="ln thin faint" d="M380 90 L380 214"/>
+  <path class="ln thin faint" d="M454 90 L454 214"/>
+
+  <path class="ln blue" d="M308 100 L375 106" marker-end="url(#arr-blue)"/>
+  <path class="ln green" d="M380 114 L313 120" marker-end="url(#arr-green)"/>
+  <text class="t-xs t-green" x="344" y="136" text-anchor="middle">sees it</text>
+  <path class="ln blue" d="M308 152 L449 159" marker-end="url(#arr-blue)"/>
+  <path class="ln red" d="M454 168 L313 176" marker-end="url(#arr-red)"/>
+  <text class="t-xs t-red" x="380" y="194" text-anchor="middle">gone again</text>
+
+  <text class="t-sm" x="380" y="250" text-anchor="middle">Fix: pin each user to one</text>
+  <text class="t-sm" x="380" y="266" text-anchor="middle">replica (hash of user ID)</text>
+
+  <!-- ========== Panel 3: consistent prefix ========== -->
+  <rect class="box panel" x="520" y="4" width="236" height="288" rx="16"/>
+  <text class="t-label" x="638" y="30" text-anchor="middle">Consistent prefix</text>
+
+  <rect class="box" x="534" y="44" width="64" height="26" rx="13"/>
+  <text class="t-sm" x="566" y="61" text-anchor="middle">Shard 1</text>
+  <rect class="box" x="606" y="44" width="64" height="26" rx="13"/>
+  <text class="t-sm" x="638" y="61" text-anchor="middle">Shard 2</text>
+  <rect class="box gray" x="680" y="44" width="64" height="26" rx="13"/>
+  <text class="t-sm" x="712" y="61" text-anchor="middle">Reader</text>
+  <text class="t-xs t-orange" x="566" y="84" text-anchor="middle">lagging</text>
+
+  <path class="ln thin faint" d="M566 90 L566 214"/>
+  <path class="ln thin faint" d="M638 90 L638 214"/>
+  <path class="ln thin faint" d="M712 90 L712 214"/>
+
+  <circle class="fill-blue" cx="566" cy="104" r="4"/>
+  <text class="t-sm t-b" x="556" y="108" text-anchor="end">Q</text>
+  <circle class="fill-blue" cx="638" cy="126" r="4"/>
+  <text class="t-sm t-b" x="628" y="130" text-anchor="end">A</text>
+  <path class="ln purple" d="M642 129 L707 148" marker-end="url(#arr-purple)"/>
+  <path class="ln purple dash" d="M570 108 L707 202" marker-end="url(#arr-purple)"/>
+  <text class="t-xs t-red" x="638" y="232" text-anchor="middle">reader sees A before Q</text>
+
+  <text class="t-sm" x="638" y="250" text-anchor="middle">Fix: keep causally related</text>
+  <text class="t-sm" x="638" y="266" text-anchor="middle">writes in one partition</text>
+</svg>

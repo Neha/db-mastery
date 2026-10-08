@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330">
+  <!-- ========== Panel 1: single-leader ========== -->
+  <rect class="box panel" x="4" y="4" width="236" height="322" rx="16"/>
+  <text class="t-label" x="122" y="30" text-anchor="middle">Single-leader</text>
+
+  <rect class="box gray" x="72" y="46" width="100" height="30" rx="15"/>
+  <text class="t-sm" x="122" y="65" text-anchor="middle">all writes</text>
+  <path class="ln" d="M122 76 L122 102" marker-end="url(#arr)"/>
+
+  <rect class="box blue" x="62" y="104" width="120" height="44" rx="12"/>
+  <text class="t-b" x="122" y="131" text-anchor="middle">Leader</text>
+
+  <path class="ln blue" d="M72 148 C 72 175, 66 178, 66 198" marker-end="url(#arr-blue)"/>
+  <path class="ln blue" d="M172 148 C 172 175, 178 178, 178 198" marker-end="url(#arr-blue)"/>
+  <text class="t-xs" x="122" y="168" text-anchor="middle">WAL / oplog</text>
+
+  <rect class="box" x="20" y="200" width="92" height="40" rx="11"/>
+  <text x="66" y="225" text-anchor="middle">Follower</text>
+  <rect class="box" x="132" y="200" width="92" height="40" rx="11"/>
+  <text x="178" y="225" text-anchor="middle">Follower</text>
+
+  <text class="t-sm" x="122" y="272" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> no write conflicts</text>
+  <text class="t-sm" x="122" y="290" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> leader caps write throughput</text>
+  <text class="t-xs" x="122" y="312" text-anchor="middle">Postgres &#183; MySQL &#183; MongoDB &#183; Kafka</text>
+
+  <!-- ========== Panel 2: multi-leader ========== -->
+  <rect class="box panel" x="262" y="4" width="236" height="322" rx="16"/>
+  <text class="t-label" x="380" y="30" text-anchor="middle">Multi-leader</text>
+
+  <rect class="box gray" x="276" y="46" width="90" height="30" rx="15"/>
+  <text class="t-sm" x="321" y="65" text-anchor="middle">EU writes</text>
+  <rect class="box gray" x="394" y="46" width="90" height="30" rx="15"/>
+  <text class="t-sm" x="439" y="65" text-anchor="middle">US writes</text>
+  <path class="ln" d="M321 76 L321 102" marker-end="url(#arr)"/>
+  <path class="ln" d="M439 76 L439 102" marker-end="url(#arr)"/>
+
+  <rect class="box purple" x="276" y="104" width="90" height="44" rx="12"/>
+  <text class="t-b" x="321" y="124" text-anchor="middle">Leader</text>
+  <text class="t-xs" x="321" y="139" text-anchor="middle">Region EU</text>
+  <rect class="box purple" x="394" y="104" width="90" height="44" rx="12"/>
+  <text class="t-b" x="439" y="124" text-anchor="middle">Leader</text>
+  <text class="t-xs" x="439" y="139" text-anchor="middle">Region US</text>
+  <path class="ln purple" d="M369 120 L391 120" marker-start="url(#arr-purple)" marker-end="url(#arr-purple)"/>
+
+  <rect class="box red" x="300" y="182" width="160" height="58" rx="12"/>
+  <text class="t-b t-red" x="380" y="205" text-anchor="middle">Conflict!</text>
+  <text class="t-xs" x="380" y="222" text-anchor="middle">same row edited in both</text>
+  <text class="t-xs" x="380" y="234" text-anchor="middle">&#8594; LWW &#183; CRDT &#183; merge</text>
+  <path class="ln dash" d="M380 140 L380 180" marker-end="url(#arr)"/>
+
+  <text class="t-sm" x="380" y="272" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> local writes in every region</text>
+  <text class="t-sm" x="380" y="290" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> conflicts are your problem</text>
+  <text class="t-xs" x="380" y="312" text-anchor="middle">DynamoDB Global Tables &#183; Cosmos DB</text>
+
+  <!-- ========== Panel 3: leaderless ========== -->
+  <rect class="box panel" x="520" y="4" width="236" height="322" rx="16"/>
+  <text class="t-label" x="638" y="30" text-anchor="middle">Leaderless (quorum)</text>
+
+  <rect class="box gray" x="588" y="46" width="100" height="30" rx="15"/>
+  <text class="t-sm" x="638" y="65" text-anchor="middle">client</text>
+
+  <path class="ln green" d="M610 76 C 600 110, 566 130, 566 168" marker-end="url(#arr-green)"/>
+  <path class="ln green" d="M638 76 L638 168" marker-end="url(#arr-green)"/>
+  <path class="ln dash" d="M666 76 C 676 110, 710 130, 710 168" marker-end="url(#arr)"/>
+
+  <circle class="box green" cx="566" cy="194" r="24"/>
+  <text class="t-b" x="566" y="199" text-anchor="middle">A</text>
+  <circle class="box green" cx="638" cy="194" r="24"/>
+  <text class="t-b" x="638" y="199" text-anchor="middle">B</text>
+  <circle class="box" cx="710" cy="194" r="24"/>
+  <text class="t-b t-muted" x="710" y="199" text-anchor="middle">C</text>
+  <text class="t-xs" x="710" y="234" text-anchor="middle">slow / down</text>
+  <text class="t-mono t-b" x="602" y="246" text-anchor="middle">W=2 of N=3</text>
+
+  <text class="t-sm" x="638" y="272" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> W + R &gt; N &#8658; reads overlap</text>
+  <text class="t-sm" x="638" y="290" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> repair + sloppy quorums</text>
+  <text class="t-xs" x="638" y="312" text-anchor="middle">Cassandra &#183; ScyllaDB &#183; Riak</text>
+</svg>

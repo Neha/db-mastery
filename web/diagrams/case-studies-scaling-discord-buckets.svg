@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <!-- left: unbounded partition -->
+  <rect class="box panel" x="12" y="12" width="352" height="336" rx="16"/>
+  <text class="t-label" x="188" y="38" text-anchor="middle">Without a time bucket</text>
+
+  <rect class="box gray" x="36" y="56" width="304" height="28" rx="10"/>
+  <text class="t-sm" x="188" y="75" text-anchor="middle">channel_id only</text>
+
+  <rect class="box red" x="36" y="100" width="304" height="168" rx="12"/>
+  <text class="t-b" x="188" y="128" text-anchor="middle">One ever-growing partition</text>
+  <text class="t-sm" x="188" y="150" text-anchor="middle">every message in that channel</text>
+  <text class="t-xs" x="188" y="176" text-anchor="middle">msg  &#183;  msg  &#183;  msg  &#183;  msg</text>
+  <text class="t-xs" x="188" y="194" text-anchor="middle">msg  &#183;  msg  &#183;  msg  &#183;  msg</text>
+  <text class="t-xs" x="188" y="212" text-anchor="middle">msg  &#183;  msg  &#183;  msg  &#183;  msg</text>
+  <text class="t-sm t-red" x="188" y="246" text-anchor="middle">hot, wide, expensive to compact</text>
+
+  <text class="t-sm" x="188" y="292" text-anchor="middle">A busy channel never stops writing</text>
+  <text class="t-sm" x="188" y="310" text-anchor="middle">to the same Cassandra partition.</text>
+  <text class="t-xs t-muted" x="188" y="332" text-anchor="middle">Reads fan across many SSTables.</text>
+
+  <!-- right: bucketed -->
+  <rect class="box panel" x="396" y="12" width="352" height="336" rx="16"/>
+  <text class="t-label" x="572" y="38" text-anchor="middle">channel_id + time bucket</text>
+
+  <rect class="box gray" x="420" y="56" width="304" height="28" rx="10"/>
+  <text class="t-sm" x="572" y="75" text-anchor="middle">PK ((channel, bucket), message_id)</text>
+
+  <rect class="box" x="420" y="100" width="304" height="44" rx="10"/>
+  <text class="t-sm" x="572" y="118" text-anchor="middle">bucket N-2  &#183;  older ~10 days</text>
+  <text class="t-xs t-muted" x="572" y="134" text-anchor="middle">cold history</text>
+
+  <rect class="box" x="420" y="152" width="304" height="44" rx="10"/>
+  <text class="t-sm" x="572" y="170" text-anchor="middle">bucket N-1</text>
+  <text class="t-xs t-muted" x="572" y="186" text-anchor="middle">still bounded</text>
+
+  <rect class="box green" x="420" y="204" width="304" height="52" rx="10"/>
+  <text class="t-sm t-b" x="572" y="226" text-anchor="middle">bucket N  &#183;  current window</text>
+  <text class="t-xs" x="572" y="244" text-anchor="middle">recent messages, newest first</text>
+
+  <text class="t-sm" x="572" y="280" text-anchor="middle">Bucket is derived from the Snowflake</text>
+  <text class="t-sm" x="572" y="298" text-anchor="middle">message_id, so you never store it twice.</text>
+  <text class="t-xs t-muted" x="572" y="322" text-anchor="middle">Discord sized ~10 days to stay under ~100 MB.</text>
+</svg>

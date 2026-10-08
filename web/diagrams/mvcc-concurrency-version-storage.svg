@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 326">
+  <!-- ========== Postgres: heap tuples ========== -->
+  <rect class="box panel" x="4" y="4" width="368" height="318" rx="16"/>
+  <text class="t-label" x="188" y="30" text-anchor="middle">Postgres &#183; versions in the heap</text>
+
+  <rect class="box gray" x="118" y="44" width="140" height="32" rx="10"/>
+  <text class="t-mono" x="188" y="64" text-anchor="middle">index &#8594; (0,1)</text>
+  <path class="ln" d="M188 76 L188 132" marker-end="url(#arr)"/>
+
+  <rect class="box ghost" x="24" y="102" width="328" height="160" rx="12"/>
+  <text class="t-label" x="40" y="122">heap page 0</text>
+
+  <rect class="box" x="40" y="134" width="296" height="44" rx="10"/>
+  <text class="t-mono t-muted" x="54" y="160">(0,1)</text>
+  <text class="t-mono t-muted" x="104" y="160">xmin 100  xmax 130</text>
+  <text class="t-muted" x="322" y="160" text-anchor="end">bal 500</text>
+
+  <path class="ln blue" d="M188 178 L188 204" marker-end="url(#arr-blue)"/>
+  <text class="t-xs" x="198" y="196">ctid &#8594; newer version</text>
+
+  <rect class="box green" x="40" y="206" width="296" height="44" rx="10"/>
+  <text class="t-mono" x="54" y="232">(0,2)</text>
+  <text class="t-mono" x="104" y="232">xmin 130  xmax 0</text>
+  <text class="t-b" x="322" y="232" text-anchor="end">bal 400</text>
+
+  <text class="t-sm" x="188" y="288" text-anchor="middle">UPDATE writes a new tuple; the old one waits for VACUUM</text>
+  <text class="t-xs" x="188" y="306" text-anchor="middle">HOT: same page, no indexed column changed &#8658; no new index entry</text>
+
+  <!-- ========== InnoDB / Oracle: undo ========== -->
+  <rect class="box panel" x="388" y="4" width="368" height="318" rx="16"/>
+  <text class="t-label" x="572" y="30" text-anchor="middle">InnoDB &#183; Oracle &#183; versions in undo</text>
+
+  <rect class="box green" x="412" y="48" width="320" height="44" rx="10"/>
+  <text class="t-mono" x="428" y="74">id=1</text>
+  <text class="t-mono" x="478" y="74">trx 130</text>
+  <text class="t-xs" x="550" y="74">table row, updated in place</text>
+  <text class="t-b" x="718" y="74" text-anchor="end">bal 400</text>
+
+  <path class="ln" d="M572 92 L572 132" marker-end="url(#arr)"/>
+  <text class="t-xs" x="582" y="116">roll pointer</text>
+
+  <rect class="box ghost" x="404" y="134" width="336" height="128" rx="12"/>
+  <text class="t-label" x="420" y="154">undo log</text>
+
+  <rect class="box teal" x="420" y="164" width="304" height="36" rx="10"/>
+  <text class="t-mono" x="436" y="186">trx 100</text>
+  <text class="t-xs" x="572" y="186" text-anchor="middle">before-image</text>
+  <text class="t-b" x="708" y="186" text-anchor="end">bal 500</text>
+
+  <path class="ln" d="M572 200 L572 214" marker-end="url(#arr)"/>
+
+  <rect class="box" x="420" y="216" width="304" height="36" rx="10"/>
+  <text class="t-mono t-muted" x="436" y="238">trx 90</text>
+  <text class="t-xs" x="572" y="238" text-anchor="middle">older</text>
+  <text class="t-muted" x="708" y="238" text-anchor="end">bal 450</text>
+
+  <text class="t-sm" x="572" y="288" text-anchor="middle">Old snapshots rebuild the row by walking undo</text>
+  <text class="t-xs" x="572" y="306" text-anchor="middle">purge drops undo once no snapshot needs it</text>
+</svg>

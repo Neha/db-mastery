@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <!-- Spreadsheet -->
+  <rect class="box panel" x="4" y="4" width="332" height="352" rx="16"/>
+  <text class="t-label" x="170" y="30" text-anchor="middle">Spreadsheet row</text>
+  <text class="t-xs" x="170" y="48" text-anchor="middle">one fact stored many times</text>
+
+  <text class="t-xs" x="28" y="76">order</text>
+  <text class="t-xs" x="88" y="76">email</text>
+  <text class="t-xs" x="168" y="76">country</text>
+  <text class="t-xs" x="240" y="76">skus</text>
+  <text class="t-xs" x="300" y="76">total</text>
+
+  <rect class="box orange" x="20" y="84" width="52" height="28" rx="8"/>
+  <text class="t-mono" x="46" y="102" text-anchor="middle">1</text>
+  <rect class="box orange" x="76" y="84" width="80" height="28" rx="8"/>
+  <text class="t-mono" x="116" y="102" text-anchor="middle">ada@x.com</text>
+  <rect class="box red" x="160" y="84" width="48" height="28" rx="8"/>
+  <text class="t-mono t-b" x="184" y="102" text-anchor="middle">GB</text>
+  <rect class="box orange" x="212" y="84" width="64" height="28" rx="8"/>
+  <text class="t-mono" x="244" y="102" text-anchor="middle">A1, B2</text>
+  <rect class="box orange" x="280" y="84" width="40" height="28" rx="8"/>
+  <text class="t-mono" x="300" y="102" text-anchor="middle">45</text>
+
+  <rect class="box orange" x="20" y="118" width="52" height="28" rx="8"/>
+  <text class="t-mono" x="46" y="136" text-anchor="middle">2</text>
+  <rect class="box orange" x="76" y="118" width="80" height="28" rx="8"/>
+  <text class="t-mono" x="116" y="136" text-anchor="middle">ada@x.com</text>
+  <rect class="box red" x="160" y="118" width="48" height="28" rx="8"/>
+  <text class="t-mono t-b" x="184" y="136" text-anchor="middle">UK</text>
+  <rect class="box orange" x="212" y="118" width="64" height="28" rx="8"/>
+  <text class="t-mono" x="244" y="136" text-anchor="middle">C3</text>
+  <rect class="box orange" x="280" y="118" width="40" height="28" rx="8"/>
+  <text class="t-mono" x="300" y="136" text-anchor="middle">10</text>
+
+  <text class="t-sm t-red t-b" x="170" y="176" text-anchor="middle">GB vs UK &#8212; same person</text>
+  <text class="t-sm" x="170" y="210" text-anchor="middle">email copied on every order</text>
+  <text class="t-sm" x="170" y="228" text-anchor="middle">skus is a list (not 1NF)</text>
+  <text class="t-sm" x="170" y="246" text-anchor="middle">total can drift from the lines</text>
+  <text class="t-xs" x="170" y="288" text-anchor="middle">update anomaly: change country in</text>
+  <text class="t-xs" x="170" y="304" text-anchor="middle">one row and miss the other</text>
+  <text class="t-xs" x="170" y="336" text-anchor="middle">0NF: a spreadsheet, not a schema</text>
+
+  <!-- 3NF -->
+  <rect class="box panel" x="352" y="4" width="404" height="352" rx="16"/>
+  <text class="t-label" x="554" y="30" text-anchor="middle">Third normal form</text>
+  <text class="t-xs" x="554" y="48" text-anchor="middle">each fact lives in one place</text>
+
+  <rect class="box green" x="372" y="64" width="176" height="88" rx="12"/>
+  <text class="t-b" x="460" y="86" text-anchor="middle">customers</text>
+  <text class="t-mono" x="388" y="108">17  ada@x.com</text>
+  <text class="t-mono" x="388" y="126">    country = GB</text>
+
+  <rect class="box" x="564" y="64" width="172" height="88" rx="12"/>
+  <text class="t-b" x="650" y="86" text-anchor="middle">orders</text>
+  <text class="t-mono" x="580" y="108">1  customer_id 17</text>
+  <text class="t-mono" x="580" y="126">2  customer_id 17</text>
+
+  <rect class="box" x="372" y="168" width="176" height="88" rx="12"/>
+  <text class="t-b" x="460" y="190" text-anchor="middle">order_items</text>
+  <text class="t-mono" x="388" y="212">1  A1  qty 2</text>
+  <text class="t-mono" x="388" y="230">1  B2  qty 1</text>
+
+  <rect class="box" x="564" y="168" width="172" height="88" rx="12"/>
+  <text class="t-b" x="650" y="190" text-anchor="middle">products</text>
+  <text class="t-mono" x="580" y="212">A1  pen</text>
+  <text class="t-mono" x="580" y="230">B2  ink</text>
+
+  <path class="ln green" d="M548 108 L564 108" marker-end="url(#arr-green)"/>
+  <path class="ln" d="M548 212 L564 212" marker-end="url(#arr)"/>
+
+  <text class="t-sm" x="554" y="300" text-anchor="middle">country depends on the customer,</text>
+  <text class="t-sm" x="554" y="318" text-anchor="middle">not the order &#8212; that is 3NF</text>
+  <text class="t-xs" x="554" y="340" text-anchor="middle">1NF atomic &#183; 2NF whole key &#183; 3NF key only</text>
+</svg>

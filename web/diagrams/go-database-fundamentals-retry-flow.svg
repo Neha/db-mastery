@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <!-- ========== happy path ========== -->
+  <rect class="box gray" x="20" y="40" width="120" height="44" rx="22"/>
+  <text class="t-mono" x="80" y="66" text-anchor="middle">withTx(ctx)</text>
+  <path class="ln" d="M140 62 L170 62" marker-end="url(#arr)"/>
+
+  <rect class="box" x="172" y="40" width="110" height="44" rx="12"/>
+  <text class="t-mono t-b" x="227" y="66" text-anchor="middle">BEGIN</text>
+  <path class="ln" d="M282 62 L312 62" marker-end="url(#arr)"/>
+
+  <rect class="box" x="314" y="40" width="120" height="44" rx="12"/>
+  <text class="t-mono t-b" x="374" y="66" text-anchor="middle">fn(tx)</text>
+  <path class="ln" d="M434 62 L464 62" marker-end="url(#arr)"/>
+
+  <rect class="box" x="466" y="40" width="110" height="44" rx="12"/>
+  <text class="t-mono t-b" x="521" y="66" text-anchor="middle">COMMIT</text>
+  <path class="ln green" d="M576 62 L606 62" marker-end="url(#arr-green)"/>
+
+  <rect class="box green" x="608" y="40" width="132" height="44" rx="22"/>
+  <text class="t-b t-green" x="674" y="66" text-anchor="middle">&#10003; return nil</text>
+
+  <!-- ========== error funnel ========== -->
+  <path class="ln dash" d="M374 84 L374 140" marker-end="url(#arr)"/>
+  <path class="ln dash" d="M521 84 C 521 116, 460 118, 460 140" marker-end="url(#arr)"/>
+  <text class="t-xs" x="382" y="116">error &#8594; ROLLBACK</text>
+
+  <rect class="box" x="290" y="142" width="220" height="44" rx="12"/>
+  <text class="t-b" x="400" y="162" text-anchor="middle">Classify the error</text>
+  <text class="t-mono t-muted" x="400" y="178" text-anchor="middle">errors.As(err, &amp;pgErr)</text>
+
+  <path class="ln orange" d="M310 186 C 310 220, 160 214, 160 246" marker-end="url(#arr-orange)"/>
+  <path class="ln" d="M400 186 L400 246" marker-end="url(#arr)"/>
+  <path class="ln red" d="M490 186 C 490 220, 640 214, 640 246" marker-end="url(#arr-red)"/>
+
+  <!-- ========== outcomes ========== -->
+  <rect class="box orange" x="40" y="248" width="240" height="66" rx="12"/>
+  <text class="t-mono t-b t-orange" x="160" y="272" text-anchor="middle">40001 &#183; 40P01</text>
+  <text class="t-sm" x="160" y="290" text-anchor="middle">serialization failure, deadlock</text>
+  <text class="t-sm" x="160" y="305" text-anchor="middle">sleep with backoff + jitter</text>
+
+  <rect class="box" x="300" y="248" width="200" height="66" rx="12"/>
+  <text class="t-mono t-b" x="400" y="272" text-anchor="middle">23505</text>
+  <text class="t-sm" x="400" y="290" text-anchor="middle">unique violation</text>
+  <text class="t-sm" x="400" y="305" text-anchor="middle">map to ErrDuplicate</text>
+
+  <rect class="box red" x="520" y="248" width="220" height="66" rx="12"/>
+  <text class="t-b t-red" x="630" y="272" text-anchor="middle">everything else</text>
+  <text class="t-sm" x="630" y="290" text-anchor="middle">ctx done, retries exhausted,</text>
+  <text class="t-sm" x="630" y="305" text-anchor="middle">bad SQL: return err</text>
+
+  <!-- retry loop back to BEGIN -->
+  <path class="ln orange dash" d="M60 248 C 20 200, 20 120, 60 108 C 120 96, 200 110, 220 86" marker-end="url(#arr-orange)"/>
+  <text class="t-xs t-orange" x="40" y="160">retry</text>
+  <text class="t-xs t-orange" x="40" y="174">whole tx</text>
+</svg>

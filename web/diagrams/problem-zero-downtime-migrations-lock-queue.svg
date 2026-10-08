@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330">
+  <!-- commit marker -->
+  <path class="ln dash faint" d="M560 38 L560 246"/>
+  <text class="t-xs" x="560" y="28" text-anchor="middle">A commits</text>
+
+  <!-- Lane A -->
+  <text class="t-b" x="20" y="58">Session A</text>
+  <text class="t-xs" x="20" y="74">long report query</text>
+  <rect class="box blue" x="190" y="45" width="370" height="34" rx="10"/>
+  <text class="t-sm" x="375" y="66" text-anchor="middle">holds ACCESS SHARE for minutes</text>
+
+  <!-- Lane B -->
+  <text class="t-b" x="20" y="110">Session B</text>
+  <text class="t-xs" x="20" y="126">ALTER TABLE orders</text>
+  <rect class="box orange" x="250" y="97" width="306" height="34" rx="10"/>
+  <text class="t-sm" x="403" y="118" text-anchor="middle">waits for ACCESS EXCLUSIVE</text>
+  <rect class="box green" x="566" y="97" width="48" height="34" rx="10"/>
+  <text class="t-xs" x="590" y="118" text-anchor="middle">DDL</text>
+
+  <!-- Lane C -->
+  <text class="t-b" x="20" y="162">App reads</text>
+  <text class="t-xs" x="20" y="178">plain SELECTs</text>
+  <rect class="box orange" x="310" y="149" width="246" height="34" rx="10"/>
+  <text class="t-sm" x="433" y="170" text-anchor="middle">queued behind B, not A</text>
+  <rect class="box green" x="622" y="149" width="118" height="34" rx="10"/>
+  <text class="t-sm" x="681" y="170" text-anchor="middle">resume</text>
+
+  <!-- Lane D -->
+  <text class="t-b" x="20" y="214">App writes</text>
+  <text class="t-xs" x="20" y="230">INSERT / UPDATE</text>
+  <rect class="box red" x="350" y="201" width="206" height="34" rx="10"/>
+  <text class="t-sm" x="453" y="222" text-anchor="middle">pool exhausted &#183; 5xx</text>
+  <rect class="box green" x="622" y="201" width="118" height="34" rx="10"/>
+  <text class="t-sm" x="681" y="222" text-anchor="middle">resume</text>
+
+  <!-- time axis -->
+  <path class="ln faint" d="M190 266 L736 266" marker-end="url(#arr)"/>
+  <text class="t-xs" x="740" y="284" text-anchor="end">time</text>
+  <circle class="fill-blue" cx="190" cy="266" r="4"/>
+  <circle class="fill-orange" cx="250" cy="266" r="4"/>
+  <circle class="fill-orange" cx="310" cy="266" r="4"/>
+  <circle class="fill-red" cx="350" cy="266" r="4"/>
+
+  <!-- fix -->
+  <rect class="box green" x="150" y="290" width="460" height="30" rx="15"/>
+  <text class="t-sm" x="380" y="309" text-anchor="middle"><tspan class="t-b t-green">Fix:</tspan> SET lock_timeout = '2s' on the DDL session, then retry</text>
+</svg>

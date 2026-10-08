@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <text class="t-label" x="380" y="26" text-anchor="middle">Lost update on the last item</text>
+
+  <rect class="box" x="280" y="44" width="200" height="40" rx="12"/>
+  <text class="t-b" x="380" y="68" text-anchor="middle">stock = 1</text>
+
+  <path class="ln faint" d="M380 84 L380 104"/>
+
+  <rect class="box blue" x="24" y="108" width="300" height="132" rx="14"/>
+  <text class="t-b" x="40" y="132">Checkout A</text>
+  <text class="t-sm" x="40" y="156">read stock &#8594; 1</text>
+  <text class="t-sm" x="40" y="176">think, then write 0</text>
+  <text class="t-sm t-b t-green" x="40" y="200">COMMIT &#183; sold one</text>
+
+  <rect class="box blue" x="436" y="108" width="300" height="132" rx="14"/>
+  <text class="t-b" x="452" y="132">Checkout B</text>
+  <text class="t-sm" x="452" y="156">read stock &#8594; 1</text>
+  <text class="t-sm" x="452" y="176">think, then write 0</text>
+  <text class="t-sm t-b t-red" x="452" y="200">COMMIT &#183; sold one</text>
+
+  <path class="ln red" d="M324 174 L436 174" marker-end="url(#arr-red)"/>
+  <path class="ln red" d="M436 190 L324 190" marker-start="url(#arr-red)"/>
+  <text class="t-xs t-red" x="380" y="164" text-anchor="middle">no conflict</text>
+
+  <rect class="box red" x="80" y="260" width="600" height="56" rx="14"/>
+  <text class="t-b t-red" x="380" y="284" text-anchor="middle">two sales, one item</text>
+  <text class="t-xs" x="380" y="304" text-anchor="middle">atomic UPDATE &#8230; WHERE stock &gt;= 1  or  SELECT FOR UPDATE  before you think</text>
+</svg>

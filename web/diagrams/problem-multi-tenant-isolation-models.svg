@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380">
+  <rect class="box panel" x="8" y="8" width="240" height="364" rx="16"/>
+  <text class="t-label t-blue" x="128" y="32" text-anchor="middle">Pool</text>
+  <text class="t-xs" x="128" y="48" text-anchor="middle">shared DB, shared schema</text>
+
+  <rect class="box" x="28" y="64" width="200" height="132" rx="12"/>
+  <text class="t-b" x="128" y="86" text-anchor="middle">shop</text>
+  <rect class="box blue" x="40" y="98" width="80" height="24" rx="12"/>
+  <text class="t-xs" x="80" y="114" text-anchor="middle">tA row</text>
+  <rect class="box orange" x="128" y="98" width="80" height="24" rx="12"/>
+  <text class="t-xs" x="168" y="114" text-anchor="middle">tB row</text>
+  <rect class="box purple" x="40" y="128" width="80" height="24" rx="12"/>
+  <text class="t-xs" x="80" y="144" text-anchor="middle">tC row</text>
+  <rect class="box blue" x="128" y="128" width="80" height="24" rx="12"/>
+  <text class="t-xs" x="168" y="144" text-anchor="middle">tA row</text>
+  <text class="t-xs" x="128" y="180" text-anchor="middle">tenant_id on every row</text>
+
+  <text class="t-sm" x="128" y="220" text-anchor="middle">Cheapest to run</text>
+  <text class="t-sm" x="128" y="240" text-anchor="middle">Noisy neighbours</text>
+  <text class="t-sm" x="128" y="260" text-anchor="middle">Forgotten WHERE leaks</text>
+  <rect class="box blue" x="28" y="288" width="200" height="64" rx="12"/>
+  <text class="t-sm t-b" x="128" y="314" text-anchor="middle">Wins when</text>
+  <text class="t-xs" x="128" y="334" text-anchor="middle">many small, similar tenants</text>
+
+  <rect class="box panel" x="260" y="8" width="240" height="364" rx="16"/>
+  <text class="t-label t-purple" x="380" y="32" text-anchor="middle">Bridge</text>
+  <text class="t-xs" x="380" y="48" text-anchor="middle">shared DB, schema per tenant</text>
+
+  <rect class="box" x="280" y="64" width="200" height="132" rx="12"/>
+  <text class="t-b" x="380" y="86" text-anchor="middle">shop</text>
+  <rect class="box purple" x="292" y="98" width="176" height="24" rx="8"/>
+  <text class="t-xs" x="380" y="114" text-anchor="middle">schema tenant_a</text>
+  <rect class="box purple" x="292" y="128" width="176" height="24" rx="8"/>
+  <text class="t-xs" x="380" y="144" text-anchor="middle">schema tenant_b</text>
+  <rect class="box purple" x="292" y="158" width="176" height="24" rx="8"/>
+  <text class="t-xs" x="380" y="174" text-anchor="middle">schema tenant_c</text>
+
+  <text class="t-sm" x="380" y="220" text-anchor="middle">Medium isolation</text>
+  <text class="t-sm" x="380" y="240" text-anchor="middle">Migrate N schemas</text>
+  <text class="t-sm" x="380" y="260" text-anchor="middle">search_path routing</text>
+  <rect class="box purple" x="280" y="288" width="200" height="64" rx="12"/>
+  <text class="t-sm t-b" x="380" y="314" text-anchor="middle">Wins when</text>
+  <text class="t-xs" x="380" y="334" text-anchor="middle">per-tenant schema drift</text>
+
+  <rect class="box panel" x="512" y="8" width="240" height="364" rx="16"/>
+  <text class="t-label t-green" x="632" y="32" text-anchor="middle">Silo</text>
+  <text class="t-xs" x="632" y="48" text-anchor="middle">database per tenant</text>
+
+  <rect class="box green" x="532" y="64" width="200" height="36" rx="10"/>
+  <text class="t-sm" x="632" y="86" text-anchor="middle">db tenant_a</text>
+  <rect class="box green" x="532" y="108" width="200" height="36" rx="10"/>
+  <text class="t-sm" x="632" y="130" text-anchor="middle">db tenant_b</text>
+  <rect class="box green" x="532" y="152" width="200" height="36" rx="10"/>
+  <text class="t-sm" x="632" y="174" text-anchor="middle">db tenant_c</text>
+
+  <text class="t-sm" x="632" y="220" text-anchor="middle">Strongest isolation</text>
+  <text class="t-sm" x="632" y="240" text-anchor="middle">Highest ops cost</text>
+  <text class="t-sm" x="632" y="260" text-anchor="middle">Easy crypto-shred</text>
+  <rect class="box green" x="532" y="288" width="200" height="64" rx="12"/>
+  <text class="t-sm t-b" x="632" y="314" text-anchor="middle">Wins when</text>
+  <text class="t-xs" x="632" y="334" text-anchor="middle">regulated or noisy whales</text>
+</svg>

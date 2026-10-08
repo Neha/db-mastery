@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320">
+  <rect class="box orange" x="16" y="20" width="140" height="56" rx="12"/>
+  <text class="t-b" x="86" y="44" text-anchor="middle">Oracle</text>
+  <text class="t-xs" x="86" y="60" text-anchor="middle">source of truth</text>
+
+  <path class="ln orange" d="M156 48 L188 48" marker-end="url(#arr-orange)"/>
+
+  <rect class="box purple" x="190" y="20" width="140" height="56" rx="12"/>
+  <text class="t-b" x="260" y="44" text-anchor="middle">Debezium</text>
+  <text class="t-xs" x="260" y="60" text-anchor="middle">log-based CDC</text>
+
+  <path class="ln purple" d="M330 48 L362 48" marker-end="url(#arr-purple)"/>
+
+  <rect class="box purple" x="364" y="20" width="140" height="56" rx="12"/>
+  <text class="t-b" x="434" y="44" text-anchor="middle">Kafka</text>
+  <text class="t-xs" x="434" y="60" text-anchor="middle">ordered change log</text>
+
+  <path class="ln teal" d="M504 48 L536 48" marker-end="url(#arr)"/>
+
+  <rect class="box green" x="538" y="20" width="206" height="56" rx="12"/>
+  <text class="t-b" x="641" y="44" text-anchor="middle">Postgres</text>
+  <text class="t-xs" x="641" y="60" text-anchor="middle">target, then new truth</text>
+
+  <rect class="box gray" x="262" y="116" width="236" height="56" rx="12"/>
+  <text class="t-b" x="380" y="140" text-anchor="middle">App + feature flag</text>
+  <text class="t-xs" x="380" y="156" text-anchor="middle">dual read, then cut over</text>
+
+  <path class="ln gray" d="M86 76 C 86 100, 200 116, 262 140" marker-end="url(#arr)"/>
+  <path class="ln green" d="M641 76 C 641 100, 560 116, 498 140" marker-end="url(#arr-green)"/>
+
+  <path class="ln blue thick" d="M20 200 L186 200"/>
+  <text class="t-label t-blue" x="103" y="222" text-anchor="middle">1 Snapshot</text>
+  <text class="t-xs" x="103" y="238" text-anchor="middle">initial load</text>
+
+  <path class="ln purple thick" d="M206 200 L372 200"/>
+  <text class="t-label t-purple" x="289" y="222" text-anchor="middle">2 Catch-up</text>
+  <text class="t-xs" x="289" y="238" text-anchor="middle">CDC lag ~ 0</text>
+
+  <path class="ln orange thick" d="M392 200 L558 200"/>
+  <text class="t-label t-orange" x="475" y="222" text-anchor="middle">3 Dual read</text>
+  <text class="t-xs" x="475" y="238" text-anchor="middle">compare + fallback</text>
+
+  <path class="ln green thick" d="M578 200 L744 200"/>
+  <text class="t-label t-green" x="661" y="222" text-anchor="middle">4 Cut over</text>
+  <text class="t-xs" x="661" y="238" text-anchor="middle">writes to target</text>
+
+  <text class="t-sm" x="380" y="280" text-anchor="middle">Keep the source read-only for a soak window after cutover.</text>
+  <text class="t-xs" x="380" y="300" text-anchor="middle">Checksum rows before you flip the write flag.</text>
+</svg>

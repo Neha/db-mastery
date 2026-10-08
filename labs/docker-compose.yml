@@ -1,0 +1,41 @@
+name: dbm
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: dbm-postgres
+    environment:
+      POSTGRES_USER: dbm
+      POSTGRES_PASSWORD: dbm
+      POSTGRES_DB: dbm
+    ports:
+      - "5442:5432" # host port 5442 avoids clashing with a locally installed Postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    command: ["postgres", "-c", "shared_preload_libraries=pg_stat_statements", "-c", "wal_level=logical"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dbm -d dbm"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  mongo:
+    image: mongo:7
+    container_name: dbm-mongo
+    command: ["--replSet", "rs0", "--bind_ip_all"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+    healthcheck:
+      # Initiates the single-node replica set on first boot, then reports health.
+      test: >
+        mongosh --quiet --eval "try { rs.status().ok } catch (e) { rs.initiate({_id: 'rs0', members: [{_id: 0, host: 'localhost:27017'}]}).ok }"
+      interval: 5s
+      timeout: 10s
+      retries: 30
+      start_period: 5s
+
+volumes:
+  pgdata:
+  mongodata:

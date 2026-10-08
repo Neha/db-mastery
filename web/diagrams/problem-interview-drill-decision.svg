@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320">
+  <text class="t-label" x="380" y="28" text-anchor="middle">Pick the store from the access pattern</text>
+
+  <!-- postgres -->
+  <rect class="box panel" x="12" y="44" width="240" height="256" rx="16"/>
+  <rect class="box blue" x="32" y="64" width="200" height="36" rx="12"/>
+  <text class="t-b" x="132" y="87" text-anchor="middle">PostgreSQL</text>
+  <text class="t-sm" x="132" y="124" text-anchor="middle">joins, constraints,</text>
+  <text class="t-sm" x="132" y="142" text-anchor="middle">multi-row invariants</text>
+  <text class="t-xs t-muted" x="132" y="168" text-anchor="middle">orders + stock</text>
+  <text class="t-xs t-muted" x="132" y="184" text-anchor="middle">ledger, billing</text>
+  <text class="t-xs t-muted" x="132" y="200" text-anchor="middle">reporting that joins</text>
+  <rect class="box ghost" x="32" y="220" width="200" height="56" rx="12"/>
+  <text class="t-xs" x="132" y="244" text-anchor="middle">Not: unbounded fan-out</text>
+  <text class="t-xs" x="132" y="260" text-anchor="middle">or a hot session cache</text>
+
+  <!-- mongo -->
+  <rect class="box panel" x="260" y="44" width="240" height="256" rx="16"/>
+  <rect class="box teal" x="280" y="64" width="200" height="36" rx="12"/>
+  <text class="t-b" x="380" y="87" text-anchor="middle">MongoDB</text>
+  <text class="t-sm" x="380" y="124" text-anchor="middle">one aggregate per</text>
+  <text class="t-sm" x="380" y="142" text-anchor="middle">request, flexible shape</text>
+  <text class="t-xs t-muted" x="380" y="168" text-anchor="middle">catalog, profile</text>
+  <text class="t-xs t-muted" x="380" y="184" text-anchor="middle">content tree</text>
+  <text class="t-xs t-muted" x="380" y="200" text-anchor="middle">per-tenant documents</text>
+  <rect class="box ghost" x="280" y="220" width="200" height="56" rx="12"/>
+  <text class="t-xs" x="380" y="244" text-anchor="middle">Not: heavy multi-doc</text>
+  <text class="t-xs" x="380" y="260" text-anchor="middle">joins as the hot path</text>
+
+  <!-- redis -->
+  <rect class="box panel" x="508" y="44" width="240" height="256" rx="16"/>
+  <rect class="box purple" x="528" y="64" width="200" height="36" rx="12"/>
+  <text class="t-b" x="628" y="87" text-anchor="middle">Redis</text>
+  <text class="t-sm" x="628" y="124" text-anchor="middle">ephemeral, hot keys,</text>
+  <text class="t-sm" x="628" y="142" text-anchor="middle">data structures</text>
+  <text class="t-xs t-muted" x="628" y="168" text-anchor="middle">sessions, locks</text>
+  <text class="t-xs t-muted" x="628" y="184" text-anchor="middle">rate limits, leaderboards</text>
+  <text class="t-xs t-muted" x="628" y="200" text-anchor="middle">cache-aside</text>
+  <rect class="box ghost" x="528" y="220" width="200" height="56" rx="12"/>
+  <text class="t-xs" x="628" y="244" text-anchor="middle">Not: the system of record</text>
+  <text class="t-xs" x="628" y="260" text-anchor="middle">for money or identity</text>
+</svg>

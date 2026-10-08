@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 392">
+  <!-- ========== fan-in ========== -->
+  <text x="240" y="32" text-anchor="middle"><tspan class="t-xs">many, mostly idle</tspan></text>
+  <text x="519" y="32" text-anchor="middle"><tspan class="t-xs">few, busy</tspan></text>
+
+  <rect class="box gray" x="20" y="40" width="170" height="64" rx="12"/>
+  <text x="105" y="67" text-anchor="middle"><tspan class="t-b">1,000 client conns</tspan></text>
+  <text x="105" y="85" text-anchor="middle"><tspan class="t-xs">50 pods &#215; pool of 20</tspan></text>
+
+  <path class="ln thin faint" d="M190 50 C 240 50, 240 72, 288 72"/>
+  <path class="ln thin faint" d="M190 61 C 240 61, 240 72, 288 72"/>
+  <path class="ln thin faint" d="M190 72 L288 72"/>
+  <path class="ln thin faint" d="M190 83 C 240 83, 240 72, 288 72"/>
+  <path class="ln thin faint" d="M190 94 C 240 94, 240 72, 288 72" marker-end="url(#arr)"/>
+
+  <rect class="box blue" x="290" y="40" width="180" height="64" rx="12"/>
+  <text x="380" y="67" text-anchor="middle"><tspan class="t-b">PgBouncer</tspan></text>
+  <text x="380" y="85" text-anchor="middle"><tspan class="t-mono">pool_mode=transaction</tspan></text>
+
+  <path class="ln blue thick" d="M470 62 L568 62" marker-end="url(#arr-blue)"/>
+  <path class="ln blue thick" d="M470 82 L568 82" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="570" y="40" width="170" height="64" rx="12"/>
+  <text x="655" y="67" text-anchor="middle"><tspan class="t-b">Postgres</tspan></text>
+  <text x="655" y="85" text-anchor="middle"><tspan class="t-xs">40 server backends</tspan></text>
+
+  <!-- ========== timeline ========== -->
+  <text x="20" y="146"><tspan class="t-label">When is a server connection held?</tspan></text>
+
+  <!-- guides -->
+  <path class="ln thin dash faint" d="M170 160 L170 336"/>
+  <path class="ln thin dash faint" d="M330 160 L330 336"/>
+  <path class="ln thin dash faint" d="M470 160 L470 336"/>
+  <path class="ln thin dash faint" d="M620 160 L620 336"/>
+
+  <!-- client row -->
+  <text x="20" y="180"><tspan class="t-b">client</tspan></text>
+  <text x="20" y="193"><tspan class="t-xs">one session</tspan></text>
+  <rect class="box ghost" x="140" y="164" width="600" height="26" rx="13"/>
+  <rect class="box gray" x="170" y="164" width="160" height="26" rx="8"/>
+  <text x="250" y="181" text-anchor="middle"><tspan class="t-sm">BEGIN &#8230; COMMIT</tspan></text>
+  <text x="400" y="181" text-anchor="middle"><tspan class="t-xs">idle</tspan></text>
+  <rect class="box gray" x="470" y="164" width="150" height="26" rx="8"/>
+  <text x="545" y="181" text-anchor="middle"><tspan class="t-sm">BEGIN &#8230; COMMIT</tspan></text>
+  <text x="680" y="181" text-anchor="middle"><tspan class="t-xs">idle</tspan></text>
+
+  <!-- session -->
+  <text x="20" y="226"><tspan class="t-mono t-b">session</tspan></text>
+  <text x="20" y="239"><tspan class="t-xs">held until disconnect</tspan></text>
+  <rect class="fill-orange" x="140" y="212" width="600" height="20" rx="10"/>
+
+  <!-- transaction -->
+  <text x="20" y="272"><tspan class="t-mono t-b">transaction</tspan></text>
+  <text x="20" y="285"><tspan class="t-xs">held per transaction</tspan></text>
+  <rect class="fill-green" x="170" y="258" width="160" height="20" rx="10"/>
+  <rect class="fill-green" x="470" y="258" width="150" height="20" rx="10"/>
+
+  <!-- statement -->
+  <text x="20" y="318"><tspan class="t-mono t-b">statement</tspan></text>
+  <text x="20" y="331"><tspan class="t-xs">held per statement</tspan></text>
+  <rect class="fill-blue" x="176" y="304" width="40" height="20" rx="10"/>
+  <rect class="fill-blue" x="234" y="304" width="34" height="20" rx="10"/>
+  <rect class="fill-blue" x="286" y="304" width="38" height="20" rx="10"/>
+  <rect class="fill-blue" x="478" y="304" width="52" height="20" rx="10"/>
+  <rect class="fill-blue" x="556" y="304" width="58" height="20" rx="10"/>
+
+  <!-- footnotes -->
+  <text x="20" y="362"><tspan class="t-sm t-green t-b">transaction:</tspan><tspan class="t-sm"> best multiplexing, but no session state (SET, LISTEN, advisory locks, temp tables)</tspan></text>
+  <text x="20" y="380"><tspan class="t-sm t-blue t-b">statement:</tspan><tspan class="t-sm"> autocommit only, so multi-statement transactions are refused</tspan></text>
+</svg>

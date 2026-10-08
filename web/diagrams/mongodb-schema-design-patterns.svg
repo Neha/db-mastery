@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320">
+  <rect class="box green" x="12" y="12" width="360" height="140" rx="14"/>
+  <text class="t-label" x="192" y="40" text-anchor="middle">Embed</text>
+  <text class="t-b" x="192" y="68" text-anchor="middle">one document, one write</text>
+  <text class="t-sm" x="192" y="92" text-anchor="middle">order embeds its line items</text>
+  <text class="t-xs" x="192" y="126" text-anchor="middle">1:few &#183; read together &#183; bounded</text>
+
+  <rect class="box blue" x="388" y="12" width="360" height="140" rx="14"/>
+  <text class="t-label" x="568" y="40" text-anchor="middle">Reference</text>
+  <text class="t-b" x="568" y="68" text-anchor="middle">child holds parentId</text>
+  <text class="t-sm" x="568" y="92" text-anchor="middle">reviews live in their own collection</text>
+  <text class="t-xs" x="568" y="126" text-anchor="middle">unbounded &#183; shared &#183; own updates</text>
+
+  <rect class="box teal" x="12" y="168" width="360" height="140" rx="14"/>
+  <text class="t-label" x="192" y="196" text-anchor="middle">Bucket</text>
+  <text class="t-b" x="192" y="224" text-anchor="middle">many small events, one doc</text>
+  <text class="t-sm" x="192" y="248" text-anchor="middle">sensor readings per hour</text>
+  <text class="t-xs" x="192" y="282" text-anchor="middle">IoT &#183; time series &#183; fewer indexes</text>
+
+  <rect class="box orange" x="388" y="168" width="360" height="140" rx="14"/>
+  <text class="t-label" x="568" y="196" text-anchor="middle">Outlier</text>
+  <text class="t-b" x="568" y="224" text-anchor="middle">common case + overflow</text>
+  <text class="t-sm" x="568" y="248" text-anchor="middle">buyers[1000], rest elsewhere</text>
+  <text class="t-xs" x="568" y="282" text-anchor="middle">a few huge documents</text>
+</svg>

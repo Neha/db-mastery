@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 284">
+  <!-- Row 1 -->
+  <!-- Relational -->
+  <rect class="box" x="12" y="12" width="172" height="124" rx="14"/>
+  <text class="t-b" x="98" y="36" text-anchor="middle">Relational</text>
+  <rect class="box blue" x="62" y="46" width="72" height="36" rx="6"/>
+  <path class="ln thin" d="M62 58 L134 58 M62 70 L134 70 M86 46 L86 82 M110 46 L110 82"/>
+  <text class="t-sm" x="98" y="104" text-anchor="middle">integrity, ad-hoc joins</text>
+  <text class="t-xs" x="98" y="122" text-anchor="middle">Postgres &#183; MySQL &#183; Oracle</text>
+
+  <!-- Document -->
+  <rect class="box" x="200" y="12" width="172" height="124" rx="14"/>
+  <text class="t-b" x="286" y="36" text-anchor="middle">Document</text>
+  <rect class="box blue" x="226" y="46" width="120" height="36" rx="8"/>
+  <text class="t-mono" x="286" y="68" text-anchor="middle">{ items: [ &#8230; ] }</text>
+  <text class="t-sm" x="286" y="104" text-anchor="middle">aggregates read together</text>
+  <text class="t-xs" x="286" y="122" text-anchor="middle">MongoDB &#183; Couchbase</text>
+
+  <!-- Key-value -->
+  <rect class="box" x="388" y="12" width="172" height="124" rx="14"/>
+  <text class="t-b" x="474" y="36" text-anchor="middle">Key-value</text>
+  <rect class="box blue" x="414" y="50" width="44" height="28" rx="6"/>
+  <text class="t-mono" x="436" y="68" text-anchor="middle">key</text>
+  <path class="ln blue" d="M460 64 L478 64" marker-end="url(#arr-blue)"/>
+  <rect class="box" x="480" y="50" width="56" height="28" rx="6"/>
+  <text class="t-mono" x="508" y="68" text-anchor="middle">blob</text>
+  <text class="t-sm" x="474" y="104" text-anchor="middle">lookups by key, caches</text>
+  <text class="t-xs" x="474" y="122" text-anchor="middle">Redis &#183; DynamoDB &#183; etcd</text>
+
+  <!-- Wide-column -->
+  <rect class="box" x="576" y="12" width="172" height="124" rx="14"/>
+  <text class="t-b" x="662" y="36" text-anchor="middle">Wide-column</text>
+  <rect class="box blue" x="608" y="46" width="22" height="10" rx="3"/>
+  <rect class="box" x="634" y="46" width="22" height="10" rx="3"/>
+  <rect class="box" x="660" y="46" width="22" height="10" rx="3"/>
+  <rect class="box" x="686" y="46" width="22" height="10" rx="3"/>
+  <rect class="box blue" x="608" y="60" width="22" height="10" rx="3"/>
+  <rect class="box" x="634" y="60" width="22" height="10" rx="3"/>
+  <rect class="box blue" x="608" y="74" width="22" height="10" rx="3"/>
+  <rect class="box" x="634" y="74" width="22" height="10" rx="3"/>
+  <rect class="box" x="660" y="74" width="22" height="10" rx="3"/>
+  <text class="t-sm" x="662" y="104" text-anchor="middle">huge write volume</text>
+  <text class="t-xs" x="662" y="122" text-anchor="middle">Cassandra &#183; Bigtable</text>
+
+  <!-- Row 2 -->
+  <!-- Graph -->
+  <rect class="box" x="12" y="148" width="172" height="124" rx="14"/>
+  <text class="t-b" x="98" y="172" text-anchor="middle">Graph</text>
+  <path class="ln" d="M74 200 L98 186 L122 200 L98 214 Z M98 186 L98 214"/>
+  <circle class="fill-blue" cx="74" cy="200" r="6"/>
+  <circle class="fill-blue" cx="98" cy="186" r="6"/>
+  <circle class="fill-blue" cx="122" cy="200" r="6"/>
+  <circle class="fill-blue" cx="98" cy="214" r="6"/>
+  <text class="t-sm" x="98" y="240" text-anchor="middle">deep relationship hops</text>
+  <text class="t-xs" x="98" y="258" text-anchor="middle">Neo4j &#183; Neptune</text>
+
+  <!-- Search -->
+  <rect class="box" x="200" y="148" width="172" height="124" rx="14"/>
+  <text class="t-b" x="286" y="172" text-anchor="middle">Search</text>
+  <rect class="box blue" x="222" y="184" width="128" height="34" rx="8"/>
+  <text class="t-mono" x="286" y="205" text-anchor="middle">term &#8594; doc ids</text>
+  <text class="t-sm" x="286" y="240" text-anchor="middle">relevance, fuzzy text</text>
+  <text class="t-xs" x="286" y="258" text-anchor="middle">OpenSearch &#183; Atlas Search</text>
+
+  <!-- Columnar -->
+  <rect class="box" x="388" y="148" width="172" height="124" rx="14"/>
+  <text class="t-b" x="474" y="172" text-anchor="middle">Columnar (OLAP)</text>
+  <rect class="box" x="432" y="182" width="16" height="38" rx="4"/>
+  <rect class="box" x="454" y="182" width="16" height="38" rx="4"/>
+  <rect class="box blue" x="476" y="182" width="16" height="38" rx="4"/>
+  <rect class="box" x="498" y="182" width="16" height="38" rx="4"/>
+  <text class="t-sm" x="474" y="240" text-anchor="middle">scans + aggregates</text>
+  <text class="t-xs" x="474" y="258" text-anchor="middle">Databricks &#183; Snowflake</text>
+
+  <!-- Vector -->
+  <rect class="box" x="576" y="148" width="172" height="124" rx="14"/>
+  <text class="t-b" x="662" y="172" text-anchor="middle">Vector</text>
+  <circle class="box ghost" cx="662" cy="201" r="18"/>
+  <circle class="fill-blue" cx="662" cy="201" r="4"/>
+  <circle class="fill-gray" cx="652" cy="193" r="3"/>
+  <circle class="fill-gray" cx="673" cy="208" r="3"/>
+  <circle class="fill-gray" cx="626" cy="190" r="3"/>
+  <circle class="fill-gray" cx="700" cy="214" r="3"/>
+  <circle class="fill-gray" cx="694" cy="186" r="3"/>
+  <text class="t-sm" x="662" y="240" text-anchor="middle">nearest-neighbour search</text>
+  <text class="t-xs" x="662" y="258" text-anchor="middle">pgvector &#183; Atlas &#183; Pinecone</text>
+</svg>

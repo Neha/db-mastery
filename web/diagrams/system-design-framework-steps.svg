@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260">
+  <rect class="box blue" x="12" y="16" width="168" height="88" rx="12"/>
+  <text class="t-xs t-muted" x="96" y="40" text-anchor="middle">1 &#183; 5&#8211;8 min</text>
+  <text class="t-b" x="96" y="64" text-anchor="middle">Clarify</text>
+  <text class="t-xs" x="96" y="86" text-anchor="middle">needs, not guesses</text>
+  <path class="ln blue" d="M180 60 L194 60" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="196" y="16" width="168" height="88" rx="12"/>
+  <text class="t-xs t-muted" x="280" y="40" text-anchor="middle">2 &#183; 3&#8211;5 min</text>
+  <text class="t-b" x="280" y="64" text-anchor="middle">Estimate</text>
+  <text class="t-xs" x="280" y="86" text-anchor="middle">QPS, size, growth</text>
+  <path class="ln blue" d="M364 60 L378 60" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="380" y="16" width="168" height="88" rx="12"/>
+  <text class="t-xs t-muted" x="464" y="40" text-anchor="middle">3 &#183; 5&#8211;8 min</text>
+  <text class="t-b" x="464" y="64" text-anchor="middle">Model</text>
+  <text class="t-xs" x="464" y="86" text-anchor="middle">entities, hot queries</text>
+  <path class="ln blue" d="M548 60 L562 60" marker-end="url(#arr-blue)"/>
+
+  <rect class="box blue" x="564" y="16" width="184" height="88" rx="12"/>
+  <text class="t-xs t-muted" x="656" y="40" text-anchor="middle">4 &#183; 8&#8211;10 min</text>
+  <text class="t-b" x="656" y="64" text-anchor="middle">Architecture</text>
+  <text class="t-xs" x="656" y="86" text-anchor="middle">end-to-end flow</text>
+
+  <path class="ln blue" d="M656 104 L656 128 L196 128 L196 140" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="112" y="140" width="168" height="88" rx="12"/>
+  <text class="t-xs t-muted" x="196" y="164" text-anchor="middle">5 &#183; 10&#8211;15 min</text>
+  <text class="t-b" x="196" y="188" text-anchor="middle">Deep dive</text>
+  <text class="t-xs" x="196" y="210" text-anchor="middle">storage, the hard part</text>
+  <path class="ln blue" d="M280 184 L294 184" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="296" y="140" width="168" height="88" rx="12"/>
+  <text class="t-xs t-muted" x="380" y="164" text-anchor="middle">6 &#183; 5 min</text>
+  <text class="t-b" x="380" y="188" text-anchor="middle">Operations</text>
+  <text class="t-xs" x="380" y="210" text-anchor="middle">failure, DR, cost</text>
+  <path class="ln blue" d="M464 184 L478 184" marker-end="url(#arr-blue)"/>
+
+  <rect class="box green" x="480" y="140" width="168" height="88" rx="12"/>
+  <text class="t-xs t-muted" x="564" y="164" text-anchor="middle">7 &#183; 2 min</text>
+  <text class="t-b" x="564" y="188" text-anchor="middle">Summarise</text>
+  <text class="t-xs" x="564" y="210" text-anchor="middle">decisions, next steps</text>
+</svg>

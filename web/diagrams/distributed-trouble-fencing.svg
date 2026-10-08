@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <rect class="box gray" x="280" y="8" width="200" height="44" rx="12"/>
+  <text class="t-b" x="380" y="35" text-anchor="middle">Lock service</text>
+
+  <path class="ln blue" d="M320 52 L200 92" marker-end="url(#arr-blue)"/>
+  <path class="ln green" d="M440 52 L560 92" marker-end="url(#arr-green)"/>
+  <text class="t-xs t-blue" x="240" y="72" text-anchor="middle">token 33</text>
+  <text class="t-xs t-green" x="520" y="72" text-anchor="middle">token 34</text>
+
+  <rect class="box orange" x="80" y="96" width="200" height="88" rx="12"/>
+  <text class="t-b" x="180" y="124" text-anchor="middle">Client A</text>
+  <text class="t-sm" x="180" y="144" text-anchor="middle">holds 33, then pauses</text>
+  <text class="t-xs t-orange" x="180" y="164" text-anchor="middle">GC &#183; swap &#183; STW</text>
+
+  <rect class="box green" x="480" y="96" width="200" height="88" rx="12"/>
+  <text class="t-b" x="580" y="124" text-anchor="middle">Client B</text>
+  <text class="t-sm" x="580" y="144" text-anchor="middle">lease expired, got 34</text>
+  <text class="t-xs" x="580" y="164" text-anchor="middle">writes immediately</text>
+
+  <path class="ln orange dash" d="M180 184 L180 248" marker-end="url(#arr-orange)"/>
+  <path class="ln green" d="M580 184 L580 248" marker-end="url(#arr-green)"/>
+  <text class="t-xs t-orange" x="124" y="224" text-anchor="end">stale write</text>
+  <text class="t-xs t-green" x="636" y="224">valid write</text>
+
+  <rect class="box" x="80" y="252" width="600" height="92" rx="14"/>
+  <text class="t-b" x="380" y="280" text-anchor="middle">Storage</text>
+  <text class="t-sm" x="380" y="302" text-anchor="middle">highest token seen = 34</text>
+  <text class="t-sm" x="380" y="324" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> accept 34     <tspan class="t-orange t-b">&#10007;</tspan> reject 33</text>
+</svg>

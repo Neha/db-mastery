@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <!-- Write path -->
+  <text class="t-label" x="20" y="28">Commit path</text>
+
+  <rect class="box gray" x="20" y="44" width="100" height="44" rx="12"/>
+  <text class="t-sm t-b" x="70" y="70" text-anchor="middle">UPDATE</text>
+  <path class="ln blue" d="M120 66 L148 66" marker-end="url(#arr-blue)"/>
+
+  <rect class="box teal" x="150" y="44" width="168" height="44" rx="12"/>
+  <text class="t-b" x="234" y="62" text-anchor="middle">1. Append WAL</text>
+  <text class="t-mono t-xs" x="234" y="78" text-anchor="middle">LSN 1001  500&#8594;400</text>
+  <path class="ln blue" d="M318 66 L346 66" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="348" y="44" width="168" height="44" rx="12"/>
+  <text class="t-b" x="432" y="62" text-anchor="middle">2. Dirty the page</text>
+  <text class="t-xs" x="432" y="78" text-anchor="middle">page 7 in the buffer pool</text>
+  <path class="ln blue" d="M516 66 L544 66" marker-end="url(#arr-blue)"/>
+
+  <rect class="box green" x="546" y="44" width="194" height="44" rx="12"/>
+  <text class="t-b" x="643" y="62" text-anchor="middle">3. COMMIT + fsync</text>
+  <text class="t-mono t-xs" x="643" y="78" text-anchor="middle">LSN 1002 &#183; only required I/O</text>
+
+  <!-- later checkpoint -->
+  <path class="ln purple dash" d="M432 88 L432 118" marker-end="url(#arr-purple)"/>
+  <rect class="box purple" x="348" y="120" width="168" height="36" rx="12"/>
+  <text class="t-sm" x="432" y="142" text-anchor="middle">4. Checkpoint later</text>
+  <path class="ln teal" d="M516 138 L600 138" marker-end="url(#arr)"/>
+  <rect class="box teal" x="604" y="120" width="136" height="36" rx="12"/>
+  <text class="t-sm" x="672" y="142" text-anchor="middle">data file page 7</text>
+
+  <text class="t-xs" x="20" y="142">group commit can share one fsync</text>
+
+  <!-- Crash -->
+  <rect class="box panel" x="4" y="176" width="752" height="176" rx="16"/>
+  <text class="t-label" x="24" y="202">Crash before the checkpoint</text>
+  <text class="t-xs" x="24" y="220">page 7 never reached disk &#183; the WAL did</text>
+
+  <rect class="box teal" x="24" y="236" width="220" height="96" rx="12"/>
+  <text class="t-b" x="134" y="260" text-anchor="middle">WAL on disk</text>
+  <text class="t-mono" x="134" y="280" text-anchor="middle">1001 UPDATE 500&#8594;400</text>
+  <text class="t-mono t-green t-b" x="134" y="298" text-anchor="middle">1002 COMMIT</text>
+  <text class="t-xs" x="134" y="318" text-anchor="middle">fsynced, durable</text>
+
+  <path class="ln red" d="M256 284 L300 284" marker-end="url(#arr-red)"/>
+  <text class="t-xs t-red" x="278" y="270" text-anchor="middle">crash</text>
+
+  <rect class="box orange" x="304" y="236" width="180" height="96" rx="12"/>
+  <text class="t-b" x="394" y="260" text-anchor="middle">Data page</text>
+  <text class="t-sm" x="394" y="280" text-anchor="middle">still shows 500</text>
+  <text class="t-xs" x="394" y="298" text-anchor="middle">stale on disk</text>
+  <text class="t-xs" x="394" y="316" text-anchor="middle">or not written at all</text>
+
+  <path class="ln green" d="M496 284 L540 284" marker-end="url(#arr-green)"/>
+  <text class="t-xs t-green" x="518" y="270" text-anchor="middle">redo</text>
+
+  <rect class="box green" x="544" y="236" width="192" height="96" rx="12"/>
+  <text class="t-b" x="640" y="260" text-anchor="middle">After replay</text>
+  <text class="t-sm" x="640" y="280" text-anchor="middle">page 7 is 400 again</text>
+  <text class="t-xs" x="640" y="298" text-anchor="middle">committed work survives</text>
+  <text class="t-xs" x="640" y="316" text-anchor="middle">uncommitted work is undone</text>
+</svg>

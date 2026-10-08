@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <!-- ========== Row store ========== -->
+  <rect class="box panel" x="4" y="4" width="364" height="290" rx="16"/>
+  <text class="t-label" x="186" y="30" text-anchor="middle">Row store &#183; OLTP</text>
+
+  <text class="t-xs" x="96" y="52" text-anchor="middle">id</text>
+  <text class="t-xs" x="156" y="52" text-anchor="middle">customer</text>
+  <text class="t-xs" x="216" y="52" text-anchor="middle">date</text>
+  <text class="t-xs" x="276" y="52" text-anchor="middle">amount</text>
+
+  <rect class="box" x="66" y="60" width="240" height="26" rx="7"/>
+  <rect class="box green" x="66" y="92" width="240" height="26" rx="7"/>
+  <rect class="box" x="66" y="124" width="240" height="26" rx="7"/>
+  <rect class="box" x="66" y="156" width="240" height="26" rx="7"/>
+  <rect class="box" x="66" y="188" width="240" height="26" rx="7"/>
+  <path class="ln thin faint" d="M126 60 L126 214 M186 60 L186 214 M246 60 L246 214"/>
+
+  <text class="t-mono" x="96" y="77" text-anchor="middle">41</text>
+  <text class="t-mono" x="156" y="77" text-anchor="middle">ada</text>
+  <text class="t-mono" x="216" y="77" text-anchor="middle">03-01</text>
+  <text class="t-mono" x="276" y="77" text-anchor="middle">19.99</text>
+  <text class="t-mono t-b" x="96" y="109" text-anchor="middle">42</text>
+  <text class="t-mono t-b" x="156" y="109" text-anchor="middle">bob</text>
+  <text class="t-mono t-b" x="216" y="109" text-anchor="middle">03-01</text>
+  <text class="t-mono t-b" x="276" y="109" text-anchor="middle">5.00</text>
+  <text class="t-mono" x="96" y="141" text-anchor="middle">43</text>
+  <text class="t-mono" x="156" y="141" text-anchor="middle">cy</text>
+  <text class="t-mono" x="216" y="141" text-anchor="middle">03-02</text>
+  <text class="t-mono" x="276" y="141" text-anchor="middle">42.10</text>
+  <text class="t-mono" x="96" y="173" text-anchor="middle">44</text>
+  <text class="t-mono" x="156" y="173" text-anchor="middle">dee</text>
+  <text class="t-mono" x="216" y="173" text-anchor="middle">03-02</text>
+  <text class="t-mono" x="276" y="173" text-anchor="middle">7.25</text>
+  <text class="t-mono" x="96" y="205" text-anchor="middle">45</text>
+  <text class="t-mono" x="156" y="205" text-anchor="middle">eve</text>
+  <text class="t-mono" x="216" y="205" text-anchor="middle">03-03</text>
+  <text class="t-mono" x="276" y="205" text-anchor="middle">13.50</text>
+
+  <text class="t-sm" x="186" y="242" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> get order 42: one page, all fields</text>
+  <text class="t-sm" x="186" y="260" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> sum(amount): reads every column</text>
+  <text class="t-xs" x="186" y="282" text-anchor="middle">Postgres &#183; MySQL &#183; MongoDB</text>
+
+  <!-- ========== Column store ========== -->
+  <rect class="box panel" x="392" y="4" width="364" height="290" rx="16"/>
+  <text class="t-label" x="574" y="30" text-anchor="middle">Column store &#183; OLAP</text>
+
+  <text class="t-xs" x="481" y="52" text-anchor="middle">id</text>
+  <text class="t-xs" x="543" y="52" text-anchor="middle">customer</text>
+  <text class="t-xs" x="605" y="52" text-anchor="middle">date</text>
+  <text class="t-xs" x="667" y="52" text-anchor="middle">amount</text>
+
+  <rect class="box" x="454" y="60" width="54" height="154" rx="9"/>
+  <rect class="box" x="516" y="60" width="54" height="154" rx="9"/>
+  <rect class="box" x="578" y="60" width="54" height="154" rx="9"/>
+  <rect class="box green" x="640" y="60" width="54" height="154" rx="9"/>
+
+  <text class="t-mono" x="481" y="77" text-anchor="middle">41</text>
+  <text class="t-mono" x="481" y="109" text-anchor="middle">42</text>
+  <text class="t-mono" x="481" y="141" text-anchor="middle">43</text>
+  <text class="t-mono" x="481" y="173" text-anchor="middle">44</text>
+  <text class="t-mono" x="481" y="205" text-anchor="middle">45</text>
+  <text class="t-mono" x="543" y="77" text-anchor="middle">ada</text>
+  <text class="t-mono" x="543" y="109" text-anchor="middle">bob</text>
+  <text class="t-mono" x="543" y="141" text-anchor="middle">cy</text>
+  <text class="t-mono" x="543" y="173" text-anchor="middle">dee</text>
+  <text class="t-mono" x="543" y="205" text-anchor="middle">eve</text>
+  <text class="t-mono" x="605" y="77" text-anchor="middle">03-01</text>
+  <text class="t-mono" x="605" y="109" text-anchor="middle">03-01</text>
+  <text class="t-mono" x="605" y="141" text-anchor="middle">03-02</text>
+  <text class="t-mono" x="605" y="173" text-anchor="middle">03-02</text>
+  <text class="t-mono" x="605" y="205" text-anchor="middle">03-03</text>
+  <text class="t-mono t-b" x="667" y="77" text-anchor="middle">19.99</text>
+  <text class="t-mono t-b" x="667" y="109" text-anchor="middle">5.00</text>
+  <text class="t-mono t-b" x="667" y="141" text-anchor="middle">42.10</text>
+  <text class="t-mono t-b" x="667" y="173" text-anchor="middle">7.25</text>
+  <text class="t-mono t-b" x="667" y="205" text-anchor="middle">13.50</text>
+
+  <text class="t-sm" x="574" y="242" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> sum(amount): 1 of 4 columns, compressed</text>
+  <text class="t-sm" x="574" y="260" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> get order 42: stitch 4 columns</text>
+  <text class="t-xs" x="574" y="282" text-anchor="middle">Databricks (Delta/Parquet) &#183; Snowflake &#183; ClickHouse</text>
+</svg>

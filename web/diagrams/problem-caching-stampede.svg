@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <text class="t-label" x="380" y="26" text-anchor="middle">Stampede after expiry</text>
+
+  <circle class="fill-gray" cx="48" cy="80" r="8"/>
+  <circle class="fill-gray" cx="80" cy="80" r="8"/>
+  <circle class="fill-gray" cx="112" cy="80" r="8"/>
+  <circle class="fill-gray" cx="144" cy="80" r="8"/>
+  <circle class="fill-gray" cx="176" cy="80" r="8"/>
+  <circle class="fill-gray" cx="208" cy="80" r="8"/>
+  <text class="t-xs" x="128" y="106" text-anchor="middle">many clients</text>
+
+  <path class="ln orange" d="M80 114 C 160 140, 220 150, 280 168" marker-end="url(#arr-orange)"/>
+  <path class="ln orange" d="M128 114 C 180 140, 240 156, 280 168"/>
+  <path class="ln orange" d="M176 114 C 210 140, 250 158, 280 168"/>
+
+  <rect class="box orange" x="280" y="148" width="200" height="56" rx="12"/>
+  <text class="t-b t-orange" x="380" y="172" text-anchor="middle">TTL hit zero</text>
+  <text class="t-xs" x="380" y="190" text-anchor="middle">every GET is a miss</text>
+
+  <path class="ln red" d="M480 176 L560 176" marker-end="url(#arr-red)"/>
+
+  <rect class="box red" x="564" y="148" width="176" height="56" rx="12"/>
+  <text class="t-b t-red" x="652" y="172" text-anchor="middle">N identical</text>
+  <text class="t-xs" x="652" y="190" text-anchor="middle">queries hit the DB</text>
+
+  <rect class="box green" x="80" y="248" width="600" height="68" rx="14"/>
+  <text class="t-sm t-b" x="380" y="274" text-anchor="middle">coalesce the rebuild &#183; serve stale while refreshing &#183; jitter / early expiry</text>
+  <text class="t-xs" x="380" y="296" text-anchor="middle">one loader, everyone else waits or reads the previous value</text>
+</svg>

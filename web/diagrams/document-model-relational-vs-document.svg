@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <!-- ========== Left: relational ========== -->
+  <rect class="box panel" x="4" y="4" width="370" height="332" rx="16"/>
+  <text class="t-label" x="189" y="30" text-anchor="middle">Relational &#183; three tables</text>
+
+  <!-- customers -->
+  <rect class="box" x="24" y="50" width="140" height="96" rx="12"/>
+  <text class="t-b" x="94" y="71" text-anchor="middle">customers</text>
+  <path class="ln faint" d="M24 80 L164 80"/>
+  <text class="t-mono" x="38" y="98">id</text>
+  <text class="t-xs" x="150" y="98" text-anchor="end">PK</text>
+  <text class="t-mono" x="38" y="114">name</text>
+  <text class="t-mono" x="38" y="130">country</text>
+
+  <!-- orders -->
+  <rect class="box" x="214" y="50" width="140" height="112" rx="12"/>
+  <text class="t-b" x="284" y="71" text-anchor="middle">orders</text>
+  <path class="ln faint" d="M214 80 L354 80"/>
+  <text class="t-mono" x="228" y="98">id</text>
+  <text class="t-xs" x="340" y="98" text-anchor="end">PK</text>
+  <text class="t-mono" x="228" y="114">customer_id</text>
+  <text class="t-xs" x="340" y="114" text-anchor="end">FK</text>
+  <text class="t-mono" x="228" y="130">status</text>
+  <text class="t-mono" x="228" y="146">created_at</text>
+
+  <!-- order_items -->
+  <rect class="box" x="110" y="200" width="170" height="104" rx="12"/>
+  <text class="t-b" x="195" y="221" text-anchor="middle">order_items</text>
+  <path class="ln faint" d="M110 230 L280 230"/>
+  <text class="t-mono" x="124" y="248">order_id</text>
+  <text class="t-xs" x="266" y="248" text-anchor="end">FK</text>
+  <text class="t-mono" x="124" y="264">sku</text>
+  <text class="t-mono" x="124" y="280">qty</text>
+  <text class="t-mono" x="124" y="296">unit_price</text>
+
+  <!-- joins -->
+  <path class="ln blue" d="M164 94 C 190 94, 188 110, 214 110"/>
+  <circle class="fill-blue" cx="164" cy="94" r="3"/>
+  <circle class="fill-blue" cx="214" cy="110" r="3"/>
+  <text class="t-xs t-blue" x="189" y="134" text-anchor="middle">1 : N</text>
+  <path class="ln blue" d="M250 162 L250 200"/>
+  <circle class="fill-blue" cx="250" cy="162" r="3"/>
+  <circle class="fill-blue" cx="250" cy="200" r="3"/>
+  <text class="t-xs t-blue" x="260" y="185">1 : N</text>
+
+  <text class="t-sm" x="189" y="326" text-anchor="middle">read one order = 3 lookups + 2 joins</text>
+
+  <!-- ========== Right: document ========== -->
+  <rect class="box panel" x="386" y="4" width="370" height="332" rx="16"/>
+  <text class="t-label" x="571" y="30" text-anchor="middle">Document &#183; one aggregate</text>
+
+  <rect class="box" x="402" y="46" width="262" height="258" rx="12"/>
+  <rect class="box teal" x="410" y="110" width="246" height="38" rx="7"/>
+  <rect class="box blue" x="410" y="150" width="246" height="54" rx="7"/>
+
+  <text class="t-mono" x="418" y="70">{</text>
+  <text class="t-mono" x="432" y="88">_id: "ORD-1",</text>
+  <text class="t-mono" x="432" y="106">status: "paid",</text>
+  <text class="t-mono" x="432" y="124">customer: {</text>
+  <text class="t-mono" x="442" y="142">id: 17, name: "Ada" },</text>
+  <text class="t-mono" x="432" y="164">items: [</text>
+  <text class="t-mono" x="442" y="181">{ sku: "PEN-01", qty: 2 },</text>
+  <text class="t-mono" x="442" y="198">{ sku: "INK-09", qty: 1 }],</text>
+  <text class="t-mono" x="432" y="222">total: 1200,</text>
+  <text class="t-mono" x="432" y="240">createdAt: ISODate(&#8230;)</text>
+  <text class="t-mono" x="418" y="258">}</text>
+
+  <text class="t-sm t-teal t-b" x="676" y="126">extended</text>
+  <text class="t-sm t-teal" x="676" y="141">reference</text>
+  <text class="t-sm t-blue t-b" x="676" y="172">embedded</text>
+  <text class="t-sm t-blue" x="676" y="187">array</text>
+
+  <text class="t-xs" x="418" y="288">one B-tree lookup on _id, one document read</text>
+
+  <text class="t-sm" x="571" y="326" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> read and write the order atomically</text>
+</svg>

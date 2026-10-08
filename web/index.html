@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DB Mastery — Databases from Beginner to Solutions Architect</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗄️</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Shared arrowheads for lesson diagrams: marker-end="url(#arr)" / url(#arr-blue) … -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk" d="M1 1.5 L8.5 5 L1 8.5 Z" /></marker>
+      <marker id="arr-blue" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk blue" d="M1 1.5 L8.5 5 L1 8.5 Z" /></marker>
+      <marker id="arr-green" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk green" d="M1 1.5 L8.5 5 L1 8.5 Z" /></marker>
+      <marker id="arr-orange" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk orange" d="M1 1.5 L8.5 5 L1 8.5 Z" /></marker>
+      <marker id="arr-red" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk red" d="M1 1.5 L8.5 5 L1 8.5 Z" /></marker>
+      <marker id="arr-purple" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="mk purple" d="M1 1.5 L8.5 5 L1 8.5 Z" /></marker>
+    </defs>
+  </svg>
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <a class="brand" href="#/">🗄️ <span>DB Mastery</span></a>
+    <div class="search-wrap">
+      <input id="search" type="search" placeholder="Search lessons…  ( / )" aria-label="Search lessons" autocomplete="off" />
+      <div id="searchResults" class="search-results" role="listbox" hidden></div>
+    </div>
+    <div class="topbar-right">
+      <div class="progress-pill" id="progressPill" title="Overall progress"></div>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle colour theme">◐</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" id="sidebar" aria-label="Curriculum"></nav>
+    <main id="main" class="content" tabindex="-1"></main>
+  </div>
+
+  <script src="curriculum.js"></script>
+  <script src="markdown.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400">
+  <!-- ========== File layout ========== -->
+  <text class="t-label" x="20" y="16">orders.parquet</text>
+  <rect class="box gray" x="20" y="24" width="380" height="20" rx="10"/>
+  <text class="t-mono t-sm" x="210" y="38" text-anchor="middle">magic "PAR1"</text>
+
+  <!-- row group 0 -->
+  <rect class="box panel" x="20" y="54" width="380" height="124" rx="16"/>
+  <text class="t-label" x="36" y="74">Row group 0</text>
+  <text class="t-xs" x="384" y="74" text-anchor="end">~128 MB of rows</text>
+
+  <rect class="box" x="36" y="84" width="108" height="84" rx="11"/>
+  <text class="t-b" x="90" y="102" text-anchor="middle">id</text>
+  <rect class="box gray" x="46" y="110" width="88" height="14" rx="4"/>
+  <text class="t-xs" x="90" y="120" text-anchor="middle">data page</text>
+  <rect class="box gray" x="46" y="128" width="88" height="14" rx="4"/>
+  <text class="t-xs" x="90" y="138" text-anchor="middle">data page</text>
+  <rect class="box gray" x="46" y="146" width="88" height="14" rx="4"/>
+  <text class="t-xs" x="90" y="156" text-anchor="middle">data page</text>
+
+  <rect class="box green" x="156" y="84" width="108" height="84" rx="11"/>
+  <text class="t-b" x="210" y="102" text-anchor="middle">country</text>
+  <rect class="box purple" x="166" y="110" width="88" height="14" rx="4"/>
+  <text class="t-xs" x="210" y="120" text-anchor="middle">dict page</text>
+  <rect class="box gray" x="166" y="128" width="88" height="14" rx="4"/>
+  <text class="t-xs" x="210" y="138" text-anchor="middle">data page</text>
+  <rect class="box gray" x="166" y="146" width="88" height="14" rx="4"/>
+  <text class="t-xs" x="210" y="156" text-anchor="middle">data page</text>
+
+  <rect class="box green" x="276" y="84" width="108" height="84" rx="11"/>
+  <text class="t-b" x="330" y="102" text-anchor="middle">amount</text>
+  <rect class="box gray" x="286" y="110" width="88" height="14" rx="4"/>
+  <text class="t-xs" x="330" y="120" text-anchor="middle">data page</text>
+  <rect class="box gray" x="286" y="128" width="88" height="14" rx="4"/>
+  <text class="t-xs" x="330" y="138" text-anchor="middle">data page</text>
+  <rect class="box gray" x="286" y="146" width="88" height="14" rx="4"/>
+  <text class="t-xs" x="330" y="156" text-anchor="middle">data page</text>
+
+  <!-- row group 1 (skipped) -->
+  <rect class="box panel" x="20" y="190" width="380" height="64" rx="16"/>
+  <text class="t-label" x="36" y="210">Row group 1</text>
+  <text class="t-xs t-orange" x="384" y="210" text-anchor="end">skipped: max(amount) = 320</text>
+  <rect class="box ghost" x="36" y="220" width="108" height="24" rx="8"/>
+  <text class="t-xs" x="90" y="236" text-anchor="middle">id</text>
+  <rect class="box ghost" x="156" y="220" width="108" height="24" rx="8"/>
+  <text class="t-xs" x="210" y="236" text-anchor="middle">country</text>
+  <rect class="box ghost" x="276" y="220" width="108" height="24" rx="8"/>
+  <text class="t-xs" x="330" y="236" text-anchor="middle">amount</text>
+
+  <text class="t-sm" x="210" y="274" text-anchor="middle">&#8230; more row groups</text>
+
+  <!-- footer -->
+  <rect class="box teal" x="20" y="286" width="380" height="76" rx="12"/>
+  <text class="t-b" x="210" y="307" text-anchor="middle">Footer (file metadata)</text>
+  <text class="t-sm" x="210" y="326" text-anchor="middle">schema &#183; row-group and chunk offsets &#183; codecs</text>
+  <text class="t-sm" x="210" y="344" text-anchor="middle">per column chunk: min &#183; max &#183; null count</text>
+  <rect class="box gray" x="20" y="370" width="380" height="20" rx="10"/>
+  <text class="t-mono t-sm" x="210" y="384" text-anchor="middle">footer length (4 bytes) + "PAR1"</text>
+
+  <!-- ========== Reader steps ========== -->
+  <text class="t-label" x="430" y="16">How a reader uses it</text>
+  <text class="t-mono t-sm" x="430" y="36">WHERE amount &gt; 500</text>
+
+  <rect class="box" x="430" y="54" width="320" height="64" rx="12"/>
+  <circle class="fill-blue" cx="454" cy="86" r="12"/>
+  <text class="t-on t-b" x="454" y="90" text-anchor="middle">1</text>
+  <text class="t-b" x="478" y="80">Read the footer first</text>
+  <text class="t-sm" x="478" y="98">tail bytes give its length: one range GET</text>
+
+  <rect class="box" x="430" y="134" width="320" height="64" rx="12"/>
+  <circle class="fill-blue" cx="454" cy="166" r="12"/>
+  <text class="t-on t-b" x="454" y="170" text-anchor="middle">2</text>
+  <text class="t-b" x="478" y="160">Skip row groups by stats</text>
+  <text class="t-sm" x="478" y="178">max(amount) &#8804; 500 &#8594; never read it</text>
+
+  <rect class="box green" x="430" y="214" width="320" height="64" rx="12"/>
+  <circle class="fill-green" cx="454" cy="246" r="12"/>
+  <text class="t-on t-b" x="454" y="250" text-anchor="middle">3</text>
+  <text class="t-b" x="478" y="240">Fetch only needed chunks</text>
+  <text class="t-sm" x="478" y="258">byte-range GETs for country, amount</text>
+
+  <rect class="box" x="430" y="294" width="320" height="64" rx="12"/>
+  <circle class="fill-blue" cx="454" cy="326" r="12"/>
+  <text class="t-on t-b" x="454" y="330" text-anchor="middle">4</text>
+  <text class="t-b" x="478" y="320">Decode pages in batches</text>
+  <text class="t-sm" x="478" y="338">dictionary + RLE &#8594; vectorised operators</text>
+</svg>

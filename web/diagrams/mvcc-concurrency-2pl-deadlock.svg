@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <!-- ========== Timeline ========== -->
+  <rect class="box panel" x="4" y="4" width="480" height="292" rx="16"/>
+  <text class="t-label" x="244" y="30" text-anchor="middle">Two transactions, two rows</text>
+
+  <text class="t-b" x="26" y="96">T1</text>
+  <text class="t-b" x="26" y="176">T2</text>
+  <path class="ln faint" d="M56 92 L470 92"/>
+  <path class="ln faint" d="M56 172 L470 172"/>
+
+  <!-- T1 -->
+  <rect class="box green" x="70" y="77" width="96" height="30" rx="15"/>
+  <text class="t-sm" x="118" y="96" text-anchor="middle">X-lock A</text>
+  <rect class="box orange" x="282" y="77" width="96" height="30" rx="15"/>
+  <text class="t-sm" x="330" y="96" text-anchor="middle">wants B</text>
+  <text class="t-xs" x="330" y="124" text-anchor="middle">held by T2</text>
+  <path class="ln orange dot" d="M382 92 L468 92"/>
+
+  <!-- T2 -->
+  <rect class="box green" x="176" y="157" width="96" height="30" rx="15"/>
+  <text class="t-sm" x="224" y="176" text-anchor="middle">X-lock B</text>
+  <rect class="box orange" x="372" y="157" width="96" height="30" rx="15"/>
+  <text class="t-sm" x="420" y="176" text-anchor="middle">wants A</text>
+  <text class="t-xs" x="420" y="204" text-anchor="middle">held by T1</text>
+
+  <!-- time axis -->
+  <path class="ln thin" d="M56 228 L468 228" marker-end="url(#arr)"/>
+  <text class="t-xs" x="470" y="246" text-anchor="end">time</text>
+
+  <text class="t-sm" x="244" y="270" text-anchor="middle">Strict 2PL: acquire as you go, release all at commit</text>
+  <text class="t-xs" x="244" y="287" text-anchor="middle">readers block writers &#183; writers block readers</text>
+
+  <!-- ========== Wait-for graph ========== -->
+  <rect class="box panel" x="500" y="4" width="256" height="292" rx="16"/>
+  <text class="t-label" x="628" y="30" text-anchor="middle">Wait-for graph</text>
+
+  <circle class="box orange" cx="570" cy="92" r="24"/>
+  <text class="t-b" x="570" y="97" text-anchor="middle">T1</text>
+  <circle class="box orange" cx="686" cy="92" r="24"/>
+  <text class="t-b" x="686" y="97" text-anchor="middle">T2</text>
+  <path class="ln red" d="M590 78 C 612 58, 644 58, 664 76" marker-end="url(#arr-red)"/>
+  <path class="ln red" d="M666 106 C 644 126, 612 126, 592 108" marker-end="url(#arr-red)"/>
+  <text class="t-xs" x="628" y="56" text-anchor="middle">waits for</text>
+  <text class="t-xs" x="628" y="136" text-anchor="middle">waits for</text>
+  <text class="t-sm t-red t-b" x="628" y="162" text-anchor="middle">cycle &#8658; abort a victim</text>
+
+  <!-- compatibility matrix -->
+  <text class="t-xs" x="520" y="206">held &#8595; / asks &#8594;</text>
+  <text class="t-mono t-b" x="645" y="206" text-anchor="middle">S</text>
+  <text class="t-mono t-b" x="703" y="206" text-anchor="middle">X</text>
+  <text class="t-mono t-b" x="600" y="236" text-anchor="middle">S</text>
+  <text class="t-mono t-b" x="600" y="268" text-anchor="middle">X</text>
+  <rect class="box green" x="620" y="218" width="50" height="26" rx="8"/>
+  <text class="t-b t-green" x="645" y="236" text-anchor="middle">&#10003;</text>
+  <rect class="box red" x="678" y="218" width="50" height="26" rx="8"/>
+  <text class="t-b t-red" x="703" y="236" text-anchor="middle">&#10007;</text>
+  <rect class="box red" x="620" y="250" width="50" height="26" rx="8"/>
+  <text class="t-b t-red" x="645" y="268" text-anchor="middle">&#10007;</text>
+  <rect class="box red" x="678" y="250" width="50" height="26" rx="8"/>
+  <text class="t-b t-red" x="703" y="268" text-anchor="middle">&#10007;</text>
+</svg>

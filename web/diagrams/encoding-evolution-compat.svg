@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <rect class="box panel" x="4" y="4" width="368" height="332" rx="16"/>
+  <text class="t-label" x="188" y="30" text-anchor="middle">Backward compatible</text>
+  <text class="t-xs" x="188" y="48" text-anchor="middle">new code reads old data</text>
+
+  <rect class="box gray" x="36" y="68" width="140" height="56" rx="12"/>
+  <text class="t-sm t-b" x="106" y="90" text-anchor="middle">Writer v1</text>
+  <text class="t-mono" x="106" y="108" text-anchor="middle">id, name</text>
+
+  <path class="ln" d="M176 96 L214 96" marker-end="url(#arr)"/>
+
+  <rect class="box teal" x="216" y="68" width="132" height="56" rx="12"/>
+  <text class="t-sm t-b" x="282" y="90" text-anchor="middle">On the wire</text>
+  <text class="t-mono" x="282" y="108" text-anchor="middle">id, name</text>
+
+  <path class="ln blue" d="M282 124 L282 168" marker-end="url(#arr-blue)"/>
+
+  <rect class="box blue" x="86" y="170" width="204" height="72" rx="12"/>
+  <text class="t-sm t-b" x="188" y="196" text-anchor="middle">Reader v2</text>
+  <text class="t-mono" x="188" y="214" text-anchor="middle">id, name, email?</text>
+  <text class="t-xs" x="188" y="230" text-anchor="middle">missing email &#8594; default</text>
+
+  <text class="t-sm" x="188" y="274" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> add a field with a default</text>
+  <text class="t-sm" x="188" y="294" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> remove a field the reader ignores</text>
+  <text class="t-xs" x="188" y="318" text-anchor="middle">upgrade consumers first</text>
+
+  <rect class="box panel" x="388" y="4" width="368" height="332" rx="16"/>
+  <text class="t-label" x="572" y="30" text-anchor="middle">Forward compatible</text>
+  <text class="t-xs" x="572" y="48" text-anchor="middle">old code reads new data</text>
+
+  <rect class="box gray" x="420" y="68" width="140" height="56" rx="12"/>
+  <text class="t-sm t-b" x="490" y="90" text-anchor="middle">Writer v2</text>
+  <text class="t-mono" x="490" y="108" text-anchor="middle">id, name, email</text>
+
+  <path class="ln" d="M560 96 L598 96" marker-end="url(#arr)"/>
+
+  <rect class="box teal" x="600" y="68" width="132" height="56" rx="12"/>
+  <text class="t-sm t-b" x="666" y="90" text-anchor="middle">On the wire</text>
+  <text class="t-mono" x="666" y="108" text-anchor="middle">id, name, email</text>
+
+  <path class="ln blue" d="M666 124 L666 168" marker-end="url(#arr-blue)"/>
+
+  <rect class="box blue" x="470" y="170" width="204" height="72" rx="12"/>
+  <text class="t-sm t-b" x="572" y="196" text-anchor="middle">Reader v1</text>
+  <text class="t-mono" x="572" y="214" text-anchor="middle">id, name</text>
+  <text class="t-xs" x="572" y="230" text-anchor="middle">unknown email &#8594; skip</text>
+
+  <text class="t-sm" x="572" y="274" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> add an optional field</text>
+  <text class="t-sm" x="572" y="294" text-anchor="middle"><tspan class="t-b">!</tspan> no required fields on the wire</text>
+  <text class="t-xs" x="572" y="318" text-anchor="middle">upgrade producers first</text>
+</svg>

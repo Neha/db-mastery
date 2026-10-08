@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280">
+  <rect class="box panel" x="4" y="4" width="752" height="72" rx="16"/>
+  <text class="t-label" x="380" y="30" text-anchor="middle">Query</text>
+  <text class="t-mono" x="380" y="56" text-anchor="middle">find({ team, status, priority: { $gte: 3 } }).sort({ createdAt: -1 })</text>
+
+  <rect class="box green" x="16" y="100" width="170" height="88" rx="12"/>
+  <text class="t-label t-green" x="101" y="128" text-anchor="middle">E</text>
+  <text class="t-b" x="101" y="152" text-anchor="middle">team</text>
+  <text class="t-xs" x="101" y="172" text-anchor="middle">equality</text>
+  <path class="ln green" d="M186 144 L200 144" marker-end="url(#arr-green)"/>
+
+  <rect class="box green" x="202" y="100" width="170" height="88" rx="12"/>
+  <text class="t-label t-green" x="287" y="128" text-anchor="middle">E</text>
+  <text class="t-b" x="287" y="152" text-anchor="middle">status</text>
+  <text class="t-xs" x="287" y="172" text-anchor="middle">equality</text>
+  <path class="ln blue" d="M372 144 L386 144" marker-end="url(#arr-blue)"/>
+
+  <rect class="box blue" x="388" y="100" width="170" height="88" rx="12"/>
+  <text class="t-label t-blue" x="473" y="128" text-anchor="middle">S</text>
+  <text class="t-b" x="473" y="152" text-anchor="middle">createdAt</text>
+  <text class="t-xs" x="473" y="172" text-anchor="middle">already sorted</text>
+  <path class="ln" d="M558 144 L572 144" marker-end="url(#arr)"/>
+
+  <rect class="box" x="574" y="100" width="170" height="88" rx="12"/>
+  <text class="t-label" x="659" y="128" text-anchor="middle">R</text>
+  <text class="t-b" x="659" y="152" text-anchor="middle">priority</text>
+  <text class="t-xs" x="659" y="172" text-anchor="middle">range while walking</text>
+
+  <text class="t-sm" x="380" y="226" text-anchor="middle">Equality first collapses to a contiguous slice.</text>
+  <text class="t-sm" x="380" y="248" text-anchor="middle">The sort field is then in order, so there is no in-memory SORT.</text>
+  <text class="t-xs" x="380" y="270" text-anchor="middle">index { team: 1, status: 1, createdAt: -1, priority: 1 }</text>
+</svg>

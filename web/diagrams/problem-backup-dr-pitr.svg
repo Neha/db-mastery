@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <text class="t-label" x="380" y="24" text-anchor="middle">Point-in-time recovery</text>
+
+  <rect class="box teal" x="16" y="44" width="160" height="72" rx="12"/>
+  <text class="t-b" x="96" y="72" text-anchor="middle">Base backup</text>
+  <text class="t-xs" x="96" y="92" text-anchor="middle">Sunday 02:00</text>
+
+  <path class="ln teal" d="M176 80 L204 80" marker-end="url(#arr)"/>
+
+  <rect class="box teal" x="206" y="56" width="52" height="48" rx="10"/>
+  <text class="t-xs" x="232" y="84" text-anchor="middle">WAL</text>
+  <rect class="box teal" x="266" y="56" width="52" height="48" rx="10"/>
+  <text class="t-xs" x="292" y="84" text-anchor="middle">WAL</text>
+  <rect class="box teal" x="326" y="56" width="52" height="48" rx="10"/>
+  <text class="t-xs" x="352" y="84" text-anchor="middle">WAL</text>
+  <rect class="box teal" x="386" y="56" width="52" height="48" rx="10"/>
+  <text class="t-xs" x="412" y="84" text-anchor="middle">WAL</text>
+  <rect class="box teal" x="446" y="56" width="52" height="48" rx="10"/>
+  <text class="t-xs" x="472" y="84" text-anchor="middle">WAL</text>
+
+  <path class="ln green" d="M498 80 L526 80" marker-end="url(#arr-green)"/>
+
+  <rect class="box green" x="528" y="44" width="100" height="72" rx="12"/>
+  <text class="t-b" x="578" y="72" text-anchor="middle">Target</text>
+  <text class="t-xs" x="578" y="92" text-anchor="middle">Tue 14:02:59</text>
+
+  <path class="ln red" d="M628 80 L656 80" marker-end="url(#arr-red)"/>
+
+  <rect class="box red" x="658" y="44" width="86" height="72" rx="12"/>
+  <text class="t-b" x="701" y="72" text-anchor="middle">DELETE</text>
+  <text class="t-xs" x="701" y="92" text-anchor="middle">14:03:00</text>
+
+  <rect class="box panel" x="16" y="140" width="728" height="140" rx="16"/>
+  <text class="t-sm" x="380" y="172" text-anchor="middle">Restore the base backup, then replay archived WAL up to the second before the mistake.</text>
+  <text class="t-xs" x="380" y="196" text-anchor="middle">Postgres: pg_basebackup + restore_command + recovery_target_time</text>
+  <text class="t-xs" x="380" y="216" text-anchor="middle">MongoDB: snapshot + oplog window (Atlas PITR is this, managed)</text>
+  <text class="t-sm t-b" x="380" y="248" text-anchor="middle">A dump alone cannot do this. You need the log.</text>
+</svg>

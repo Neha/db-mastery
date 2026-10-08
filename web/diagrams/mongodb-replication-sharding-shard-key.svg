@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <rect class="box panel" x="4" y="4" width="368" height="292" rx="16"/>
+  <text class="t-label" x="188" y="30" text-anchor="middle">Monotonic ranged key</text>
+  <text class="t-xs" x="188" y="48" text-anchor="middle">{ _id: ObjectId } &#183; timestamps</text>
+
+  <rect class="box" x="28" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="78" y="92" text-anchor="middle">Shard A</text>
+  <text class="t-mono t-xs" x="78" y="110" text-anchor="middle">old ids</text>
+  <circle class="fill-gray" cx="62" cy="138" r="5"/>
+  <circle class="fill-gray" cx="86" cy="154" r="5"/>
+
+  <rect class="box" x="140" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="190" y="92" text-anchor="middle">Shard B</text>
+  <text class="t-mono t-xs" x="190" y="110" text-anchor="middle">mid</text>
+  <circle class="fill-gray" cx="174" cy="142" r="5"/>
+  <circle class="fill-gray" cx="198" cy="158" r="5"/>
+
+  <rect class="box orange" x="252" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="302" y="92" text-anchor="middle">Shard C</text>
+  <text class="t-mono t-xs" x="302" y="110" text-anchor="middle">max key</text>
+  <circle class="fill-orange" cx="278" cy="134" r="5"/>
+  <circle class="fill-orange" cx="302" cy="134" r="5"/>
+  <circle class="fill-orange" cx="326" cy="134" r="5"/>
+  <circle class="fill-orange" cx="290" cy="154" r="5"/>
+  <circle class="fill-orange" cx="314" cy="154" r="5"/>
+  <text class="t-xs t-orange t-b" x="302" y="176" text-anchor="middle">hot</text>
+
+  <path class="ln orange" d="M302 58 L302 66" marker-end="url(#arr-orange)"/>
+  <text class="t-xs t-orange" x="348" y="56" text-anchor="end">new inserts</text>
+
+  <text class="t-sm" x="188" y="220" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> every write hits the last chunk</text>
+  <text class="t-xs" x="188" y="248" text-anchor="middle">one shard takes all insert throughput</text>
+  <text class="t-xs" x="188" y="272" text-anchor="middle">autoincrement &#183; createdAt alone</text>
+
+  <rect class="box panel" x="388" y="4" width="368" height="292" rx="16"/>
+  <text class="t-label" x="572" y="30" text-anchor="middle">Compound / hashed</text>
+  <text class="t-xs" x="572" y="48" text-anchor="middle">{ customerId: 1, createdAt: 1 }</text>
+
+  <rect class="box green" x="412" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="462" y="92" text-anchor="middle">Shard A</text>
+  <circle class="fill-green" cx="438" cy="128" r="5"/>
+  <circle class="fill-green" cx="462" cy="148" r="5"/>
+  <circle class="fill-green" cx="486" cy="128" r="5"/>
+
+  <rect class="box green" x="524" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="574" y="92" text-anchor="middle">Shard B</text>
+  <circle class="fill-green" cx="550" cy="138" r="5"/>
+  <circle class="fill-green" cx="574" cy="128" r="5"/>
+  <circle class="fill-green" cx="598" cy="154" r="5"/>
+
+  <rect class="box green" x="636" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="686" y="92" text-anchor="middle">Shard C</text>
+  <circle class="fill-green" cx="662" cy="148" r="5"/>
+  <circle class="fill-green" cx="686" cy="128" r="5"/>
+  <circle class="fill-green" cx="710" cy="142" r="5"/>
+
+  <text class="t-sm" x="572" y="220" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> writes scatter by customer</text>
+  <text class="t-xs" x="572" y="248" text-anchor="middle">history queries stay targeted</text>
+  <text class="t-xs" x="572" y="272" text-anchor="middle">or hash(_id) if you only need even writes</text>
+</svg>

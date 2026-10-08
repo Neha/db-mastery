@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <!-- client -->
+  <rect class="box gray" x="12" y="48" width="110" height="56" rx="12"/>
+  <text class="t-b" x="67" y="72" text-anchor="middle">Client</text>
+  <text class="t-xs" x="67" y="89" text-anchor="middle">app &#183; BI &#183; driver</text>
+  <path class="ln" d="M124 76 L154 76" marker-start="url(#arr)" marker-end="url(#arr)"/>
+
+  <!-- query processor -->
+  <rect class="box panel" x="140" y="10" width="616" height="112" rx="16"/>
+  <text class="t-label" x="156" y="33">Query processor</text>
+
+  <rect class="box" x="156" y="48" width="127" height="56" rx="12"/>
+  <text class="t-b" x="219" y="72" text-anchor="middle">Connections</text>
+  <text class="t-xs" x="219" y="89" text-anchor="middle">auth &#183; sessions</text>
+  <path class="ln blue" d="M284 76 L305 76" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="307" y="48" width="127" height="56" rx="12"/>
+  <text class="t-b" x="370" y="72" text-anchor="middle">Parser</text>
+  <text class="t-xs" x="370" y="89" text-anchor="middle">SQL &#8594; syntax tree</text>
+  <path class="ln blue" d="M435 76 L456 76" marker-end="url(#arr-blue)"/>
+
+  <rect class="box blue" x="458" y="48" width="127" height="56" rx="12"/>
+  <text class="t-b" x="521" y="72" text-anchor="middle">Optimiser</text>
+  <text class="t-xs" x="521" y="89" text-anchor="middle">picks a plan</text>
+  <path class="ln blue" d="M586 76 L607 76" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="609" y="48" width="127" height="56" rx="12"/>
+  <text class="t-b" x="672" y="72" text-anchor="middle">Executor</text>
+  <text class="t-xs" x="672" y="89" text-anchor="middle">runs the plan tree</text>
+
+  <path class="ln blue" d="M672 104 L672 174" marker-end="url(#arr-blue)"/>
+
+  <!-- storage engine -->
+  <rect class="box panel" x="4" y="140" width="752" height="194" rx="16"/>
+  <text class="t-label" x="20" y="163">Storage engine</text>
+
+  <rect class="box" x="20" y="176" width="162" height="54" rx="12"/>
+  <text class="t-b" x="101" y="199" text-anchor="middle">Concurrency</text>
+  <text class="t-xs" x="101" y="216" text-anchor="middle">locks &#183; MVCC versions</text>
+
+  <rect class="box" x="206" y="176" width="162" height="54" rx="12"/>
+  <text class="t-b" x="287" y="199" text-anchor="middle">Log manager</text>
+  <text class="t-xs" x="287" y="216" text-anchor="middle">WAL &#183; checkpoints</text>
+
+  <rect class="box" x="392" y="176" width="162" height="54" rx="12"/>
+  <text class="t-b" x="473" y="199" text-anchor="middle">Buffer pool</text>
+  <text class="t-xs" x="473" y="216" text-anchor="middle">hot pages cached in RAM</text>
+
+  <rect class="box" x="578" y="176" width="162" height="54" rx="12"/>
+  <text class="t-b" x="659" y="199" text-anchor="middle">Access methods</text>
+  <text class="t-xs" x="659" y="216" text-anchor="middle">heap &#183; B-tree &#183; LSM</text>
+  <path class="ln" d="M577 203 L556 203" marker-end="url(#arr)"/>
+  <path class="ln dash" d="M391 203 L370 203" marker-end="url(#arr)"/>
+
+  <path class="ln teal" d="M287 230 L287 252" marker-end="url(#arr)"/>
+  <path class="ln teal" d="M473 230 L473 252" marker-start="url(#arr)" marker-end="url(#arr)"/>
+
+  <rect class="box teal" x="20" y="254" width="348" height="58" rx="12"/>
+  <text class="t-b" x="194" y="278" text-anchor="middle">Write-ahead log</text>
+  <text class="t-xs" x="194" y="296" text-anchor="middle">sequential appends &#183; fsync on commit</text>
+
+  <rect class="box teal" x="392" y="254" width="348" height="58" rx="12"/>
+  <text class="t-b" x="566" y="278" text-anchor="middle">Data files</text>
+  <text class="t-xs" x="566" y="296" text-anchor="middle">tables + indexes as fixed-size pages</text>
+</svg>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 240">
+  <rect class="box gray" x="12" y="48" width="150" height="96" rx="12"/>
+  <text class="t-b" x="87" y="80" text-anchor="middle">Sources</text>
+  <text class="t-xs" x="87" y="102" text-anchor="middle">OLTP &#183; files &#183; SaaS</text>
+  <text class="t-xs" x="87" y="120" text-anchor="middle">CDC &#183; Kafka</text>
+  <path class="ln blue" d="M162 96 L186 96" marker-end="url(#arr-blue)"/>
+
+  <rect class="box orange" x="188" y="48" width="150" height="96" rx="12"/>
+  <text class="t-label" x="263" y="72" text-anchor="middle">Bronze</text>
+  <text class="t-b" x="263" y="96" text-anchor="middle">raw, append-only</text>
+  <text class="t-xs" x="263" y="118" text-anchor="middle">as ingested &#183; replayable</text>
+  <path class="ln blue" d="M338 96 L362 96" marker-end="url(#arr-blue)"/>
+
+  <rect class="box blue" x="364" y="48" width="170" height="96" rx="12"/>
+  <text class="t-label" x="449" y="72" text-anchor="middle">Silver</text>
+  <text class="t-b" x="449" y="96" text-anchor="middle">cleaned, conformed</text>
+  <text class="t-xs" x="449" y="118" text-anchor="middle">dedup &#183; typed &#183; MERGE</text>
+  <path class="ln green" d="M534 96 L558 96" marker-end="url(#arr-green)"/>
+
+  <rect class="box green" x="560" y="48" width="188" height="96" rx="12"/>
+  <text class="t-label" x="654" y="72" text-anchor="middle">Gold</text>
+  <text class="t-b" x="654" y="96" text-anchor="middle">served, aggregated</text>
+  <text class="t-xs" x="654" y="118" text-anchor="middle">star schemas &#183; features</text>
+
+  <text class="t-sm" x="380" y="180" text-anchor="middle">One copy of data; each layer is a contract, not a dump.</text>
+  <text class="t-xs" x="380" y="204" text-anchor="middle">Keep bronze so you can rebuild silver and gold when the logic changes.</text>
+</svg>

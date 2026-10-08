@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380">
+  <path class="box panel" d="M380 72 L140 320 L620 320 Z"/>
+
+  <!-- corners -->
+  <text class="t-lg" x="380" y="36" text-anchor="middle">Read</text>
+  <text class="t-xs" x="380" y="54" text-anchor="middle">fewest pages read per query</text>
+  <text class="t-lg" x="140" y="346" text-anchor="middle">Write</text>
+  <text class="t-xs" x="140" y="363" text-anchor="middle">fewest bytes rewritten</text>
+  <text class="t-lg" x="620" y="346" text-anchor="middle">Space</text>
+  <text class="t-xs" x="620" y="363" text-anchor="middle">least disk per live byte</text>
+
+  <text class="t-xs" x="380" y="236" text-anchor="middle">move toward one corner,</text>
+  <text class="t-xs" x="380" y="250" text-anchor="middle">away from the other two</text>
+
+  <!-- B-tree -->
+  <circle class="fill-blue" cx="425" cy="150" r="8"/>
+  <text class="t-b t-blue" x="470" y="146">B-tree</text>
+  <text class="t-xs" x="470" y="162">Postgres &#183; InnoDB &#183; WiredTiger</text>
+  <path class="ln faint thin" d="M435 150 L464 150"/>
+
+  <!-- Bitcask -->
+  <circle class="fill-orange" cx="292" cy="185" r="8"/>
+  <text class="t-b t-orange" x="262" y="181" text-anchor="end">Hash log</text>
+  <text class="t-xs" x="262" y="197" text-anchor="end">Bitcask &#183; keys in RAM</text>
+
+  <!-- LSM size-tiered -->
+  <circle class="fill-teal" cx="215" cy="292" r="8"/>
+  <text class="t-b t-teal" x="230" y="288">LSM size-tiered</text>
+  <text class="t-xs" x="230" y="304">Cassandra STCS</text>
+
+  <!-- LSM leveled -->
+  <circle class="fill-teal" cx="470" cy="292" r="8"/>
+  <text class="t-b t-teal" x="485" y="288">LSM leveled</text>
+  <text class="t-xs" x="485" y="304">RocksDB default</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <rect class="box panel" x="4" y="4" width="368" height="292" rx="16"/>
+  <text class="t-label" x="188" y="30" text-anchor="middle">Narrow</text>
+  <text class="t-xs" x="188" y="48" text-anchor="middle">filter &#183; select &#183; map</text>
+
+  <rect class="box" x="32" y="68" width="88" height="44" rx="10"/>
+  <text class="t-b" x="76" y="95" text-anchor="middle">P1</text>
+  <rect class="box" x="140" y="68" width="88" height="44" rx="10"/>
+  <text class="t-b" x="184" y="95" text-anchor="middle">P2</text>
+  <rect class="box" x="248" y="68" width="88" height="44" rx="10"/>
+  <text class="t-b" x="292" y="95" text-anchor="middle">P3</text>
+
+  <path class="ln green" d="M76 112 L76 168" marker-end="url(#arr-green)"/>
+  <path class="ln green" d="M184 112 L184 168" marker-end="url(#arr-green)"/>
+  <path class="ln green" d="M292 112 L292 168" marker-end="url(#arr-green)"/>
+
+  <rect class="box green" x="32" y="170" width="88" height="44" rx="10"/>
+  <text class="t-b" x="76" y="197" text-anchor="middle">P1</text>
+  <rect class="box green" x="140" y="170" width="88" height="44" rx="10"/>
+  <text class="t-b" x="184" y="197" text-anchor="middle">P2</text>
+  <rect class="box green" x="248" y="170" width="88" height="44" rx="10"/>
+  <text class="t-b" x="292" y="197" text-anchor="middle">P3</text>
+
+  <text class="t-sm" x="188" y="246" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> one input partition each</text>
+  <text class="t-xs" x="188" y="272" text-anchor="middle">no network &#183; same stage</text>
+
+  <rect class="box panel" x="388" y="4" width="368" height="292" rx="16"/>
+  <text class="t-label" x="572" y="30" text-anchor="middle">Wide / shuffle</text>
+  <text class="t-xs" x="572" y="48" text-anchor="middle">groupBy &#183; join &#183; orderBy</text>
+
+  <rect class="box" x="416" y="68" width="88" height="44" rx="10"/>
+  <text class="t-b" x="460" y="95" text-anchor="middle">P1</text>
+  <rect class="box" x="516" y="68" width="88" height="44" rx="10"/>
+  <text class="t-b" x="560" y="95" text-anchor="middle">P2</text>
+  <rect class="box" x="616" y="68" width="88" height="44" rx="10"/>
+  <text class="t-b" x="660" y="95" text-anchor="middle">P3</text>
+
+  <path class="ln orange" d="M460 112 C 460 132, 500 132, 500 150"/>
+  <path class="ln orange" d="M560 112 L560 150"/>
+  <path class="ln orange" d="M660 112 C 660 132, 620 132, 620 150"/>
+  <rect class="box orange" x="448" y="148" width="248" height="28" rx="8"/>
+  <text class="t-sm t-b" x="572" y="167" text-anchor="middle">shuffle by key</text>
+
+  <path class="ln orange" d="M500 176 C 500 188, 460 188, 460 198" marker-end="url(#arr-orange)"/>
+  <path class="ln orange" d="M560 176 L560 198" marker-end="url(#arr-orange)"/>
+  <path class="ln orange" d="M620 176 C 620 188, 660 188, 660 198" marker-end="url(#arr-orange)"/>
+
+  <rect class="box orange" x="416" y="200" width="88" height="36" rx="10"/>
+  <text class="t-sm t-b" x="460" y="223" text-anchor="middle">key A</text>
+  <rect class="box orange" x="516" y="200" width="88" height="36" rx="10"/>
+  <text class="t-sm t-b" x="560" y="223" text-anchor="middle">key B</text>
+  <rect class="box orange" x="616" y="200" width="88" height="36" rx="10"/>
+  <text class="t-sm t-b" x="660" y="223" text-anchor="middle">key C</text>
+
+  <text class="t-sm" x="572" y="258" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> disk + network + serialise</text>
+  <text class="t-xs" x="572" y="278" text-anchor="middle">stage boundary &#183; one hot key stalls all</text>
+</svg>

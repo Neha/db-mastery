@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <text class="t-label" x="40" y="26">One slow request, end to end</text>
+
+  <!-- the stacked bar -->
+  <rect class="box gray" x="40" y="40" width="108" height="44" rx="10"/>
+  <text x="94" y="66" text-anchor="middle">app code</text>
+  <rect class="box orange" x="152" y="40" width="136" height="44" rx="10"/>
+  <text class="t-b t-orange" x="220" y="66" text-anchor="middle">pool wait</text>
+  <rect class="box gray" x="292" y="40" width="56" height="44" rx="10"/>
+  <text x="320" y="66" text-anchor="middle">net</text>
+  <rect class="box orange" x="352" y="40" width="116" height="44" rx="10"/>
+  <text class="t-b t-orange" x="410" y="66" text-anchor="middle">lock wait</text>
+  <rect class="box blue" x="472" y="40" width="146" height="44" rx="10"/>
+  <text class="t-b t-blue" x="545" y="66" text-anchor="middle">CPU + I/O</text>
+  <rect class="box gray" x="622" y="40" width="98" height="44" rx="10"/>
+  <text x="671" y="66" text-anchor="middle">fetch + ORM</text>
+
+  <!-- bracket: database view -->
+  <path class="ln blue" d="M352 98 L352 106 L618 106 L618 98"/>
+  <text class="t-b" x="485" y="128" text-anchor="middle">What the database sees</text>
+  <text class="t-xs" x="485" y="144" text-anchor="middle">pg_stat_statements &#183; Performance Insights &#183; Query Profiler</text>
+
+  <!-- bracket: app DB span -->
+  <path class="ln" d="M152 164 L152 172 L720 172 L720 164"/>
+  <text class="t-b" x="436" y="194" text-anchor="middle">What the app&#8217;s &#8220;DB call&#8221; span shows</text>
+  <text class="t-xs" x="436" y="210" text-anchor="middle">includes waiting for a pooled connection, the network and object mapping</text>
+
+  <!-- bracket: user -->
+  <path class="ln" d="M40 230 L40 238 L720 238 L720 230"/>
+  <text class="t-b" x="380" y="260" text-anchor="middle">What the user feels</text>
+  <text class="t-xs" x="380" y="276" text-anchor="middle">measure it as p95 / p99, not the average</text>
+</svg>

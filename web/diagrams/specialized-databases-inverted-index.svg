@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <rect class="box panel" x="4" y="4" width="248" height="332" rx="16"/>
+  <text class="t-label" x="128" y="30" text-anchor="middle">Documents</text>
+
+  <rect class="box gray" x="24" y="48" width="208" height="72" rx="12"/>
+  <text class="t-b" x="40" y="78">D1</text>
+  <text class="t-sm" x="40" y="100">redis cache persist</text>
+
+  <rect class="box gray" x="24" y="136" width="208" height="72" rx="12"/>
+  <text class="t-b" x="40" y="166">D2</text>
+  <text class="t-sm" x="40" y="188">graph nodes edges</text>
+
+  <rect class="box gray" x="24" y="224" width="208" height="72" rx="12"/>
+  <text class="t-b" x="40" y="254">D3</text>
+  <text class="t-sm" x="40" y="276">redis vector search</text>
+
+  <path class="ln blue" d="M254 168 L294 168" marker-end="url(#arr-blue)"/>
+  <text class="t-xs t-blue" x="274" y="158" text-anchor="middle">analyse</text>
+
+  <rect class="box panel" x="296" y="4" width="460" height="332" rx="16"/>
+  <text class="t-label" x="526" y="30" text-anchor="middle">Inverted index</text>
+
+  <rect class="box teal" x="316" y="48" width="100" height="36" rx="10"/>
+  <text class="t-mono t-b" x="366" y="71" text-anchor="middle">redis</text>
+  <path class="ln teal" d="M418 66 L444 66" marker-end="url(#arr)"/>
+  <rect class="box green" x="448" y="48" width="52" height="36" rx="10"/>
+  <text class="t-b" x="474" y="71" text-anchor="middle">D1</text>
+  <rect class="box green" x="508" y="48" width="52" height="36" rx="10"/>
+  <text class="t-b" x="534" y="71" text-anchor="middle">D3</text>
+  <text class="t-xs t-green" x="640" y="71" text-anchor="middle">query hit</text>
+
+  <rect class="box teal" x="316" y="96" width="100" height="36" rx="10"/>
+  <text class="t-mono" x="366" y="119" text-anchor="middle">cache</text>
+  <path class="ln" d="M418 114 L444 114" marker-end="url(#arr)"/>
+  <rect class="box" x="448" y="96" width="52" height="36" rx="10"/>
+  <text x="474" y="119" text-anchor="middle">D1</text>
+
+  <rect class="box teal" x="316" y="144" width="100" height="36" rx="10"/>
+  <text class="t-mono" x="366" y="167" text-anchor="middle">graph</text>
+  <path class="ln" d="M418 162 L444 162" marker-end="url(#arr)"/>
+  <rect class="box" x="448" y="144" width="52" height="36" rx="10"/>
+  <text x="474" y="167" text-anchor="middle">D2</text>
+
+  <rect class="box teal" x="316" y="192" width="100" height="36" rx="10"/>
+  <text class="t-mono" x="366" y="215" text-anchor="middle">vector</text>
+  <path class="ln" d="M418 210 L444 210" marker-end="url(#arr)"/>
+  <rect class="box" x="448" y="192" width="52" height="36" rx="10"/>
+  <text x="474" y="215" text-anchor="middle">D3</text>
+
+  <rect class="box teal" x="316" y="240" width="100" height="36" rx="10"/>
+  <text class="t-mono" x="366" y="263" text-anchor="middle">search</text>
+  <path class="ln" d="M418 258 L444 258" marker-end="url(#arr)"/>
+  <rect class="box" x="448" y="240" width="52" height="36" rx="10"/>
+  <text x="474" y="263" text-anchor="middle">D3</text>
+
+  <text class="t-sm" x="526" y="308" text-anchor="middle">term &#8594; posting list of document IDs</text>
+  <text class="t-xs" x="526" y="324" text-anchor="middle">query redis returns D1 and D3, then rank</text>
+</svg>

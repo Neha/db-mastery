@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280">
+  <rect class="box gray" x="20" y="100" width="120" height="64" rx="12"/>
+  <text class="t-b" x="80" y="128" text-anchor="middle">App</text>
+  <text class="t-xs" x="80" y="148" text-anchor="middle">driver retries</text>
+  <path class="ln blue" d="M140 132 L210 80" marker-end="url(#arr-blue)"/>
+  <text class="t-xs t-blue" x="154" y="100">writes</text>
+
+  <rect class="box blue" x="212" y="48" width="180" height="64" rx="12"/>
+  <text class="t-b" x="302" y="76" text-anchor="middle">Primary</text>
+  <text class="t-xs" x="302" y="96" text-anchor="middle">all writes &#183; oplog</text>
+
+  <path class="ln purple" d="M392 68 L468 68" marker-end="url(#arr-purple)"/>
+  <text class="t-xs t-purple" x="422" y="58">oplog</text>
+  <path class="ln purple" d="M392 92 C 430 92, 440 188, 468 188" marker-end="url(#arr-purple)"/>
+
+  <rect class="box purple" x="470" y="40" width="270" height="56" rx="12"/>
+  <text class="t-b" x="605" y="64" text-anchor="middle">Secondary</text>
+  <text class="t-xs" x="605" y="82" text-anchor="middle">AZ-b &#183; tails the oplog</text>
+
+  <rect class="box purple" x="470" y="164" width="270" height="56" rx="12"/>
+  <text class="t-b" x="605" y="188" text-anchor="middle">Secondary</text>
+  <text class="t-xs" x="605" y="206" text-anchor="middle">AZ-c &#183; tails the oplog</text>
+
+  <path class="ln dash" d="M302 112 L302 168" marker-end="url(#arr)"/>
+  <rect class="box" x="212" y="170" width="180" height="56" rx="12"/>
+  <text class="t-sm t-b" x="302" y="194" text-anchor="middle">Election</text>
+  <text class="t-xs" x="302" y="212" text-anchor="middle">majority &#183; ~5&#8211;12 s</text>
+
+  <text class="t-xs t-muted" x="380" y="256" text-anchor="middle">If the primary fails, a majority of voters elects a new one. Drivers retry.</text>
+</svg>

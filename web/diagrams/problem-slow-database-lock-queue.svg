@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <text class="t-label" x="380" y="26" text-anchor="middle">Lock queue on table orders</text>
+
+  <!-- session A: root blocker -->
+  <rect class="box red" x="24" y="76" width="200" height="104" rx="14"/>
+  <text class="t-b" x="40" y="100">Session A</text>
+  <text class="t-mono" x="40" y="122">BEGIN; SELECT &#8230;</text>
+  <text class="t-sm" x="40" y="144">idle in transaction 40 min</text>
+  <text class="t-sm t-red t-b" x="40" y="162">holds AccessShareLock</text>
+
+  <!-- session B: DDL -->
+  <rect class="box orange" x="282" y="76" width="200" height="104" rx="14"/>
+  <text class="t-b" x="298" y="100">Session B</text>
+  <text class="t-mono" x="298" y="122">ALTER TABLE orders &#8230;</text>
+  <text class="t-sm" x="298" y="144">needs AccessExclusiveLock</text>
+  <text class="t-sm t-orange t-b" x="298" y="162">waiting on A</text>
+
+  <path class="ln orange thick" d="M282 128 L228 128" marker-end="url(#arr-orange)"/>
+  <text class="t-xs" x="255" y="118" text-anchor="middle">waits</text>
+
+  <!-- queue -->
+  <rect class="box" x="550" y="48" width="186" height="32" rx="10"/>
+  <text class="t-mono" x="643" y="68" text-anchor="middle">SELECT &#8230; FROM orders</text>
+  <rect class="box" x="550" y="88" width="186" height="32" rx="10"/>
+  <text class="t-mono" x="643" y="108" text-anchor="middle">UPDATE orders &#8230;</text>
+  <rect class="box" x="550" y="128" width="186" height="32" rx="10"/>
+  <text class="t-mono" x="643" y="148" text-anchor="middle">SELECT &#8230; FROM orders</text>
+  <rect class="box ghost" x="550" y="168" width="186" height="32" rx="10"/>
+  <text class="t-sm" x="643" y="188" text-anchor="middle">+ every new query</text>
+
+  <path class="ln orange" d="M548 64 C 520 64, 512 112, 486 120" marker-end="url(#arr-orange)"/>
+  <path class="ln orange" d="M548 104 C 524 104, 514 122, 486 126" marker-end="url(#arr-orange)"/>
+  <path class="ln orange" d="M548 144 C 524 144, 514 134, 486 132" marker-end="url(#arr-orange)"/>
+  <path class="ln orange dash" d="M548 184 C 520 184, 512 144, 486 138" marker-end="url(#arr-orange)"/>
+  <text class="t-xs" x="643" y="218" text-anchor="middle">queued behind B, not A</text>
+
+  <!-- fix -->
+  <rect class="box green" x="80" y="244" width="600" height="36" rx="18"/>
+  <text class="t-sm t-b" x="380" y="266" text-anchor="middle">SET lock_timeout before DDL &#183; idle_in_transaction_session_timeout &#183; terminate A</text>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <rect class="box panel" x="4" y="4" width="368" height="352" rx="16"/>
+  <text class="t-label" x="188" y="30" text-anchor="middle">Exact kNN</text>
+
+  <circle class="box blue" cx="188" cy="168" r="13"/>
+  <text class="t-b t-xs" x="188" y="172" text-anchor="middle">q</text>
+
+  <circle class="fill-gray" cx="88" cy="88" r="6"/>
+  <circle class="fill-gray" cx="168" cy="72" r="6"/>
+  <circle class="fill-gray" cx="248" cy="84" r="6"/>
+  <circle class="fill-gray" cx="300" cy="140" r="6"/>
+  <circle class="fill-gray" cx="312" cy="210" r="6"/>
+  <circle class="fill-gray" cx="268" cy="268" r="6"/>
+  <circle class="fill-gray" cx="188" cy="286" r="6"/>
+  <circle class="fill-gray" cx="108" cy="260" r="6"/>
+  <circle class="fill-gray" cx="72" cy="196" r="6"/>
+  <circle class="fill-gray" cx="80" cy="140" r="6"/>
+  <circle class="fill-orange" cx="228" cy="128" r="7"/>
+
+  <path class="ln orange thin dash" d="M188 168 L88 88"/>
+  <path class="ln orange thin dash" d="M188 168 L168 72"/>
+  <path class="ln orange thin dash" d="M188 168 L248 84"/>
+  <path class="ln orange thin dash" d="M188 168 L300 140"/>
+  <path class="ln orange thin dash" d="M188 168 L312 210"/>
+  <path class="ln orange thin dash" d="M188 168 L268 268"/>
+  <path class="ln orange thin dash" d="M188 168 L188 286"/>
+  <path class="ln orange thin dash" d="M188 168 L108 260"/>
+  <path class="ln orange thin dash" d="M188 168 L72 196"/>
+  <path class="ln orange thin dash" d="M188 168 L80 140"/>
+  <path class="ln orange thin" d="M188 168 L228 128"/>
+
+  <text class="t-sm" x="188" y="322" text-anchor="middle"><tspan class="t-orange t-b">Visit every vector</tspan></text>
+  <text class="t-xs" x="188" y="340" text-anchor="middle">100% recall &#183; O(n) &#183; too slow at millions</text>
+
+  <rect class="box panel" x="388" y="4" width="368" height="352" rx="16"/>
+  <text class="t-label" x="572" y="30" text-anchor="middle">HNSW (ANN)</text>
+
+  <circle class="box blue" cx="500" cy="56" r="12"/>
+  <text class="t-b t-xs" x="500" y="60" text-anchor="middle">q</text>
+  <path class="ln blue" d="M512 60 L560 78" marker-end="url(#arr-blue)"/>
+  <text class="t-xs t-blue" x="518" y="50">enter</text>
+
+  <text class="t-xs t-muted" x="412" y="82">L2</text>
+  <circle class="fill-gray" cx="500" cy="82" r="5"/>
+  <circle class="box green" cx="572" cy="82" r="8"/>
+  <circle class="fill-gray" cx="644" cy="82" r="5"/>
+  <path class="ln faint" d="M505 82 L564 82"/>
+  <path class="ln faint" d="M580 82 L639 82"/>
+
+  <text class="t-xs t-muted" x="412" y="150">L1</text>
+  <circle class="fill-gray" cx="476" cy="150" r="5"/>
+  <circle class="box green" cx="548" cy="150" r="8"/>
+  <circle class="fill-gray" cx="620" cy="150" r="5"/>
+  <circle class="fill-gray" cx="684" cy="150" r="5"/>
+  <path class="ln faint" d="M481 150 L540 150"/>
+  <path class="ln faint" d="M556 150 L615 150"/>
+  <path class="ln faint" d="M625 150 L679 150"/>
+
+  <text class="t-xs t-muted" x="412" y="230">L0</text>
+  <circle class="fill-gray" cx="456" cy="236" r="5"/>
+  <circle class="fill-gray" cx="508" cy="220" r="5"/>
+  <circle class="box green" cx="560" cy="236" r="8"/>
+  <circle class="fill-gray" cx="608" cy="216" r="5"/>
+  <circle class="fill-orange" cx="652" cy="240" r="7"/>
+  <circle class="fill-gray" cx="700" cy="224" r="5"/>
+  <circle class="fill-gray" cx="492" cy="264" r="5"/>
+  <circle class="fill-gray" cx="584" cy="272" r="5"/>
+  <path class="ln faint" d="M461 236 L503 220"/>
+  <path class="ln faint" d="M513 220 L552 236"/>
+  <path class="ln faint" d="M568 236 L603 216"/>
+  <path class="ln faint" d="M613 216 L645 240"/>
+  <path class="ln faint" d="M659 240 L695 224"/>
+  <path class="ln faint" d="M560 244 L584 272"/>
+
+  <path class="ln green thick" d="M572 90 L548 142" marker-end="url(#arr-green)"/>
+  <path class="ln green thick" d="M548 158 L560 228" marker-end="url(#arr-green)"/>
+  <path class="ln green thick" d="M568 238 L645 240" marker-end="url(#arr-green)"/>
+
+  <text class="t-sm" x="572" y="322" text-anchor="middle"><tspan class="t-green t-b">Walk a few edges</tspan></text>
+  <text class="t-xs" x="572" y="340" text-anchor="middle">high recall &#183; graph lives in RAM</text>
+</svg>

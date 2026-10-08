@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <text class="t-label" x="380" y="28" text-anchor="middle">Four recovery paths &#183; GitLab 31 Jan 2017</text>
+
+  <!-- path 1 -->
+  <rect class="box" x="16" y="48" width="172" height="168" rx="14"/>
+  <text class="t-b" x="102" y="76" text-anchor="middle">pg_dump to S3</text>
+  <text class="t-sm" x="102" y="100" text-anchor="middle">cron looked healthy</text>
+  <text class="t-xs t-muted" x="102" y="122" text-anchor="middle">wrong major version</text>
+  <text class="t-xs t-muted" x="102" y="138" text-anchor="middle">9.2 client, 9.6 server</text>
+  <rect class="box red" x="40" y="158" width="124" height="40" rx="12"/>
+  <text class="t-sm t-b" x="102" y="182" text-anchor="middle">S3 bucket empty</text>
+
+  <!-- path 2 -->
+  <rect class="box" x="204" y="48" width="172" height="168" rx="14"/>
+  <text class="t-b" x="290" y="76" text-anchor="middle">Failure emails</text>
+  <text class="t-sm" x="290" y="100" text-anchor="middle">cron did send them</text>
+  <text class="t-xs t-muted" x="290" y="122" text-anchor="middle">DMARC rejected</text>
+  <text class="t-xs t-muted" x="290" y="138" text-anchor="middle">nobody saw the error</text>
+  <rect class="box red" x="228" y="158" width="124" height="40" rx="12"/>
+  <text class="t-sm t-b" x="290" y="182" text-anchor="middle">silent failure</text>
+
+  <!-- path 3 -->
+  <rect class="box" x="392" y="48" width="172" height="168" rx="14"/>
+  <text class="t-b" x="478" y="76" text-anchor="middle">Azure snapshots</text>
+  <text class="t-sm" x="478" y="100" text-anchor="middle">used on NFS hosts</text>
+  <text class="t-xs t-muted" x="478" y="122" text-anchor="middle">not enabled on</text>
+  <text class="t-xs t-muted" x="478" y="138" text-anchor="middle">the database disks</text>
+  <rect class="box red" x="416" y="158" width="124" height="40" rx="12"/>
+  <text class="t-sm t-b" x="478" y="182" text-anchor="middle">not available</text>
+
+  <!-- path 4 -->
+  <rect class="box" x="580" y="48" width="164" height="168" rx="14"/>
+  <text class="t-b" x="662" y="76" text-anchor="middle">LVM snapshot</text>
+  <text class="t-sm" x="662" y="100" text-anchor="middle">meant for staging</text>
+  <text class="t-xs t-muted" x="662" y="122" text-anchor="middle">lucky manual copy</text>
+  <text class="t-xs t-muted" x="662" y="138" text-anchor="middle">taken ~6 hours earlier</text>
+  <rect class="box orange" x="600" y="158" width="124" height="40" rx="12"/>
+  <text class="t-sm t-b" x="662" y="182" text-anchor="middle">only restore</text>
+
+  <rect class="box panel" x="16" y="236" width="728" height="88" rx="16"/>
+  <text class="t-b" x="380" y="268" text-anchor="middle">A backup you have never restored is a rumour</text>
+  <text class="t-sm" x="380" y="294" text-anchor="middle">Replication was already broken (WAL gone, no archive). The secondary could not save them.</text>
+</svg>

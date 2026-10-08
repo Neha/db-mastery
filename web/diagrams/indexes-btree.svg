@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350">
+  <!-- level labels -->
+  <text class="t-label" x="20" y="48">Root</text>
+  <text class="t-xs" x="20" y="63">cached in RAM</text>
+  <text class="t-label" x="20" y="138">Internal</text>
+  <text class="t-label" x="20" y="194">Leaves</text>
+
+  <!-- root -->
+  <rect class="box blue" x="300" y="28" width="160" height="42" rx="11"/>
+  <text class="t-mono t-b" x="380" y="54" text-anchor="middle">40  &#9474;  80</text>
+
+  <!-- root &#8594; internal -->
+  <path class="ln faint" d="M330 70 C 330 95, 175 95, 175 116"/>
+  <path class="ln green thick" d="M380 70 L380 116"/>
+  <path class="ln faint" d="M430 70 C 430 95, 590 95, 590 116"/>
+
+  <!-- internal -->
+  <rect class="box" x="100" y="116" width="150" height="40" rx="10"/>
+  <text class="t-mono" x="175" y="141" text-anchor="middle">10 &#9474; 20 &#9474; 30</text>
+  <rect class="box green" x="305" y="116" width="150" height="40" rx="10"/>
+  <text class="t-mono t-b" x="380" y="141" text-anchor="middle">50 &#9474; 60 &#9474; 70</text>
+  <rect class="box" x="515" y="116" width="150" height="40" rx="10"/>
+  <text class="t-mono" x="590" y="141" text-anchor="middle">90 &#9474; 95</text>
+
+  <!-- internal &#8594; leaves -->
+  <path class="ln faint" d="M150 156 L110 204"/>
+  <path class="ln faint" d="M200 156 L230 204"/>
+  <path class="ln green thick" d="M355 156 L345 204"/>
+  <path class="ln faint" d="M405 156 L465 204"/>
+  <path class="ln faint" d="M565 156 L585 204"/>
+  <path class="ln faint" d="M615 156 L700 204"/>
+
+  <!-- leaves -->
+  <g>
+    <rect class="box" x="60" y="204" width="100" height="44" rx="10"/>
+    <text class="t-mono" x="110" y="231" text-anchor="middle">10&#183;14&#183;19</text>
+    <rect class="box" x="180" y="204" width="100" height="44" rx="10"/>
+    <text class="t-mono" x="230" y="231" text-anchor="middle">20&#183;25&#183;29</text>
+    <rect class="box green" x="295" y="204" width="100" height="44" rx="10"/>
+    <text class="t-mono t-b" x="345" y="231" text-anchor="middle">50&#183;53&#183;57</text>
+    <rect class="box" x="415" y="204" width="100" height="44" rx="10"/>
+    <text class="t-mono" x="465" y="231" text-anchor="middle">60&#183;64&#183;68</text>
+    <rect class="box" x="535" y="204" width="100" height="44" rx="10"/>
+    <text class="t-mono" x="585" y="231" text-anchor="middle">90&#183;92</text>
+    <rect class="box" x="650" y="204" width="100" height="44" rx="10"/>
+    <text class="t-mono" x="700" y="231" text-anchor="middle">95&#183;99</text>
+  </g>
+
+  <!-- sibling links -->
+  <path class="ln blue" d="M161 226 L179 226" marker-end="url(#arr-blue)"/>
+  <path class="ln blue" d="M281 226 L294 226" marker-end="url(#arr-blue)"/>
+  <path class="ln blue" d="M396 226 L414 226" marker-end="url(#arr-blue)"/>
+  <path class="ln blue" d="M516 226 L534 226" marker-end="url(#arr-blue)"/>
+  <path class="ln blue" d="M636 226 L649 226" marker-end="url(#arr-blue)"/>
+
+  <!-- row pointers -->
+  <path class="ln dash" d="M345 248 L345 282" marker-end="url(#arr)"/>
+  <rect class="box gray" x="270" y="284" width="150" height="30" rx="8"/>
+  <text class="t-sm" x="345" y="303" text-anchor="middle">row 57 in the heap</text>
+
+  <!-- callouts -->
+  <circle class="fill-green" cx="482" cy="40" r="5"/>
+  <text x="494" y="44" class="t-b">Lookup 57</text>
+  <text class="t-sm" x="494" y="60">root &#8594; internal &#8594; leaf = 3 page reads</text>
+
+  <text class="t-sm" x="60" y="300">
+    <tspan class="t-blue t-b">Linked leaves</tspan>
+    <tspan x="60" dy="16">range scans walk sideways</tspan>
+  </text>
+  <text class="t-sm" x="750" y="300" text-anchor="end">
+    <tspan class="t-b">~400 keys per 8 KB page</tspan>
+    <tspan x="750" dy="16">4 levels &#8776; 25 billion rows</tspan>
+  </text>
+</svg>

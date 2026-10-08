@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <text class="t-label" x="380" y="28" text-anchor="middle">Numbers to say out loud  &#183;  order of magnitude</text>
+
+  <!-- ladder -->
+  <rect class="box green" x="40" y="52" width="680" height="36" rx="10"/>
+  <text class="t-sm t-b" x="56" y="74">L1 / RAM</text>
+  <text class="t-sm" x="700" y="74" text-anchor="end">~1 ns  /  ~100 ns</text>
+
+  <rect class="box blue" x="40" y="100" width="680" height="36" rx="10"/>
+  <text class="t-sm t-b" x="56" y="122">Same-machine SSD read</text>
+  <text class="t-sm" x="700" y="122" text-anchor="end">tens to hundreds of &#181;s</text>
+
+  <rect class="box" x="40" y="148" width="680" height="36" rx="10"/>
+  <text class="t-sm t-b" x="56" y="170">In-process / same AZ DB hop</text>
+  <text class="t-sm" x="700" y="170" text-anchor="end">~0.2&#8211;2 ms</text>
+
+  <rect class="box orange" x="40" y="196" width="680" height="36" rx="10"/>
+  <text class="t-sm t-b" x="56" y="218">Cross-AZ synchronous commit</text>
+  <text class="t-sm" x="700" y="218" text-anchor="end">a few ms</text>
+
+  <rect class="box red" x="40" y="244" width="680" height="36" rx="10"/>
+  <text class="t-sm t-b" x="56" y="266">Cross-region round trip</text>
+  <text class="t-sm" x="700" y="266" text-anchor="end">~60&#8211;150 ms</text>
+
+  <text class="t-sm" x="380" y="306" text-anchor="middle">A cache that misses still pays the DB hop. Sync multi-region writes pay the red bar on every commit.</text>
+  <text class="t-xs t-muted" x="380" y="326" text-anchor="middle">Say &quot;roughly&quot; &#8212; hardware and clouds move; the gaps between rows do not.</text>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320">
+  <!-- links fact &#8594; dimensions -->
+  <path class="ln faint" d="M290 132 C 250 132, 250 72, 212 72"/>
+  <path class="ln purple" d="M290 150 C 250 150, 250 248, 212 248"/>
+  <path class="ln faint" d="M470 168 C 510 168, 510 72, 548 72"/>
+  <path class="ln faint" d="M470 186 C 510 186, 510 248, 548 248"/>
+
+  <!-- fact table -->
+  <rect class="box blue" x="290" y="70" width="180" height="180" rx="14"/>
+  <text class="t-b" x="380" y="93" text-anchor="middle">fact_sales</text>
+  <text class="t-xs" x="380" y="109" text-anchor="middle">grain: one order line</text>
+  <path class="ln faint" d="M302 118 L458 118"/>
+  <text class="t-mono" x="306" y="136">date_key</text>
+  <text class="t-mono" x="306" y="154">customer_key</text>
+  <text class="t-mono" x="306" y="172">product_key</text>
+  <text class="t-mono" x="306" y="190">store_key</text>
+  <text class="t-mono t-b t-blue" x="306" y="214">quantity</text>
+  <text class="t-mono t-b t-blue" x="306" y="232">amount</text>
+  <text class="t-xs" x="454" y="136" text-anchor="end">FK</text>
+  <text class="t-xs" x="454" y="154" text-anchor="end">FK</text>
+  <text class="t-xs" x="454" y="172" text-anchor="end">FK</text>
+  <text class="t-xs" x="454" y="190" text-anchor="end">FK</text>
+  <text class="t-xs" x="454" y="214" text-anchor="end">measure</text>
+  <text class="t-xs" x="454" y="232" text-anchor="end">measure</text>
+
+  <!-- dim_date -->
+  <rect class="box" x="40" y="20" width="172" height="104" rx="12"/>
+  <text class="t-b" x="56" y="44">dim_date</text>
+  <text class="t-mono" x="56" y="66">date_key</text>
+  <text class="t-mono t-muted" x="56" y="84">month &#183; quarter</text>
+  <text class="t-mono t-muted" x="56" y="102">is_holiday</text>
+
+  <!-- dim_customer (SCD 2) -->
+  <rect class="box purple" x="40" y="196" width="172" height="104" rx="12"/>
+  <text class="t-b" x="56" y="220">dim_customer</text>
+  <rect class="box purple" x="150" y="207" width="50" height="18" rx="9"/>
+  <text class="t-xs t-purple t-b" x="175" y="220" text-anchor="middle">SCD 2</text>
+  <text class="t-mono" x="56" y="242">customer_key</text>
+  <text class="t-mono t-muted" x="56" y="260">customer_id &#183; city</text>
+  <text class="t-mono t-muted" x="56" y="278">valid_from &#183; valid_to</text>
+
+  <!-- dim_product -->
+  <rect class="box" x="548" y="20" width="172" height="104" rx="12"/>
+  <text class="t-b" x="564" y="44">dim_product</text>
+  <text class="t-mono" x="564" y="66">product_key</text>
+  <text class="t-mono t-muted" x="564" y="84">name &#183; brand</text>
+  <text class="t-mono t-muted" x="564" y="102">category</text>
+
+  <!-- dim_store -->
+  <rect class="box" x="548" y="196" width="172" height="104" rx="12"/>
+  <text class="t-b" x="564" y="220">dim_store</text>
+  <text class="t-mono" x="564" y="242">store_key</text>
+  <text class="t-mono t-muted" x="564" y="260">city &#183; region</text>
+  <text class="t-mono t-muted" x="564" y="278">format</text>
+
+  <!-- notes -->
+  <text class="t-sm" x="380" y="40" text-anchor="middle">fact: narrow, billions of rows</text>
+  <text class="t-sm" x="380" y="56" text-anchor="middle">dimensions: wide, few rows</text>
+  <text class="t-sm" x="380" y="280" text-anchor="middle">one join hop to any context</text>
+  <text class="t-xs" x="380" y="298" text-anchor="middle">snowflake: normalise dims further</text>
+</svg>

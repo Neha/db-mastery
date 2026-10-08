@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <!-- Range -->
+  <rect class="box panel" x="4" y="4" width="368" height="292" rx="16"/>
+  <text class="t-label" x="188" y="30" text-anchor="middle">Range</text>
+  <text class="t-xs" x="188" y="48" text-anchor="middle">contiguous keys stay together</text>
+
+  <rect class="box" x="28" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="78" y="92" text-anchor="middle">P1</text>
+  <text class="t-mono t-xs" x="78" y="110" text-anchor="middle">Jan</text>
+  <text class="t-xs" x="78" y="160" text-anchor="middle">cold</text>
+
+  <rect class="box" x="140" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="190" y="92" text-anchor="middle">P2</text>
+  <text class="t-mono t-xs" x="190" y="110" text-anchor="middle">Feb</text>
+  <text class="t-xs" x="190" y="160" text-anchor="middle">cold</text>
+
+  <rect class="box orange" x="252" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="302" y="92" text-anchor="middle">P3</text>
+  <text class="t-mono t-xs" x="302" y="110" text-anchor="middle">Mar</text>
+  <circle class="fill-orange" cx="278" cy="138" r="5"/>
+  <circle class="fill-orange" cx="302" cy="138" r="5"/>
+  <circle class="fill-orange" cx="326" cy="138" r="5"/>
+  <circle class="fill-orange" cx="290" cy="158" r="5"/>
+  <circle class="fill-orange" cx="314" cy="158" r="5"/>
+  <text class="t-xs t-orange t-b" x="302" y="176" text-anchor="middle">hot</text>
+
+  <path class="ln orange" d="M302 48 L302 64" marker-end="url(#arr-orange)"/>
+  <text class="t-xs t-orange" x="348" y="44" text-anchor="end">new writes</text>
+
+  <text class="t-sm" x="188" y="220" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> range scan hits one node</text>
+  <text class="t-sm" x="188" y="240" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> monotonic keys hotspot the tail</text>
+  <text class="t-xs" x="188" y="272" text-anchor="middle">timestamps &#183; autoincrement IDs &#183; dates</text>
+
+  <!-- Hash -->
+  <rect class="box panel" x="388" y="4" width="368" height="292" rx="16"/>
+  <text class="t-label" x="572" y="30" text-anchor="middle">Hash</text>
+  <text class="t-xs" x="572" y="48" text-anchor="middle">hash(key) lands in a bucket</text>
+
+  <rect class="box green" x="412" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="462" y="92" text-anchor="middle">P1</text>
+  <circle class="fill-green" cx="438" cy="128" r="5"/>
+  <circle class="fill-green" cx="462" cy="148" r="5"/>
+  <circle class="fill-green" cx="486" cy="128" r="5"/>
+
+  <rect class="box green" x="524" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="574" y="92" text-anchor="middle">P2</text>
+  <circle class="fill-green" cx="550" cy="138" r="5"/>
+  <circle class="fill-green" cx="574" cy="128" r="5"/>
+  <circle class="fill-green" cx="598" cy="154" r="5"/>
+
+  <rect class="box green" x="636" y="68" width="100" height="120" rx="12"/>
+  <text class="t-b" x="686" y="92" text-anchor="middle">P3</text>
+  <circle class="fill-green" cx="662" cy="148" r="5"/>
+  <circle class="fill-green" cx="686" cy="128" r="5"/>
+  <circle class="fill-green" cx="710" cy="142" r="5"/>
+
+  <path class="ln green" d="M462 40 L462 64" marker-end="url(#arr-green)"/>
+  <path class="ln green" d="M574 40 L574 64" marker-end="url(#arr-green)"/>
+  <path class="ln green" d="M686 40 L686 64" marker-end="url(#arr-green)"/>
+  <text class="t-xs t-green" x="572" y="56" text-anchor="middle">writes scatter</text>
+
+  <text class="t-sm" x="572" y="220" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> even write throughput</text>
+  <text class="t-sm" x="572" y="240" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> a range query hits every node</text>
+  <text class="t-xs" x="572" y="272" text-anchor="middle">hashed shard keys &#183; Kafka &#183; Cassandra</text>
+</svg>

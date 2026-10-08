@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <text class="t-label" x="380" y="28" text-anchor="middle">Instagram 64-bit ID</text>
+
+  <!-- bit bar -->
+  <rect class="box blue" x="20" y="48" width="460" height="56" rx="10"/>
+  <text class="t-b" x="250" y="72" text-anchor="middle">41 bits &#183; timestamp</text>
+  <text class="t-xs" x="250" y="90" text-anchor="middle">ms since a custom epoch</text>
+
+  <rect class="box teal" x="480" y="48" width="146" height="56" rx="10"/>
+  <text class="t-b" x="553" y="72" text-anchor="middle">13 bits</text>
+  <text class="t-xs" x="553" y="90" text-anchor="middle">logical shard</text>
+
+  <rect class="box purple" x="626" y="48" width="114" height="56" rx="10"/>
+  <text class="t-b" x="683" y="72" text-anchor="middle">10 bits</text>
+  <text class="t-xs" x="683" y="90" text-anchor="middle">sequence</text>
+
+  <text class="t-xs t-muted" x="250" y="122" text-anchor="middle">time-sortable &#183; ~41 years</text>
+  <text class="t-xs t-muted" x="553" y="122" text-anchor="middle">routes the row</text>
+  <text class="t-xs t-muted" x="683" y="122" text-anchor="middle">0&#8211;1023 / ms</text>
+
+  <!-- example -->
+  <rect class="box panel" x="20" y="142" width="720" height="140" rx="16"/>
+  <text class="t-label" x="380" y="168" text-anchor="middle">Published example &#183; shard by user</text>
+
+  <rect class="box gray" x="40" y="186" width="200" height="36" rx="10"/>
+  <text class="t-sm" x="140" y="208" text-anchor="middle">user 31341</text>
+  <path class="ln" d="M240 204 L268 204" marker-end="url(#arr)"/>
+  <rect class="box teal" x="272" y="186" width="200" height="36" rx="10"/>
+  <text class="t-sm" x="372" y="208" text-anchor="middle">31341 % 2000 = 1341</text>
+  <path class="ln teal" d="M472 204 L500 204" marker-end="url(#arr)"/>
+  <rect class="box" x="504" y="186" width="216" height="36" rx="10"/>
+  <text class="t-sm" x="612" y="208" text-anchor="middle">packed into the ID</text>
+
+  <text class="t-sm" x="380" y="252" text-anchor="middle">Logical shard lives in a Postgres schema. Many logical shards share one physical host.</text>
+  <text class="t-xs t-muted" x="380" y="270" text-anchor="middle">Move a schema to a new server without rewriting IDs.</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <!-- ========== Timeline ========== -->
+  <rect class="box panel" x="4" y="4" width="480" height="292" rx="16"/>
+  <text class="t-label" x="244" y="30" text-anchor="middle">Invariant: at least one doctor on call</text>
+
+  <text class="t-b" x="22" y="88">T1</text>
+  <text class="t-xs" x="22" y="102">Alice</text>
+  <text class="t-b" x="22" y="168">T2</text>
+  <text class="t-xs" x="22" y="182">Bob</text>
+  <path class="ln faint" d="M60 92 L470 92"/>
+  <path class="ln faint" d="M60 172 L470 172"/>
+
+  <!-- T1 -->
+  <rect class="box blue" x="66" y="77" width="112" height="30" rx="15"/>
+  <text class="t-sm" x="122" y="96" text-anchor="middle">count = 2</text>
+  <rect class="box" x="226" y="77" width="104" height="30" rx="15"/>
+  <text class="t-sm" x="278" y="96" text-anchor="middle">alice off</text>
+  <rect class="box green" x="370" y="77" width="92" height="30" rx="15"/>
+  <text class="t-sm t-b" x="416" y="96" text-anchor="middle">COMMIT</text>
+
+  <!-- T2 -->
+  <rect class="box blue" x="96" y="157" width="112" height="30" rx="15"/>
+  <text class="t-sm" x="152" y="176" text-anchor="middle">count = 2</text>
+  <rect class="box" x="250" y="157" width="104" height="30" rx="15"/>
+  <text class="t-sm" x="302" y="176" text-anchor="middle">bob off</text>
+  <rect class="box red" x="370" y="157" width="92" height="30" rx="15"/>
+  <text class="t-sm t-b t-red" x="416" y="176" text-anchor="middle">40001</text>
+  <text class="t-xs" x="416" y="204" text-anchor="middle">serialization failure</text>
+
+  <text class="t-xs" x="122" y="124" text-anchor="middle">same snapshot</text>
+
+  <text class="t-sm" x="244" y="248" text-anchor="middle"><tspan class="t-orange t-b">Snapshot isolation:</tspan> both commit &#8658; nobody on call</text>
+  <text class="t-sm" x="244" y="270" text-anchor="middle"><tspan class="t-green t-b">Serializable (SSI):</tspan> one aborts and retries</text>
+
+  <!-- ========== Dependency graph ========== -->
+  <rect class="box panel" x="500" y="4" width="256" height="292" rx="16"/>
+  <text class="t-label" x="628" y="30" text-anchor="middle">rw-antidependencies</text>
+
+  <circle class="box blue" cx="570" cy="100" r="24"/>
+  <text class="t-b" x="570" y="105" text-anchor="middle">T1</text>
+  <circle class="box blue" cx="686" cy="100" r="24"/>
+  <text class="t-b" x="686" y="105" text-anchor="middle">T2</text>
+  <path class="ln red" d="M590 86 C 612 66, 644 66, 664 84" marker-end="url(#arr-red)"/>
+  <path class="ln red" d="M666 114 C 644 134, 612 134, 592 116" marker-end="url(#arr-red)"/>
+  <text class="t-xs" x="628" y="62" text-anchor="middle">T1 read bob, T2 wrote it</text>
+  <text class="t-xs" x="628" y="148" text-anchor="middle">T2 read alice, T1 wrote it</text>
+
+  <text class="t-sm t-red t-b" x="628" y="182" text-anchor="middle">two rw edges in a row</text>
+  <text class="t-sm t-red t-b" x="628" y="200" text-anchor="middle">&#8658; abort one</text>
+
+  <text class="t-xs" x="628" y="234" text-anchor="middle">SIREAD locks record what was read;</text>
+  <text class="t-xs" x="628" y="250" text-anchor="middle">they never block anyone</text>
+  <text class="t-xs" x="628" y="274" text-anchor="middle">may abort false positives</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300">
+  <rect class="box panel" x="8" y="8" width="368" height="284" rx="16"/>
+  <text class="t-label t-red" x="192" y="32" text-anchor="middle">Forgotten WHERE</text>
+  <text class="t-xs" x="192" y="48" text-anchor="middle">app filter only, no RLS</text>
+
+  <rect class="box" x="28" y="64" width="328" height="40" rx="10"/>
+  <text class="t-mono" x="192" y="89" text-anchor="middle">SELECT * FROM orders</text>
+
+  <path class="ln red" d="M192 104 L192 128" marker-end="url(#arr-red)"/>
+
+  <rect class="box red" x="40" y="132" width="88" height="36" rx="10"/>
+  <text class="t-xs t-b" x="84" y="154" text-anchor="middle">tenant A</text>
+  <rect class="box red" x="148" y="132" width="88" height="36" rx="10"/>
+  <text class="t-xs t-b" x="192" y="154" text-anchor="middle">tenant B</text>
+  <rect class="box red" x="256" y="132" width="88" height="36" rx="10"/>
+  <text class="t-xs t-b" x="300" y="154" text-anchor="middle">tenant C</text>
+
+  <text class="t-sm t-red t-b" x="192" y="196" text-anchor="middle">Cross-tenant leak</text>
+  <text class="t-xs" x="192" y="216" text-anchor="middle">one missing predicate</text>
+  <text class="t-xs" x="192" y="232" text-anchor="middle">is a security incident</text>
+  <text class="t-xs" x="192" y="260" text-anchor="middle">audit, contain, notify</text>
+
+  <rect class="box panel" x="384" y="8" width="368" height="284" rx="16"/>
+  <text class="t-label t-green" x="568" y="32" text-anchor="middle">RLS or tenant_id</text>
+  <text class="t-xs" x="568" y="48" text-anchor="middle">database enforces the boundary</text>
+
+  <rect class="box" x="404" y="64" width="328" height="40" rx="10"/>
+  <text class="t-mono" x="568" y="89" text-anchor="middle">SET app.tenant_id = A</text>
+
+  <path class="ln green" d="M568 104 L568 128" marker-end="url(#arr-green)"/>
+
+  <rect class="box green" x="448" y="132" width="240" height="36" rx="10"/>
+  <text class="t-xs t-b" x="568" y="154" text-anchor="middle">policy: tenant_id = A</text>
+
+  <text class="t-sm t-green t-b" x="568" y="196" text-anchor="middle">Only tenant A rows</text>
+  <text class="t-xs" x="568" y="216" text-anchor="middle">missing WHERE cannot leak</text>
+  <text class="t-xs" x="568" y="232" text-anchor="middle">FORCE RLS on the table owner</text>
+  <text class="t-xs" x="568" y="260" text-anchor="middle">still set tenant_id every request</text>
+</svg>

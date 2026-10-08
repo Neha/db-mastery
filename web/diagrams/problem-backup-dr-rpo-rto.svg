@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280">
+  <text class="t-label" x="380" y="24" text-anchor="middle">RPO and RTO</text>
+
+  <path class="ln faint" d="M40 120 L720 120" marker-end="url(#arr)"/>
+  <text class="t-xs" x="740" y="124" text-anchor="end">time</text>
+
+  <circle class="fill-teal" cx="80" cy="120" r="7"/>
+  <text class="t-xs" x="80" y="100" text-anchor="middle">backup</text>
+
+  <circle class="fill-teal" cx="220" cy="120" r="7"/>
+  <text class="t-xs" x="220" y="100" text-anchor="middle">backup</text>
+
+  <circle class="fill-teal" cx="360" cy="120" r="7"/>
+  <text class="t-xs t-b" x="360" y="100" text-anchor="middle">last good</text>
+
+  <circle class="fill-red" cx="500" cy="120" r="8"/>
+  <text class="t-xs t-red t-b" x="500" y="100" text-anchor="middle">failure</text>
+
+  <circle class="fill-green" cx="680" cy="120" r="8"/>
+  <text class="t-xs t-green t-b" x="680" y="100" text-anchor="middle">restored</text>
+
+  <path class="ln orange dash faint" d="M360 128 L360 156"/>
+  <path class="ln orange dash faint" d="M500 128 L500 156"/>
+  <path class="ln orange thick" d="M360 168 L500 168"/>
+  <path class="ln orange" d="M360 156 L360 180"/>
+  <path class="ln orange" d="M500 156 L500 180"/>
+  <text class="t-b t-orange" x="430" y="196" text-anchor="middle">RPO</text>
+  <text class="t-xs" x="430" y="212" text-anchor="middle">data you can lose</text>
+
+  <path class="ln red dash faint" d="M680 128 L680 156"/>
+  <path class="ln red thick" d="M500 168 L680 168"/>
+  <path class="ln red" d="M680 156 L680 180"/>
+  <text class="t-b t-red" x="590" y="196" text-anchor="middle">RTO</text>
+  <text class="t-xs" x="590" y="212" text-anchor="middle">time you are down</text>
+
+  <text class="t-sm" x="380" y="252" text-anchor="middle">RPO is a log-shipping question. RTO is a restore-and-failover question.</text>
+</svg>

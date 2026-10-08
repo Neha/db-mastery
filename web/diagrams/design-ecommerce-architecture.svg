@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <rect class="box gray" x="20" y="16" width="140" height="48" rx="12"/>
+  <text class="t-b" x="90" y="46" text-anchor="middle">Web / mobile</text>
+  <path class="ln blue" d="M160 40 L200 40" marker-end="url(#arr-blue)"/>
+
+  <rect class="box" x="202" y="16" width="160" height="48" rx="12"/>
+  <text class="t-b" x="282" y="36" text-anchor="middle">API / Go</text>
+  <text class="t-xs" x="282" y="54" text-anchor="middle">gateway + services</text>
+  <path class="ln blue" d="M250 64 C 250 80, 130 80, 130 94" marker-end="url(#arr-blue)"/>
+  <path class="ln blue" d="M282 64 L282 94" marker-end="url(#arr-blue)"/>
+  <path class="ln blue" d="M314 64 C 314 80, 630 80, 630 94" marker-end="url(#arr-blue)"/>
+
+  <rect class="box green" x="20" y="96" width="220" height="88" rx="12"/>
+  <text class="t-b" x="130" y="124" text-anchor="middle">Catalogue</text>
+  <text class="t-sm" x="130" y="146" text-anchor="middle">MongoDB &#183; polymorphic</text>
+  <text class="t-xs" x="130" y="166" text-anchor="middle">product by id / slug</text>
+
+  <rect class="box blue" x="270" y="96" width="220" height="88" rx="12"/>
+  <text class="t-b" x="380" y="124" text-anchor="middle">Orders</text>
+  <text class="t-sm" x="380" y="146" text-anchor="middle">MongoDB &#183; embedded items</text>
+  <text class="t-xs" x="380" y="166" text-anchor="middle">checkout is strongly consistent</text>
+
+  <rect class="box purple" x="520" y="96" width="220" height="88" rx="12"/>
+  <text class="t-b" x="630" y="124" text-anchor="middle">Search</text>
+  <text class="t-sm" x="630" y="146" text-anchor="middle">Atlas Search</text>
+  <text class="t-xs" x="630" y="166" text-anchor="middle">text, facets, seconds-stale OK</text>
+
+  <path class="ln purple dash" d="M130 184 L130 220" marker-end="url(#arr-purple)"/>
+  <path class="ln purple dash" d="M380 184 L380 220" marker-end="url(#arr-purple)"/>
+
+  <rect class="box purple" x="20" y="224" width="360" height="48" rx="12"/>
+  <text class="t-b" x="200" y="254" text-anchor="middle">Kafka / change streams</text>
+  <path class="ln purple" d="M380 248 L430 248" marker-end="url(#arr-purple)"/>
+
+  <rect class="box teal" x="432" y="224" width="308" height="48" rx="12"/>
+  <text class="t-b" x="586" y="244" text-anchor="middle">Lakehouse</text>
+  <text class="t-xs" x="586" y="262" text-anchor="middle">Delta gold &#183; BI &#183; recommendations</text>
+
+  <text class="t-xs" x="380" y="304" text-anchor="middle">Hot reads stay on the operational stores; analytics does not share their write path.</text>
+  <text class="t-xs" x="380" y="324" text-anchor="middle">Inventory (atomic $inc per SKU) sits beside orders, not in the catalogue document.</text>
+</svg>

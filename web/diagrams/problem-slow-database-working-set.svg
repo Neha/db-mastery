@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320">
+  <!-- axes -->
+  <path class="ln" d="M80 30 L80 250 L730 250"/>
+  <text class="t-sm" x="72" y="40" text-anchor="end">p99</text>
+  <text class="t-sm" x="72" y="246" text-anchor="end">fast</text>
+  <text class="t-sm" x="730" y="272" text-anchor="end">working set size &#8594;</text>
+
+  <!-- zones -->
+  <rect class="fill-green" x="81" y="30" width="339" height="219" opacity="0.06"/>
+  <rect class="fill-orange" x="420" y="30" width="150" height="219" opacity="0.07"/>
+  <rect class="fill-red" x="570" y="30" width="160" height="219" opacity="0.07"/>
+
+  <!-- thresholds -->
+  <path class="ln dash" d="M420 30 L420 250"/>
+  <text class="t-xs t-b" x="420" y="268" text-anchor="middle">RAM (buffer cache)</text>
+  <path class="ln dash" d="M570 30 L570 250"/>
+  <text class="t-xs t-b" x="570" y="268" text-anchor="middle">IOPS / throughput cap</text>
+
+  <!-- curve -->
+  <path class="ln blue thick" d="M80 226 L380 222 C 420 220, 440 212, 470 196 C 510 176, 540 160, 570 136 C 600 112, 612 70, 626 36"/>
+
+  <!-- annotations -->
+  <text class="t-b t-green" x="100" y="64">Fits in memory</text>
+  <text class="t-sm" x="100" y="82">reads served from cache</text>
+  <text class="t-sm" x="100" y="98">nanoseconds to microseconds</text>
+
+  <text class="t-b t-orange" x="432" y="64">Spills to disk</text>
+  <text class="t-sm" x="432" y="82">misses become</text>
+  <text class="t-sm" x="432" y="98">random reads</text>
+
+  <text class="t-b t-red" x="640" y="64">Queueing</text>
+  <text class="t-sm" x="640" y="82">volume at</text>
+  <text class="t-sm" x="640" y="98">its limit</text>
+
+  <!-- footnote -->
+  <text class="t-sm" x="80" y="300">Hit ratio 99.9% &#8594; 95% means the miss rate goes 0.1% &#8594; 5%: <tspan class="t-b">50&#215; more disk reads</tspan> for the same traffic.</text>
+</svg>

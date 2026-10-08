@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390">
+  <!-- column labels -->
+  <text x="56" y="30" text-anchor="middle"><tspan class="t-label">Clients</tspan></text>
+  <text x="180" y="30" text-anchor="middle"><tspan class="t-label">Processes</tspan></text>
+  <text x="367" y="30" text-anchor="middle"><tspan class="t-label">Shared memory</tspan></text>
+  <text x="670" y="30" text-anchor="middle"><tspan class="t-label">Disk</tspan></text>
+
+  <!-- postmaster -->
+  <rect class="box blue" x="120" y="44" width="120" height="40" rx="11"/>
+  <text x="180" y="68" text-anchor="middle"><tspan class="t-mono t-b">postmaster</tspan></text>
+  <path class="ln dash" d="M180 84 L180 108" marker-end="url(#arr)"/>
+  <text x="188" y="100"><tspan class="t-xs">fork()</tspan></text>
+
+  <!-- clients -->
+  <rect class="box gray" x="20" y="113" width="72" height="28" rx="14"/>
+  <text x="56" y="131" text-anchor="middle"><tspan class="t-sm">app</tspan></text>
+  <rect class="box gray" x="20" y="159" width="72" height="28" rx="14"/>
+  <text x="56" y="177" text-anchor="middle"><tspan class="t-sm">app</tspan></text>
+  <rect class="box gray" x="20" y="205" width="72" height="28" rx="14"/>
+  <text x="56" y="223" text-anchor="middle"><tspan class="t-sm">psql</tspan></text>
+  <path class="ln" d="M92 127 L118 127" marker-end="url(#arr)"/>
+  <path class="ln" d="M92 173 L118 173" marker-end="url(#arr)"/>
+  <path class="ln" d="M92 219 L118 219" marker-end="url(#arr)"/>
+
+  <!-- backends -->
+  <rect class="box" x="120" y="110" width="120" height="34" rx="10"/>
+  <text x="180" y="131" text-anchor="middle">backend</text>
+  <rect class="box" x="120" y="156" width="120" height="34" rx="10"/>
+  <text x="180" y="177" text-anchor="middle">backend</text>
+  <rect class="box" x="120" y="202" width="120" height="34" rx="10"/>
+  <text x="180" y="223" text-anchor="middle">backend</text>
+  <text x="180" y="256" text-anchor="middle"><tspan class="t-xs">one OS process</tspan></text>
+  <text x="180" y="269" text-anchor="middle"><tspan class="t-xs">per connection</tspan></text>
+
+  <!-- backend -> shared memory -->
+  <path class="ln blue" d="M240 127 L276 127" marker-end="url(#arr-blue)"/>
+  <path class="ln blue" d="M240 173 C 258 173, 258 168, 276 168" marker-end="url(#arr-blue)"/>
+  <path class="ln blue" d="M240 219 C 258 219, 258 234, 276 234" marker-end="url(#arr-blue)"/>
+
+  <!-- shared memory panel -->
+  <rect class="box panel" x="262" y="44" width="210" height="236" rx="16"/>
+  <rect class="box blue" x="278" y="62" width="178" height="128" rx="12"/>
+  <text x="367" y="88" text-anchor="middle"><tspan class="t-mono t-b">shared_buffers</tspan></text>
+  <text x="367" y="104" text-anchor="middle"><tspan class="t-xs">8 KB page cache</tspan></text>
+  <g>
+    <rect class="box" x="290" y="118" width="14" height="14" rx="3"/>
+    <rect class="fill-blue" x="310" y="118" width="14" height="14" rx="3"/>
+    <rect class="box" x="330" y="118" width="14" height="14" rx="3"/>
+    <rect class="box" x="350" y="118" width="14" height="14" rx="3"/>
+    <rect class="fill-blue" x="370" y="118" width="14" height="14" rx="3"/>
+    <rect class="box" x="390" y="118" width="14" height="14" rx="3"/>
+    <rect class="box" x="410" y="118" width="14" height="14" rx="3"/>
+    <rect class="box" x="430" y="118" width="14" height="14" rx="3"/>
+    <rect class="box" x="290" y="138" width="14" height="14" rx="3"/>
+    <rect class="box" x="310" y="138" width="14" height="14" rx="3"/>
+    <rect class="box" x="330" y="138" width="14" height="14" rx="3"/>
+    <rect class="fill-blue" x="350" y="138" width="14" height="14" rx="3"/>
+    <rect class="box" x="370" y="138" width="14" height="14" rx="3"/>
+    <rect class="box" x="390" y="138" width="14" height="14" rx="3"/>
+    <rect class="fill-blue" x="410" y="138" width="14" height="14" rx="3"/>
+    <rect class="box" x="430" y="138" width="14" height="14" rx="3"/>
+  </g>
+  <text x="367" y="174" text-anchor="middle"><tspan class="t-xs">filled = dirty, not yet on disk</tspan></text>
+
+  <rect class="box" x="278" y="206" width="178" height="56" rx="12"/>
+  <text x="367" y="230" text-anchor="middle"><tspan class="t-mono t-b">wal_buffers</tspan></text>
+  <text x="367" y="246" text-anchor="middle"><tspan class="t-xs">WAL records, in LSN order</tspan></text>
+
+  <!-- memory -> disk -->
+  <path class="ln purple" d="M456 126 L598 126" marker-end="url(#arr-purple)"/>
+  <text x="527" y="116" text-anchor="middle"><tspan class="t-mono t-purple">checkpointer</tspan></text>
+  <text x="527" y="144" text-anchor="middle"><tspan class="t-mono t-purple">bgwriter</tspan></text>
+  <text x="527" y="160" text-anchor="middle"><tspan class="t-xs">write dirty pages</tspan></text>
+
+  <path class="ln purple" d="M456 234 L598 234" marker-end="url(#arr-purple)"/>
+  <text x="527" y="224" text-anchor="middle"><tspan class="t-mono t-purple">walwriter</tspan></text>
+  <text x="527" y="252" text-anchor="middle"><tspan class="t-xs">+ fsync on COMMIT</tspan></text>
+
+  <!-- disk -->
+  <rect class="box teal" x="600" y="62" width="140" height="128" rx="12"/>
+  <text x="670" y="120" text-anchor="middle"><tspan class="t-mono t-b">base/</tspan></text>
+  <text x="670" y="138" text-anchor="middle"><tspan class="t-xs">heap + index files</tspan></text>
+  <rect class="box teal" x="600" y="206" width="140" height="56" rx="12"/>
+  <text x="670" y="230" text-anchor="middle"><tspan class="t-mono t-b">pg_wal/</tspan></text>
+  <text x="670" y="246" text-anchor="middle"><tspan class="t-xs">16 MB segments</tspan></text>
+
+  <!-- WAL consumers -->
+  <path class="ln purple" d="M627 262 L627 326" marker-end="url(#arr-purple)"/>
+  <path class="ln purple" d="M711 262 L711 326" marker-end="url(#arr-purple)"/>
+  <rect class="box gray" x="588" y="328" width="78" height="44" rx="11"/>
+  <text x="627" y="346" text-anchor="middle"><tspan class="t-sm t-b">standby</tspan></text>
+  <text x="627" y="362" text-anchor="middle"><tspan class="t-mono t-purple">walsender</tspan></text>
+  <rect class="box gray" x="672" y="328" width="78" height="44" rx="11"/>
+  <text x="711" y="346" text-anchor="middle"><tspan class="t-sm t-b">archive</tspan></text>
+  <text x="711" y="362" text-anchor="middle"><tspan class="t-mono t-purple">archiver</tspan></text>
+
+  <!-- other background workers -->
+  <text x="20" y="322"><tspan class="t-label">Also in the background</tspan></text>
+  <rect class="box purple" x="20" y="336" width="150" height="28" rx="14"/>
+  <text x="95" y="354" text-anchor="middle"><tspan class="t-mono">autovacuum workers</tspan></text>
+  <rect class="box purple" x="182" y="336" width="170" height="28" rx="14"/>
+  <text x="267" y="354" text-anchor="middle"><tspan class="t-mono">logical rep. launcher</tspan></text>
+  <rect class="box purple" x="364" y="336" width="150" height="28" rx="14"/>
+  <text x="439" y="354" text-anchor="middle"><tspan class="t-mono">io workers (PG18)</tspan></text>
+</svg>

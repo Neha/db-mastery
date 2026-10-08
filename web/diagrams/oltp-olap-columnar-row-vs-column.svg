@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <!-- query -->
+  <rect class="box gray" x="190" y="6" width="380" height="30" rx="15"/>
+  <text class="t-mono" x="380" y="25" text-anchor="middle">SELECT country, avg(amount) &#8230; GROUP BY 1</text>
+
+  <!-- ========== Row store ========== -->
+  <rect class="box panel" x="4" y="50" width="368" height="286" rx="16"/>
+  <text class="t-label" x="188" y="72" text-anchor="middle">Row store (OLTP)</text>
+  <text class="t-xs" x="188" y="88" text-anchor="middle">each page holds whole rows</text>
+
+  <text class="t-xs" x="56" y="106" text-anchor="middle">id</text>
+  <text class="t-xs" x="122" y="106" text-anchor="middle">country</text>
+  <text class="t-xs" x="188" y="106" text-anchor="middle">month</text>
+  <text class="t-xs" x="254" y="106" text-anchor="middle">amount</text>
+  <text class="t-xs" x="320" y="106" text-anchor="middle">status</text>
+
+  <!-- row 1 -->
+  <rect class="box orange" x="25" y="114" width="62" height="28" rx="8"/>
+  <rect class="box green" x="91" y="114" width="62" height="28" rx="8"/>
+  <rect class="box orange" x="157" y="114" width="62" height="28" rx="8"/>
+  <rect class="box green" x="223" y="114" width="62" height="28" rx="8"/>
+  <rect class="box orange" x="289" y="114" width="62" height="28" rx="8"/>
+  <text class="t-mono" x="56" y="132" text-anchor="middle">1</text>
+  <text class="t-mono t-b" x="122" y="132" text-anchor="middle">GB</text>
+  <text class="t-mono" x="188" y="132" text-anchor="middle">Jan</text>
+  <text class="t-mono t-b" x="254" y="132" text-anchor="middle">129.00</text>
+  <text class="t-mono" x="320" y="132" text-anchor="middle">paid</text>
+  <!-- row 2 -->
+  <rect class="box orange" x="25" y="150" width="62" height="28" rx="8"/>
+  <rect class="box green" x="91" y="150" width="62" height="28" rx="8"/>
+  <rect class="box orange" x="157" y="150" width="62" height="28" rx="8"/>
+  <rect class="box green" x="223" y="150" width="62" height="28" rx="8"/>
+  <rect class="box orange" x="289" y="150" width="62" height="28" rx="8"/>
+  <text class="t-mono" x="56" y="168" text-anchor="middle">2</text>
+  <text class="t-mono t-b" x="122" y="168" text-anchor="middle">GB</text>
+  <text class="t-mono" x="188" y="168" text-anchor="middle">Jan</text>
+  <text class="t-mono t-b" x="254" y="168" text-anchor="middle">39.00</text>
+  <text class="t-mono" x="320" y="168" text-anchor="middle">paid</text>
+  <!-- row 3 -->
+  <rect class="box orange" x="25" y="186" width="62" height="28" rx="8"/>
+  <rect class="box green" x="91" y="186" width="62" height="28" rx="8"/>
+  <rect class="box orange" x="157" y="186" width="62" height="28" rx="8"/>
+  <rect class="box green" x="223" y="186" width="62" height="28" rx="8"/>
+  <rect class="box orange" x="289" y="186" width="62" height="28" rx="8"/>
+  <text class="t-mono" x="56" y="204" text-anchor="middle">3</text>
+  <text class="t-mono t-b" x="122" y="204" text-anchor="middle">US</text>
+  <text class="t-mono" x="188" y="204" text-anchor="middle">Feb</text>
+  <text class="t-mono t-b" x="254" y="204" text-anchor="middle">79.00</text>
+  <text class="t-mono" x="320" y="204" text-anchor="middle">refund</text>
+  <!-- row 4 -->
+  <rect class="box orange" x="25" y="222" width="62" height="28" rx="8"/>
+  <rect class="box green" x="91" y="222" width="62" height="28" rx="8"/>
+  <rect class="box orange" x="157" y="222" width="62" height="28" rx="8"/>
+  <rect class="box green" x="223" y="222" width="62" height="28" rx="8"/>
+  <rect class="box orange" x="289" y="222" width="62" height="28" rx="8"/>
+  <text class="t-mono" x="56" y="240" text-anchor="middle">4</text>
+  <text class="t-mono t-b" x="122" y="240" text-anchor="middle">FR</text>
+  <text class="t-mono" x="188" y="240" text-anchor="middle">Feb</text>
+  <text class="t-mono t-b" x="254" y="240" text-anchor="middle">54.00</text>
+  <text class="t-mono" x="320" y="240" text-anchor="middle">paid</text>
+
+  <text class="t-sm" x="188" y="280" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> reads all 5 columns to use 2</text>
+  <text class="t-sm" x="188" y="298" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> one page read fetches order 42</text>
+  <text class="t-xs" x="188" y="322" text-anchor="middle">Postgres &#183; MySQL &#183; Oracle &#183; MongoDB</text>
+
+  <!-- ========== Column store ========== -->
+  <rect class="box panel" x="388" y="50" width="368" height="286" rx="16"/>
+  <text class="t-label" x="572" y="72" text-anchor="middle">Column store (OLAP)</text>
+  <text class="t-xs" x="572" y="88" text-anchor="middle">each column stored contiguously</text>
+
+  <text class="t-xs" x="440" y="106" text-anchor="middle">id</text>
+  <text class="t-xs" x="506" y="106" text-anchor="middle">country</text>
+  <text class="t-xs" x="572" y="106" text-anchor="middle">month</text>
+  <text class="t-xs" x="638" y="106" text-anchor="middle">amount</text>
+  <text class="t-xs" x="704" y="106" text-anchor="middle">status</text>
+
+  <rect class="box ghost" x="409" y="114" width="62" height="136" rx="10"/>
+  <rect class="box green" x="475" y="114" width="62" height="136" rx="10"/>
+  <rect class="box ghost" x="541" y="114" width="62" height="136" rx="10"/>
+  <rect class="box green" x="607" y="114" width="62" height="136" rx="10"/>
+  <rect class="box ghost" x="673" y="114" width="62" height="136" rx="10"/>
+
+  <g>
+    <text class="t-mono t-muted" x="440" y="132" text-anchor="middle">1</text>
+    <text class="t-mono t-muted" x="440" y="168" text-anchor="middle">2</text>
+    <text class="t-mono t-muted" x="440" y="204" text-anchor="middle">3</text>
+    <text class="t-mono t-muted" x="440" y="240" text-anchor="middle">4</text>
+    <text class="t-mono t-muted" x="572" y="132" text-anchor="middle">Jan</text>
+    <text class="t-mono t-muted" x="572" y="168" text-anchor="middle">Jan</text>
+    <text class="t-mono t-muted" x="572" y="204" text-anchor="middle">Feb</text>
+    <text class="t-mono t-muted" x="572" y="240" text-anchor="middle">Feb</text>
+    <text class="t-mono t-muted" x="704" y="132" text-anchor="middle">paid</text>
+    <text class="t-mono t-muted" x="704" y="168" text-anchor="middle">paid</text>
+    <text class="t-mono t-muted" x="704" y="204" text-anchor="middle">refund</text>
+    <text class="t-mono t-muted" x="704" y="240" text-anchor="middle">paid</text>
+  </g>
+  <text class="t-mono t-b" x="506" y="132" text-anchor="middle">GB</text>
+  <text class="t-mono t-b" x="506" y="168" text-anchor="middle">GB</text>
+  <text class="t-mono t-b" x="506" y="204" text-anchor="middle">US</text>
+  <text class="t-mono t-b" x="506" y="240" text-anchor="middle">FR</text>
+  <text class="t-mono t-b" x="638" y="132" text-anchor="middle">129.00</text>
+  <text class="t-mono t-b" x="638" y="168" text-anchor="middle">39.00</text>
+  <text class="t-mono t-b" x="638" y="204" text-anchor="middle">79.00</text>
+  <text class="t-mono t-b" x="638" y="240" text-anchor="middle">54.00</text>
+
+  <text class="t-sm" x="572" y="280" text-anchor="middle"><tspan class="t-green t-b">&#10003;</tspan> reads only the 2 columns it needs</text>
+  <text class="t-sm" x="572" y="298" text-anchor="middle"><tspan class="t-orange t-b">!</tspan> one-row update touches 5 columns</text>
+  <text class="t-xs" x="572" y="322" text-anchor="middle">Parquet &#183; Redshift &#183; Snowflake &#183; BigQuery</text>
+</svg>

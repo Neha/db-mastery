@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340">
+  <rect class="box panel" x="16" y="16" width="352" height="308" rx="16"/>
+  <text class="t-label" x="192" y="42" text-anchor="middle">Hot key</text>
+
+  <circle class="fill-gray" cx="56" cy="88" r="8"/>
+  <circle class="fill-gray" cx="88" cy="88" r="8"/>
+  <circle class="fill-gray" cx="120" cy="88" r="8"/>
+  <circle class="fill-gray" cx="152" cy="88" r="8"/>
+  <circle class="fill-gray" cx="184" cy="88" r="8"/>
+  <text class="t-xs" x="192" y="118" text-anchor="middle">thousands of writers</text>
+
+  <path class="ln red" d="M80 128 C 140 168, 180 168, 192 188" marker-end="url(#arr-red)"/>
+  <path class="ln red" d="M120 128 C 160 160, 180 176, 192 188"/>
+  <path class="ln red" d="M160 128 C 176 156, 184 176, 192 188"/>
+  <path class="ln red" d="M192 128 L192 188"/>
+  <path class="ln red" d="M224 128 C 208 156, 200 176, 192 188"/>
+
+  <rect class="box red" x="112" y="196" width="160" height="56" rx="12"/>
+  <text class="t-b t-red" x="192" y="220" text-anchor="middle">SKU-42</text>
+  <text class="t-xs" x="192" y="240" text-anchor="middle">one row, one shard</text>
+
+  <text class="t-sm t-red t-b" x="192" y="284" text-anchor="middle">lock + I/O + CPU</text>
+  <text class="t-xs" x="192" y="304" text-anchor="middle">throughput capped by one key</text>
+
+  <rect class="box panel" x="392" y="16" width="352" height="308" rx="16"/>
+  <text class="t-label" x="568" y="42" text-anchor="middle">Write-sharded (salted)</text>
+
+  <circle class="fill-gray" cx="456" cy="88" r="8"/>
+  <circle class="fill-gray" cx="488" cy="88" r="8"/>
+  <circle class="fill-gray" cx="520" cy="88" r="8"/>
+  <circle class="fill-gray" cx="552" cy="88" r="8"/>
+  <circle class="fill-gray" cx="584" cy="88" r="8"/>
+  <text class="t-xs" x="568" y="118" text-anchor="middle">pick a random salt 0&#8211;9</text>
+
+  <path class="ln green" d="M468 128 L468 168" marker-end="url(#arr-green)"/>
+  <path class="ln green" d="M560 128 L560 168" marker-end="url(#arr-green)"/>
+  <path class="ln green" d="M652 128 L652 168" marker-end="url(#arr-green)"/>
+
+  <rect class="box green" x="428" y="172" width="80" height="40" rx="10"/>
+  <text class="t-mono" x="468" y="196" text-anchor="middle">#0</text>
+  <rect class="box green" x="520" y="172" width="80" height="40" rx="10"/>
+  <text class="t-mono" x="560" y="196" text-anchor="middle">#3</text>
+  <rect class="box green" x="612" y="172" width="80" height="40" rx="10"/>
+  <text class="t-mono" x="652" y="196" text-anchor="middle">#7</text>
+
+  <text class="t-xs" x="568" y="236" text-anchor="middle">SKU-42#0 &#183; #1 &#183; &#8230; &#183; #9</text>
+
+  <rect class="box" x="428" y="256" width="280" height="48" rx="12"/>
+  <text class="t-sm" x="568" y="276" text-anchor="middle">Read: SUM the shards</text>
+  <text class="t-xs" x="568" y="294" text-anchor="middle">writes scale; reads pay a gather</text>
+</svg>

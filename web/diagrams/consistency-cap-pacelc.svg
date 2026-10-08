@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360">
+  <text class="t-xl" x="380" y="32" text-anchor="middle">PACELC</text>
+  <text class="t-sm" x="380" y="52" text-anchor="middle">if Partition, choose A or C &#183; Else choose Latency or Consistency</text>
+
+  <!-- During partition -->
+  <rect class="box panel" x="4" y="68" width="752" height="136" rx="16"/>
+  <text class="t-label" x="24" y="94">During a partition</text>
+
+  <rect class="box gray" x="24" y="110" width="88" height="72" rx="12"/>
+  <text class="t-b" x="68" y="140" text-anchor="middle">Client</text>
+  <text class="t-xs" x="68" y="158" text-anchor="middle">two sides</text>
+
+  <path class="ln" d="M112 136 L148 136" marker-end="url(#arr)"/>
+
+  <rect class="box blue" x="152" y="110" width="120" height="72" rx="12"/>
+  <text class="t-b" x="212" y="140" text-anchor="middle">Majority</text>
+  <text class="t-xs" x="212" y="158" text-anchor="middle">still reachable</text>
+
+  <rect class="box ghost" x="288" y="110" width="120" height="72" rx="12"/>
+  <text class="t-b" x="348" y="140" text-anchor="middle">Minority</text>
+  <text class="t-xs" x="348" y="158" text-anchor="middle">cut off</text>
+
+  <rect class="box green" x="432" y="110" width="148" height="72" rx="12"/>
+  <text class="t-b t-green" x="506" y="132" text-anchor="middle">CP</text>
+  <text class="t-sm" x="506" y="150" text-anchor="middle">minority rejects</text>
+  <text class="t-xs" x="506" y="166" text-anchor="middle">no divergent writes</text>
+
+  <rect class="box orange" x="596" y="110" width="140" height="72" rx="12"/>
+  <text class="t-b t-orange" x="666" y="132" text-anchor="middle">AP</text>
+  <text class="t-sm" x="666" y="150" text-anchor="middle">both sides accept</text>
+  <text class="t-xs" x="666" y="166" text-anchor="middle">reconcile later</text>
+
+  <!-- Else -->
+  <rect class="box panel" x="4" y="216" width="752" height="136" rx="16"/>
+  <text class="t-label" x="24" y="242">Else &#8212; the network is fine</text>
+
+  <rect class="box gray" x="24" y="258" width="88" height="72" rx="12"/>
+  <text class="t-b" x="68" y="288" text-anchor="middle">Client</text>
+  <text class="t-xs" x="68" y="306" text-anchor="middle">write</text>
+
+  <path class="ln blue" d="M112 284 L148 284" marker-end="url(#arr-blue)"/>
+
+  <rect class="box blue" x="152" y="258" width="120" height="72" rx="12"/>
+  <text class="t-b" x="212" y="288" text-anchor="middle">Leader</text>
+  <text class="t-xs" x="212" y="306" text-anchor="middle">local fsync</text>
+
+  <path class="ln purple" d="M272 284 L308 284" marker-end="url(#arr-purple)"/>
+
+  <rect class="box purple" x="312" y="258" width="120" height="72" rx="12"/>
+  <text class="t-b" x="372" y="288" text-anchor="middle">Replica</text>
+  <text class="t-xs" x="372" y="306" text-anchor="middle">another AZ</text>
+
+  <rect class="box green" x="456" y="258" width="136" height="72" rx="12"/>
+  <text class="t-b t-green" x="524" y="280" text-anchor="middle">pay C</text>
+  <text class="t-sm" x="524" y="298" text-anchor="middle">wait for replica</text>
+  <text class="t-xs" x="524" y="314" text-anchor="middle">extra RTT</text>
+
+  <rect class="box orange" x="608" y="258" width="128" height="72" rx="12"/>
+  <text class="t-b t-orange" x="672" y="280" text-anchor="middle">pay L</text>
+  <text class="t-sm" x="672" y="298" text-anchor="middle">ack after leader</text>
+  <text class="t-xs" x="672" y="314" text-anchor="middle">lag possible</text>
+</svg>
