@@ -1,4 +1,4 @@
-module github.com/dbmastery/db-mastery
+module github.com/Neha/db-mastery
 
 go 1.25.0
 
